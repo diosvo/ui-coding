@@ -1,0 +1,225 @@
+@mixin full-margin($x, $y) {
+    margin: $x * .5rem $y *.5rem;
+}
+
+@mixin margin($n) {
+    margin: $n * .5rem;
+}
+
+@mixin margin-top($n) {
+    margin-top: $n * .5rem;
+}
+
+@mixin margin-bottom($n) {
+    margin-bottom: $n * .5rem;
+}
+
+@mixin margin-right($n) {
+    margin-right: $n * .5rem;
+}
+
+@mixin margin-left($n) {
+    margin-left: $n * .5rem;
+}
+
+@mixin margin-x($n) {
+    margin: 0 ($n * .5rem);
+}
+
+@mixin margin-y($n) {
+    margin: ($n * .5rem) 0;
+}
+
+.m-0-auto {
+    margin: 0 auto;
+}
+
+.m- {
+    &0 {
+        @include margin(0);
+    }
+
+    &1 {
+        @include full-margin(1, 1);
+    }
+
+    &2 {
+        @include full-margin(2, 2);
+    }
+
+    &3 {
+        @include full-margin(3, 3);
+    }
+
+    &4 {
+        @include full-margin(4, 4);
+    }
+
+    &5 {
+        @include full-margin(5, 5);
+    }
+
+    &6 {
+        @include full-margin(6, 6);
+    }
+}
+
+.mt- {
+    &1 {
+        @include margin-top(1);
+    }
+
+    &2 {
+        @include margin-top(2);
+    }
+
+    &3 {
+        @include margin-top(3);
+    }
+
+    &4 {
+        @include margin-top(4);
+    }
+
+    &5 {
+        @include margin-top(5);
+    }
+
+    &6 {
+        @include margin-top(6);
+    }
+}
+
+.mb- {
+    &1 {
+        @include margin-bottom(1);
+    }
+
+    &2 {
+        @include margin-bottom(2);
+    }
+
+    &3 {
+        @include margin-bottom(3);
+    }
+
+    &4 {
+        @include margin-bottom(4);
+    }
+
+    &5 {
+        @include margin-bottom(5);
+    }
+
+    &6 {
+        @include margin-bottom(6);
+    }
+}
+
+.mr- {
+    &1 {
+        @include margin-right(1);
+    }
+
+    &2 {
+        @include margin-right(2);
+    }
+
+    &3 {
+        @include margin-right(3);
+    }
+
+    &4 {
+        @include margin-right(4);
+    }
+
+    &5 {
+        @include margin-right(5);
+    }
+
+    &6 {
+        @include margin-right(6);
+    }
+}
+
+.ml- {
+    &1 {
+        @include margin-left(1);
+    }
+
+    &2 {
+        @include margin-left(2);
+    }
+
+    &3 {
+        @include margin-left(3);
+    }
+
+    &4 {
+        @include margin-left(4);
+    }
+
+    &5 {
+        @include margin-left(5);
+    }
+
+    &6 {
+        @include margin-left(6);
+    }
+}
+
+.mx- {
+    &1 {
+        @include margin-x(1);
+    }
+
+    &2 {
+        @include margin-x(2);
+    }
+
+    &3 {
+        @include margin-x(3);
+    }
+
+    &4 {
+        @include margin-x(4);
+    }
+
+    &5 {
+        @include margin-x(5);
+    }
+
+    &6 {
+        @include margin-x(6);
+    }
+}
+
+.my- {
+    &1\.5 {
+        @include margin-y(1.5);
+    }
+
+    &1 {
+        @include margin-y(1);
+    }
+
+    &2 {
+        @include margin-y(2);
+    }
+
+    &3 {
+        @include margin-y(3);
+    }
+
+    &4 {
+        @include margin-y(4);
+    }
+
+    &5 {
+        @include margin-y(5);
+    }
+
+    &6 {
+        @include margin-y(6);
+    }
+}

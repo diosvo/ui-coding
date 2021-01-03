@@ -1,0 +1,28 @@
+:root {
+    --text-white    : #FFFFFF;
+    --text-secondary: #737373;
+    --text-black    : #000000;
+
+    --hr    : #DADDE1;
+    --shadow: rgb(0, 0, 0, 0.2);
+}
+
+.text__ {
+    &white {
+        color: var(--text-white);
+    }
+
+    &secondary {
+        color: var(--text-secondary);
+    }
+
+    &black {
+        color: var(--text-black);
+    }
+}
+
+.bs- {
+    &main {
+        box-shadow: 0 1px 2px var(--shadow);
+    }
+}

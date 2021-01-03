@@ -1,0 +1,29 @@
+@mixin height($n) {
+    height: $n * 1px;
+}
+
+.full-screen-height {
+    height: 100vh;
+}
+
+.height- {
+    &200 {
+        @include height(200);
+    }
+
+    &210 {
+        @include height(210);
+    }
+
+    &300 {
+        @include height(300);
+    }
+
+    &500 {
+        @include height(500);
+    }
+
+    &980 {
+        @include height(980);
+    }
+}

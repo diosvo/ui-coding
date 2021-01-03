@@ -1,0 +1,236 @@
+@mixin full-padding($x, $y) {
+    padding: $x * .5rem $y *.5rem;
+}
+
+@mixin padding($n) {
+    padding: $n * .5rem;
+}
+
+@mixin padding-top($n) {
+    padding-top: $n * .5rem;
+}
+
+@mixin padding-bottom($n) {
+    padding-bottom: $n * .5rem;
+}
+
+@mixin padding-right($n) {
+    padding-right: $n * .5rem;
+}
+
+@mixin padding-left($n) {
+    padding-left: $n * .5rem;
+}
+
+@mixin padding-x($n) {
+    padding-right: $n * .5rem;
+    padding-left : $n * .5rem;
+}
+
+@mixin padding-y($n) {
+    padding-top   : $n * .5rem;
+    padding-bottom: $n * .5rem;
+}
+
+.p- {
+    &0 {
+        @include padding(0);
+    }
+
+    &1 {
+        @include full-padding(1, 1);
+    }
+
+    &1-1\.5 {
+        @include full-padding(1, 1.5);
+    }
+
+    &1-2 {
+        @include full-padding(1, 2);
+    }
+
+    &2 {
+        @include full-padding(2, 2);
+    }
+
+    &2-1\.5 {
+        @include full-padding(1, 1.5);
+    }
+
+    &3 {
+        @include full-padding(3, 3);
+    }
+
+    &4 {
+        @include full-padding(4, 4);
+    }
+
+    &5 {
+        @include full-padding(5, 5);
+    }
+
+    &6 {
+        @include full-padding(6, 6);
+    }
+
+}
+
+.pt- {
+    &1 {
+        @include padding-top(1);
+    }
+
+    &2 {
+        @include padding-top(2);
+    }
+
+    &3 {
+        @include padding-top(3);
+    }
+
+    &4 {
+        @include padding-top(4);
+    }
+
+    &5 {
+        @include padding-top(5);
+    }
+
+    &6 {
+        @include padding-top(6);
+    }
+}
+
+.pb- {
+    &1 {
+        @include padding-bottom(1);
+    }
+
+    &2 {
+        @include padding-bottom(2);
+    }
+
+    &3 {
+        @include padding-bottom(3);
+    }
+
+    &4 {
+        @include padding-bottom(4);
+    }
+
+    &5 {
+        @include padding-bottom(5);
+    }
+
+    &6 {
+        @include padding-bottom(6);
+    }
+}
+
+.pr- {
+    &1 {
+        @include padding-right(1);
+    }
+
+    &2 {
+        @include padding-right(2);
+    }
+
+    &3 {
+        @include padding-right(3);
+    }
+
+    &4 {
+        @include padding-right(4);
+    }
+
+    &5 {
+        @include padding-right(5);
+    }
+
+    &6 {
+        @include padding-right(6);
+    }
+}
+
+.pl- {
+    &1 {
+        @include padding-left(1);
+    }
+
+    &2 {
+        @include padding-left(2);
+    }
+
+    &3 {
+        @include padding-left(3);
+    }
+
+    &4 {
+        @include padding-left(4);
+    }
+
+    &5 {
+        @include padding-left(5);
+    }
+
+    &6 {
+        @include padding-left(6);
+    }
+}
+
+.px- {
+    &1 {
+        @include padding-x(1);
+    }
+
+    &2 {
+        @include padding-x(2);
+    }
+
+    &3 {
+        @include padding-x(3);
+    }
+
+    &4 {
+        @include padding-x(4);
+    }
+
+    &5 {
+        @include padding-x(5);
+    }
+
+    &6 {
+        @include padding-x(6);
+    }
+}
+
+.py- {
+    &\.75 {
+        @include padding-y(.75);
+    }
+
+    &1 {
+        @include padding-y(1);
+    }
+
+    &2 {
+        @include padding-y(2);
+    }
+
+    &3 {
+        @include padding-y(3);
+    }
+
+    &4 {
+        @include padding-y(4);
+    }
+
+    &5 {
+        @include padding-y(5);
+    }
+
+    &6 {
+        @include padding-y(6);
+    }
+}

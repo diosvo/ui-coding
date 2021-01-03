@@ -1,0 +1,75 @@
+@mixin width($n) {
+    width: $n * 1px;
+}
+
+@mixin min-width($n) {
+    min-width: $n * 1px;
+}
+
+@mixin max-width($n) {
+    max-width: $n * 1%;
+}
+
+@mixin percent-width($n) {
+    width: $n * 1%;
+}
+
+.width- {
+    &20 {
+        @include percent-width(20);
+    }
+
+    &48 {
+        @include percent-width(48);
+    }
+
+    &50 {
+        @include percent-width(50);
+    }
+
+    &80 {
+        @include percent-width(80);
+    }
+
+    &85 {
+        @include percent-width(85);
+    }
+
+    &100 {
+        @include percent-width(100);
+    }
+}
+
+.w- {
+    &200 {
+        @include width(200);
+    }
+
+    &210 {
+        @include width(210);
+    }
+
+    &300 {
+        @include width(300);
+    }
+
+    &500 {
+        @include width(500);
+    }
+
+    &980 {
+        @include width(980);
+    }
+}
+
+.min-width- {
+    &0 {
+        @include min-width(0);
+    }
+}
+
+.max-width- {
+    &100 {
+        @include max-width(100);
+    }
+}

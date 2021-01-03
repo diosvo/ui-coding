@@ -1,0 +1,21 @@
+@mixin line-height($n) {
+    line-height: $n * 1px;
+}
+
+.lh- {
+    &21.\44 {
+        @include line-height(21.44);
+    }
+
+    &28 {
+        @include line-height(28);
+    }
+
+    &32 {
+        @include line-height(32);
+    }
+
+    &48 {
+        @include line-height(48);
+    }
+}

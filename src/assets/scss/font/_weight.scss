@@ -1,0 +1,25 @@
+@mixin fw($n) {
+    font-weight: $n;
+}
+
+.fw- {
+    &500 {
+        @include fw(500);
+    }
+
+    &525 {
+        @include fw(525);
+    }
+
+    &550 {
+        @include fw(550);
+    }
+
+    &normal {
+        font-weight: normal;
+    }
+
+    &bold {
+        font-weight: bold;
+    }
+}
