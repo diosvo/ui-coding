@@ -1,13 +1,13 @@
-<div class="text-center my-3">
-    Angular Interaction. Click any icon below.
+<div class="d-flex ai-center m-2 text-center">
+    <app-go-back></app-go-back>
+    <p class="ml-3">Angular Interaction. Click any icon below.</p>
 </div>
 
 <div class="navbar m-0-auto">
     <ul class="nav position-relative d-flex p-0 bg-white bs-light">
         <ng-container *ngFor="let item of navList; index as i">
-            <li class="nav__item d-flex flex-direction-column ai-center flex-1 height-inherit" 
-            [ngClass]="{'active': i === selected}" 
-            (click)="onSelect(elem, i)" #elem>
+            <li class="nav__item d-flex flex-direction-column ai-center flex-1 height-inherit cursor-pointer"
+                [ngClass]="{'active': i === selected}" (click)="onSelect(elem, i)" #elem>
                 <svg class="icon">
                     <use attr.href="../../../assets/svg/icons.svg#{{item.icon}}"></use>
                 </svg>

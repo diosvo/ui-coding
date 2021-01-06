@@ -9,6 +9,7 @@
 
     // 3. Background
     --bg-white  : #FFFFFF;
+    --bg-black  : #000000;
     --body-color: #F0F2F5;
 
     // 4. Line
@@ -37,6 +38,10 @@
 .bg {
     &-white {
         background-color: var(--bg-white);
+    }
+
+    &-black {
+        background-color: var(--bg-black);
     }
 
     &-primary {
