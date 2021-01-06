@@ -1,10 +1,22 @@
 :root {
+    // 1. Text
     --text-white    : #FFFFFF;
     --text-secondary: #737373;
     --text-black    : #000000;
 
-    --hr    : #DADDE1;
-    --shadow: rgb(0, 0, 0, 0.2);
+    // 2. Color
+    --primary-color: #7B78F8;
+
+    // 3. Background
+    --body-color: #F0F2F5;
+
+    // 4. Line
+    --hr  : #DADDE1;
+    --line: #CCCCCC;
+
+    // 5. Box shadow
+    --dark-shadow : rgb(0, 0, 0, 0.2);
+    --light-shadow: #D4D4F7 0rem 0.25rem 0.5rem 0rem;
 }
 
 .text__ {
