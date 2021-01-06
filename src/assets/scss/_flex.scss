@@ -1,3 +1,8 @@
+@mixin flex($n) {
+    flex: $n;
+}
+
+
 @mixin flex-grow($n) {
     flex-grow: $n;
 }
@@ -6,96 +11,102 @@
     flex-shrink: $n;
 }
 
-.d- {
-    &block {
+.d {
+    &-block {
         display: block;
     }
 
-    &flex {
+    &-flex {
         display: flex;
     }
 }
 
-.jc- {
-    &center {
+.jc {
+    &-center {
         justify-content: center;
     }
 
-    &between {
+    &-between {
         justify-content: space-between;
     }
 
-    &space-around {
+    &-space-around {
         justify-content: space-around;
     }
 }
 
-.ai- {
-    &center {
+.ai {
+    &-center {
         align-items: center;
     }
 
-    &baseline {
+    &-baseline {
         align-items: baseline;
     }
 
-    &flex-end {
+    &-flex-end {
         align-items: flex-end;
     }
 }
 
-.as- {
-    &center {
+.as {
+    &-center {
         align-items: center;
     }
 
-    &baseline {
+    &-baseline {
         align-items: baseline;
     }
 }
 
-.flex-direction- {
-    &column {
+.flex-direction {
+    &-column {
         flex-direction: column;
     }
 
-    &row {
+    &-row {
         flex-direction: row;
     }
 }
 
-.flex-grow- {
-    &one-four {
+.flex-grow {
+    &-one-four {
         @include flex-grow(0.25)
     }
 
-    &0 {
+    &-0 {
         @include flex-grow(0)
     }
 
-    &1 {
+    &-1 {
         @include flex-grow(1)
     }
 
-    &2 {
+    &-2 {
         @include flex-grow(2)
     }
 }
 
-.flex-shrink- {
-    &one-four {
+.flex-shrink {
+    &-one-four {
         @include flex-shrink(0.25)
     }
 
-    &0 {
+    &-0 {
         @include flex-shrink(0)
     }
 
-    &1 {
+    &-1 {
         @include flex-shrink(1)
     }
 
-    &2 {
+    &-2 {
         @include flex-shrink(2)
+    }
+}
+
+.flex {
+    &-1 {
+        @include flex(1)
     }
 }

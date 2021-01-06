@@ -1,0 +1,19 @@
+@mixin top($n) {
+    top: $n;
+}
+
+.position {
+    &-relative {
+        position: relative;
+    }
+
+    &-absolute {
+        position: absolute;
+    }
+}
+
+.top {
+    &-0 {
+        @include top(0)
+    }
+}

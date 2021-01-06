@@ -14,62 +14,66 @@
     width: $n * 1%;
 }
 
-.width- {
-    &20 {
+.width {
+    &-inherit {
+        height: inherit;
+    }
+
+    &-20 {
         @include percent-width(20);
     }
 
-    &48 {
+    &-48 {
         @include percent-width(48);
     }
 
-    &50 {
+    &-50 {
         @include percent-width(50);
     }
 
-    &80 {
+    &-80 {
         @include percent-width(80);
     }
 
-    &85 {
+    &-85 {
         @include percent-width(85);
     }
 
-    &100 {
+    &-100 {
         @include percent-width(100);
     }
 }
 
-.w- {
-    &200 {
+.w {
+    &-200 {
         @include width(200);
     }
 
-    &210 {
+    &-210 {
         @include width(210);
     }
 
-    &300 {
+    &-300 {
         @include width(300);
     }
 
-    &500 {
+    &-500 {
         @include width(500);
     }
 
-    &980 {
+    &-980 {
         @include width(980);
     }
 }
 
-.min-width- {
-    &0 {
+.min-width {
+    &-0 {
         @include min-width(0);
     }
 }
 
-.max-width- {
-    &100 {
+.max-width {
+    &-100 {
         @include max-width(100);
     }
 }

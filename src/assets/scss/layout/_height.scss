@@ -6,24 +6,28 @@
     height: 100vh;
 }
 
-.height- {
-    &200 {
+.height {
+    &-inherit {
+        height: inherit;
+    }
+
+    &-200 {
         @include height(200);
     }
 
-    &210 {
+    &-210 {
         @include height(210);
     }
 
-    &300 {
+    &-300 {
         @include height(300);
     }
 
-    &500 {
+    &-500 {
         @include height(500);
     }
 
-    &980 {
+    &-980 {
         @include height(980);
     }
 }
