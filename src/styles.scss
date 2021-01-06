@@ -8,3 +8,17 @@ body {
     font-family     : sans-serif;
     background-color: var(--body-color);
 }
+
+p {
+    margin: 0;
+}
+
+ul {
+    li {
+        list-style-type: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
