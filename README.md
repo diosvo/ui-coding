@@ -11,7 +11,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - This is an autocomplete search box that you can type anything and it will return results that match with words in the list.
 - Enter with your expected result. The website will auto redirect to this result.
-- It's supported by lib 'angular-ng-autocomplete'
+
+![Autocomplete Image](https://raw.githubusercontent.com/diosvo/Angular-UI/master/src/assets/images/github/auto-complete.png)
+
+- Show history results
+
+![History Autocomplete Image](https://raw.githubusercontent.com/diosvo/Angular-UI/master/src/assets/images/github/auto-complete-2.png)
+
+-- It's supported by lib 'angular-ng-autocomplete'
 
 ## Purpose
 
