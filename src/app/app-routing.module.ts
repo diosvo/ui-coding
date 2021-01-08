@@ -4,7 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '', pathMatch: 'full',
+    path: '', redirectTo: 'home', pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/auto-complete/auto-complete.module').then(m => m.AutoCompleteModule),
   },
   {
     path: 'components',
