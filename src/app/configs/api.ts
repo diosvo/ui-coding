@@ -11,4 +11,23 @@ export abstract class Configs {
             routerLink: '/components/liquid-menu'
         },
     ]
+
+    public static navList = [
+        {
+          title: 'Home',
+          icon: 'icon-home',
+        },
+        {
+          title: 'Search',
+          icon: 'icon-magnifying-glass',
+        },
+        {
+          title: 'Like',
+          icon: 'icon-heart-outlined',
+        },
+        {
+          title: 'Profile',
+          icon: 'icon-user',
+        },
+      ];
 }

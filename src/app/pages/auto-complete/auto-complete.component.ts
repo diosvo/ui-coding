@@ -5,8 +5,7 @@ import { Configs } from 'src/app/configs/api';
 
 @Component({
   selector: 'app-auto-complete',
-  templateUrl: './auto-complete.component.html',
-  styleUrls: ['./auto-complete.component.scss']
+  templateUrl: './auto-complete.component.html'
 })
 export class AutoCompleteComponent implements OnInit {
 

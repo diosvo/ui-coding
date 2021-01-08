@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Configs } from 'src/app/configs/api';
 
 @Component({
   selector: 'app-navbar',
@@ -13,24 +14,7 @@ export class NavbarComponent implements OnInit {
     translateX: 0
   }
 
-  public navList = [
-    {
-      title: 'Home',
-      icon: 'icon-home',
-    },
-    {
-      title: 'Search',
-      icon: 'icon-magnifying-glass',
-    },
-    {
-      title: 'Like',
-      icon: 'icon-heart-outlined',
-    },
-    {
-      title: 'Profile',
-      icon: 'icon-user',
-    },
-  ];
+  public navList = Configs.navList
 
   constructor() { }
 
