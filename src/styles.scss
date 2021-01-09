@@ -1,11 +1,12 @@
 @import './assets/scss/main.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
     padding   : 0;
     margin    : 0;
     box-sizing: border-box;
 
-    font-family     : sans-serif;
+    font-family     : 'Roboto', sans-serif;
     background-color: var(--body-color);
 }
 

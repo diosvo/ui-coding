@@ -45,6 +45,18 @@
 }
 
 .w {
+    &-24 {
+        @include width(24);
+    }
+
+    &-32 {
+        @include width(32);
+    }
+
+    &-48 {
+        @include width(48);
+    }
+
     &-50 {
         @include width(50);
     }
