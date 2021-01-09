@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
+import { SharedModule } from 'src/app/shared/shared.module';
 import { LiquidMenuRoutingModule } from './liquid-menu-routing.module';
+
 import { LiquidMenuComponent } from './liquid-menu.component';
 
 
 @NgModule({
   declarations: [LiquidMenuComponent],
   imports: [
-    CommonModule,
+    SharedModule,
     LiquidMenuRoutingModule
   ]
 })

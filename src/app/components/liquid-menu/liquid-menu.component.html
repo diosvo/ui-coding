@@ -1,1 +1,28 @@
-<p>liquid-menu works!</p>
+<div class="d-flex ai-center m-2 text-center">
+    <app-go-back></app-go-back>
+    <p class="ml-3">Liquid Menu Interaction using SVG Filters & GSAP.</p>
+</div>
+
+<div class="d-flex flex-direction-column ai-center jc-center">
+    <div class="list position-relative d-flex flex-direction-column ai-center w-50">
+        <button class="text-white w-48 h-48 bd-circle bg-black z-index-100" (click)="onClick(menu)">
+            <span class="f-24 d-inline-block">+</span>
+        </button>
+
+        <div class="menu d-flex ai-center jc-center z-index-10 mt-8" #menu>
+            <span class="position-absolute w-32 h-32 bd-circle" style="background-color: #FFCF7D;"></span>
+            <span class="position-absolute w-32 h-32 bd-circle" style="background-color: #FFA67F;"></span>
+            <span class="position-absolute w-32 h-32 bd-circle" style="background-color: #C09CFE;"></span>
+            <span class="position-absolute w-32 h-32 bd-circle" style="background-color: #04D9FF;"></span>
+            <span class="position-absolute w-32 h-32 bd-circle" style="background-color: #E8F19B;"></span>
+        </div>
+    </div>
+
+    <svg>
+        <filter id="liquid">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" />
+            <feBlend in="SourceGraphic" in2="liquid" />
+        </filter>
+    </svg>
+</div>
