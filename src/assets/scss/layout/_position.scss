@@ -2,6 +2,10 @@
     top: $n;
 }
 
+@mixin z-index($n) {
+    z-index: $n;
+}
+
 .position {
     &-relative {
         position: relative;
@@ -15,5 +19,15 @@
 .top {
     &-0 {
         @include top(0)
+    }
+}
+
+.z-index {
+    &-10 {
+        @include z-index(10);
+    }
+
+    &-100 {
+        @include z-index(100);
     }
 }

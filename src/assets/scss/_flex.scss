@@ -2,7 +2,6 @@
     flex: $n;
 }
 
-
 @mixin flex-grow($n) {
     flex-grow: $n;
 }
@@ -14,6 +13,10 @@
 .d {
     &-block {
         display: block;
+    }
+
+    &-inline-block {
+        display: inline-block;
     }
 
     &-flex {

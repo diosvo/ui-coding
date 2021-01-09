@@ -6,9 +6,21 @@
     height: 100vh;
 }
 
-.height {
+.h {
     &-inherit {
         height: inherit;
+    }
+    
+    &-24 {
+        @include height(24);
+    }
+
+    &-32 {
+        @include height(32);
+    }
+
+    &-48 {
+        @include height(48);
     }
 
     &-200 {
