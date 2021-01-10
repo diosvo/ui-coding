@@ -18,7 +18,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![History Autocomplete Image](https://raw.githubusercontent.com/diosvo/Angular-UI/master/src/assets/images/github/auto-complete-2.png)
 
--- It's supported by lib 'angular-ng-autocomplete'
+-- It's supported by lib 'angular-ng-autocomplete' and [here is a Demo Link for Autocomplete Search Box](https://www.loom.com/share/af09b721a85c438099bbdc3a8da80f44)
 
 ## Purpose
 
