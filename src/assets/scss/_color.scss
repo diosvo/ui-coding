@@ -3,9 +3,10 @@
     --text-white    : #FFFFFF;
     --text-secondary: #737373;
     --text-black    : #000000;
+    --text-light    : #ECECEC;
 
     // 2. Color
-    --primary-color  : #7B78F8;
+    --primary-color: #7B78F8;
 
     // 3. Background
     --bg-white  : #FFFFFF;
@@ -24,6 +25,10 @@
 .text {
     &-white {
         color: var(--text-white);
+    }
+
+    &-light {
+        color: var(--text-light);
     }
 
     &-secondary {

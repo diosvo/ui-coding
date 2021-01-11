@@ -77,6 +77,10 @@
         @include width(500);
     }
 
+    &-650 {
+        @include width(650);
+    }
+
     &-980 {
         @include width(980);
     }

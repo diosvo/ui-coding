@@ -101,28 +101,32 @@
     }
 }
 
-.pb- {
-    &1 {
+.pb {
+    &-\.5 {
+        @include padding-bottom(0.5);
+    }
+
+    &-1 {
         @include padding-bottom(1);
     }
 
-    &2 {
+    &-2 {
         @include padding-bottom(2);
     }
 
-    &3 {
+    &-3 {
         @include padding-bottom(3);
     }
 
-    &4 {
+    &-4 {
         @include padding-bottom(4);
     }
 
-    &5 {
+    &-5 {
         @include padding-bottom(5);
     }
 
-    &6 {
+    &-6 {
         @include padding-bottom(6);
     }
 }

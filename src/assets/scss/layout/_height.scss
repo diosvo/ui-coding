@@ -10,7 +10,7 @@
     &-inherit {
         height: inherit;
     }
-    
+
     &-24 {
         @include height(24);
     }
@@ -33,6 +33,10 @@
 
     &-300 {
         @include height(300);
+    }
+
+    &-400 {
+        @include height(400);
     }
 
     &-500 {
