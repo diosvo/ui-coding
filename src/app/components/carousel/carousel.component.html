@@ -3,14 +3,14 @@
     <p class="ml-3">Dynamic Stacked Carousel Gallery using GSAP.</p>
 </div>
 
-<div class="carousel-container" #carouselContainer>
-    <div class="carousel" #carousel>
-        <figure class="carousel__item item--{{i + 1}}" *ngFor="let item of carouselList; let i = index">
-            <img src="{{item.url}}" alt="Image {{i + 1}}" width=100%>
-            <figcaption class="title">{{item.title}}</figcaption>
+<div class="h-500" #carouselContainer>
+    <div class="carousel position-relative width-inherit height-inherit z-index-1" #carousel>
+        <figure class="carousel__item item--{{i + 1}} w-650 h-400 position-absolute bs-light bd-radius-32 overflow-hidden" *ngFor="let item of carouselList; let i = index">
+            <img class="d-block" src="{{item.url}}" alt="Image {{i + 1}}" width=100% height=100%>
+            <figcaption class="title position-absolute z-index-20 text-light text-transform-uppercase fw-bold pb-.5">{{item.title}}</figcaption>
         </figure>
     </div>
-    <button class="prev" [disabled]="prevSlideFinished" [ngStyle]="prevSlideFinished && {cursor: 'not-allowed'}"
+    <button class="prev" [disabled]="prevSlideFinished || isAnimating" [ngStyle]="prevSlideFinished && {cursor: 'not-allowed'}"
         (click)="onPrev()">
         <svg class="icon">
             <use href="../../../assets/svg/icons.svg#icon-chevron-with-circle-left"></use>

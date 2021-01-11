@@ -1,69 +1,51 @@
 %buttonStyles {
-    position : absolute;
-    top      : 35%;
-    transform: translate(-50%, -50%);
-    z-index  : 50;
-}
+    position: absolute;
+    top     : 35%;
+    z-index : 50;
 
-.carousel-container {
-    height: 500px;
+    transform: translate(-50%, -50%);
 }
 
 .carousel {
-    position: relative;
-    width   : inherit;
-    height  : inherit;
-    z-index : 1;
+    margin-left: -5rem;
 
     &__item {
-        position     : absolute;
-        box-shadow   : var(--dark-shadow);
-        border-radius: 2rem;
-        overflow     : hidden;
-        width        : 650px;
-        height       : 400px;
-        transition   : transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 
         .title {
-            position      : absolute;
-            z-index       : 20;
-            text-transform: uppercase;
-            top           : 85%;
-            right         : 5%;
-            font-weight   : 600;
-            text-shadow   : 0 10px 20px rgba(0, 0, 0, 0.1);
-            padding-bottom: 3px;
+            top  : 85%;
+            right: 5%;
+
             letter-spacing: 1.2;
-            border-bottom : 1px solid #ececec;
-            color         : #ececec;
+            border-bottom : 1px solid var(--text-light);
+            text-shadow   : 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         img {
-            height    : 100%;
             object-fit: cover;
-            display   : block;
         }
     }
 }
 
 .icon {
-    position  : absolute;
-    width     : 50px;
-    height    : 50px;
+    position: absolute;
+    width   : 50px;
+    height  : 50px;
+
     fill      : #131313;
     transition: all 0.3s ease;
 }
 
 button.prev {
     @extend %buttonStyles;
-    left: 2.5%;
+    left: 5%;
 }
 
 button.next {
     @extend %buttonStyles;
-    right: 5%;
+    right: 7.5%;
 }
 
 button:hover .icon {
-    fill: var(--text-secondary);
+    opacity: .8;
 }
