@@ -1,1 +1,25 @@
-<p>carousel works!</p>
+<div class="d-flex ai-center m-2 text-center">
+    <app-go-back></app-go-back>
+    <p class="ml-3">Dynamic Stacked Carousel Gallery using GSAP.</p>
+</div>
+
+<div class="carousel-container" #carouselContainer>
+    <div class="carousel" #carousel>
+        <figure class="carousel__item item--{{i + 1}}" *ngFor="let item of carouselList; let i = index">
+            <img src="{{item.url}}" alt="Image {{i + 1}}" width=100%>
+            <figcaption class="title">{{item.title}}</figcaption>
+        </figure>
+    </div>
+    <button class="prev" [disabled]="prevSlideFinished" [ngStyle]="prevSlideFinished && {cursor: 'not-allowed'}"
+        (click)="onPrev()">
+        <svg class="icon">
+            <use href="../../../assets/svg/icons.svg#icon-chevron-with-circle-left"></use>
+        </svg>
+    </button>
+    <button class="next" [disabled]="middleIndex <= 1" [ngStyle]="middleIndex <= 1 && {cursor: 'not-allowed'}"
+        (click)="onNext()">
+        <svg class="icon">
+            <use href="../../../assets/svg/icons.svg#icon-chevron-with-circle-right"></use>
+        </svg>
+    </button>
+</div>
