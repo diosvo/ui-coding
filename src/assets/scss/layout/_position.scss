@@ -23,8 +23,16 @@
 }
 
 .z-index {
+    &-1 {
+        @include z-index(1);
+    }
+
     &-10 {
         @include z-index(10);
+    }
+
+    &-20 {
+        @include z-index(20);
     }
 
     &-100 {

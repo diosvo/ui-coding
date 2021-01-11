@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'liquid-menu',
     loadChildren: () => import('./liquid-menu/liquid-menu.module').then(m => m.LiquidMenuModule),
   },
+  {
+    path: 'dynamic-carousel',
+    loadChildren: () => import('./carousel/carousel.module').then(m => m.CarouselModule),
+  },
 ]
 
 @NgModule({
