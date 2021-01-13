@@ -17,6 +17,11 @@ export abstract class Configs {
       name: 'Dynamic Stacked Carousel Gallery',
       routerLink: '/components/dynamic-carousel'
     },
+    {
+      id: 4,
+      name: 'Animated Counter Card',
+      routerLink: '/components/animated-counter-card'
+    },
   ]
 
   public static navList = [

@@ -22,6 +22,7 @@
     "@types/gsap": "^1.20.2",
     "angular-ng-autocomplete": "^2.0.4",
     "gsap": "^3.5.1",
+    "ng-cli-pug-loader": "^0.2.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
