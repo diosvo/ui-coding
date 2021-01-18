@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'dynamic-carousel',
     loadChildren: () => import('./carousel/carousel.module').then(m => m.CarouselModule),
   },
+  {
+    path: 'animated-counter-card',
+    loadChildren: () => import('./card/card.module').then(m => m.CardModule),
+  },
 ]
 
 @NgModule({

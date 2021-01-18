@@ -1,3 +1,4 @@
+import { AnimatedCounterModel } from '../models/animated-counter-card';
 import { CarouselModel } from '../models/dynamic-carousel';
 
 export abstract class Configs {
@@ -16,6 +17,11 @@ export abstract class Configs {
       id: 3,
       name: 'Dynamic Stacked Carousel Gallery',
       routerLink: '/components/dynamic-carousel'
+    },
+    {
+      id: 4,
+      name: 'Animated Counter Card',
+      routerLink: '/components/animated-counter-card'
     },
   ]
 
@@ -66,6 +72,37 @@ export abstract class Configs {
     {
       title: 'White Chocolate - Jason William #55',
       url: '../assets/images/carousel/william.jpg',
+    },
+  ];
+
+  public static animatedCardList: AnimatedCounterModel[] = [
+    {
+      title: 'Total Orders',
+      color: 'lightpurple',
+      amount: 69,
+      percent: 99,
+      icon: 'icon-shop',
+    },
+    {
+      title: 'Total Views',
+      color: 'lightgrey',
+      amount: 12.12,
+      percent: 69.96,
+      icon: 'icon-shopping-cart',
+    },
+    {
+      title: 'Conversation Rate',
+      color: 'lightgreen',
+      amount: 269,
+      percent: 12.7,
+      icon: 'icon-bar-graph',
+    },
+    {
+      title: 'Avg Orders',
+      color: 'lightorange',
+      amount: 321,
+      percent: 12.9,
+      icon: 'icon-calendar',
     },
   ];
 }

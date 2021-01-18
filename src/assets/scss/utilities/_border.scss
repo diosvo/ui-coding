@@ -36,6 +36,10 @@
             @include border-radius(12);
         }
 
+        &-25 {
+            @include border-radius(25);
+        }
+
         &-32 {
             @include border-radius(32);
         }

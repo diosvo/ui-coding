@@ -1,25 +1,40 @@
 :root {
-    // 1. Text
+    /*  1. Text & Title */
     --text-white    : #FFFFFF;
     --text-secondary: #737373;
     --text-black    : #000000;
     --text-light    : #ECECEC;
 
-    // 2. Color
-    --primary-color: #7B78F8;
+    --title-dark: #616161;
 
-    // 3. Background
+    /* 2. Color */
+
+    // A. Basic
+    --primary-color: #7B78F8;
+    --success-color: #4ABB4A;
+
+    // B. Pastel Color
+    --lightpurple: #9AB3F5;
+    --lightgrey  : #F1F3F8;
+    --lightgreen : #E8FFFF;
+    --lightorange: #FFE8D6;
+
+    // C. Icon
+    --icon-fill-dark: rgb(61, 61, 61);
+
+    /*  3. Background */
     --bg-white  : #FFFFFF;
     --bg-black  : #000000;
     --body-color: #F0F2F5;
 
-    // 4. Line
+    /* 4. Line */
     --hr  : #DADDE1;
     --line: #CCCCCC;
 
-    // 5. Box shadow
-    --dark-shadow : rgb(0, 0, 0, 0.2);
-    --light-shadow: #D4D4F7 0rem 0.25rem 0.5rem 0rem;
+    /*  5. Box shadow */
+    --dark-shadow       : rgb(0, 0, 0, 0.2);
+    --light-shadow      : #D4D4F7 0rem 0.25rem 0.5rem 0;
+    --hover-light-shadow: 0 0.625rem 1rem rgba(125 125 125 / 20%);
 }
 
 .text {
@@ -40,6 +55,22 @@
     }
 }
 
+.title {
+    &-dark {
+        color: var(--title-dark);
+    }
+}
+
+.icon {
+    &-dark {
+        color: var(--icon-fill-dark);
+    }
+
+    &-green {
+        color: var(--success-color);
+    }
+}
+
 .bg {
     &-white {
         background-color: var(--bg-white);
@@ -57,5 +88,9 @@
 .bs {
     &-light {
         box-shadow: 0 1px 2px var(--light-shadow);
+    }
+
+    &-dark {
+        box-shadow: var(--dark-shadow);
     }
 }

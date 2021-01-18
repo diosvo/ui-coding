@@ -10,6 +10,10 @@
     flex-shrink: $n;
 }
 
+@mixin gap($n) {
+    gap: $n * 1rem;
+}
+
 .d {
     &-block {
         display: block;
@@ -111,6 +115,26 @@
 .flex {
     &-1 {
         @include flex(1)
+    }
+}
+
+.flex {
+    &-wrap {
+        flex-wrap: wrap;
+    }
+}
+
+.gap {
+    &-1 {
+        @include gap(1)
+    }
+
+    &-2 {
+        @include gap(2)
+    }
+
+    &-3 {
+        @include gap(3)
     }
 }
 
