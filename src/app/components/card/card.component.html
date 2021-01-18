@@ -19,12 +19,12 @@
                     <h4 class="title-dark text-transform-capitalize fw-400">{{item.title}}</h4>
                 </div>
                 <div class="card-total d-flex">
-                    <span class="total fs-32 mr-.25" [appAnimatedCounter]="item.amount" [delay]="1000"></span>
+                    <span class="total f-32" [appAnimatedCounter]="item.amount" [delay]="1000"></span>
                     <div class="percent-wrapper">
                         <svg class="icon-arrow-up w-10 h-10">
                             <use href="../../../assets/svg/icons.svg#icon-arrow-thin-up"></use>
                         </svg>
-                        <span class="percent icon-green fs-13 ml-1" [appAnimatedCounter]="item.percent"
+                        <span class="percent icon-green f-13 ml-1" [appAnimatedCounter]="item.percent"
                             [delay]="1200">%</span>
                     </div>
                 </div>

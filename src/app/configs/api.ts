@@ -79,15 +79,15 @@ export abstract class Configs {
     {
       title: 'Total Orders',
       color: 'lightpurple',
-      amount: 999.6,
+      amount: 69,
       percent: 99,
       icon: 'icon-shop',
     },
     {
       title: 'Total Views',
       color: 'lightgrey',
-      amount: 1212,
-      percent: 69,
+      amount: 12.12,
+      percent: 69.96,
       icon: 'icon-shopping-cart',
     },
     {
