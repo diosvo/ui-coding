@@ -11,12 +11,20 @@
         height: inherit;
     }
 
+    &-10 {
+        @include height(10);
+    }
+
     &-24 {
         @include height(24);
     }
 
     &-32 {
         @include height(32);
+    }
+
+    &-40 {
+        @include height(40);
     }
 
     &-48 {
