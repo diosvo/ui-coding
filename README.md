@@ -24,4 +24,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - Learning and improving my skill about UX/UI and Angular
 - Updating my Atomic CSS
-- Smoothy animation
+- Smoothy animation with SVG, GSAP,...
