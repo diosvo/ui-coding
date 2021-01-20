@@ -6,7 +6,7 @@ $colors: ('lightpurple': #9AB3F5,
 .card {
     width : 17rem;
     height: 17rem;
-    
+
     box-shadow: var(--light-shadow);
     transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -25,6 +25,11 @@ $colors: ('lightpurple': #9AB3F5,
         .icon-container {
             width : 6rem;
             height: 6rem;
+
+            .icon {
+                width : 40px;
+                height: 40px;
+            }
         }
     }
 
@@ -37,5 +42,7 @@ $colors: ('lightpurple': #9AB3F5,
 }
 
 svg.icon-arrow-up {
-    fill: currentColor;
+    width : 10px;
+    height: 10px;
+    fill  : currentColor;
 }

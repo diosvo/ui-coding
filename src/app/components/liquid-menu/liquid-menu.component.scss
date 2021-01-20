@@ -1,11 +1,19 @@
 .list {
+    width : 50px;
     filter: url(#liquid);
 
     button {
+        width : 48px;
+        height: 48px;
         filter: url(#liquid);
     }
 
     .menu {
         transform: translateY(-5rem);
+
+        span {
+            width : 32px;
+            height: 32px;
+        }
     }
 }

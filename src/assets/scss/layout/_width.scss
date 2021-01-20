@@ -1,107 +1,31 @@
 @mixin width($n) {
-    width: $n * 1px;
+    width: 1px * $n;
 }
 
-@mixin min-width($n) {
-    min-width: $n * 1px;
+.full-screen-width {
+    width: 100vw;
 }
 
-@mixin max-width($n) {
-    max-width: $n * 1%;
+.max-width {
+    max-width: 100%;
 }
 
-@mixin percent-width($n) {
-    width: $n * 1%;
+.max-width {
+    min-width: 0;
 }
 
 .width {
     &-inherit {
-        height: inherit;
-    }
-
-    &-20 {
-        @include percent-width(20);
-    }
-
-    &-48 {
-        @include percent-width(48);
-    }
-
-    &-50 {
-        @include percent-width(50);
-    }
-
-    &-80 {
-        @include percent-width(80);
-    }
-
-    &-85 {
-        @include percent-width(85);
+        width: inherit;
     }
 
     &-100 {
-        @include percent-width(100);
+        width: 100%;
     }
 }
 
 .w {
-    &-10 {
-        @include width(10);
-    }
-
-    &-24 {
-        @include width(24);
-    }
-
-    &-32 {
-        @include width(32);
-    }
-
-    &-40 {
-        @include width(40);
-    }
-
-    &-48 {
-        @include width(48);
-    }
-
     &-50 {
         @include width(50);
-    }
-
-    &-200 {
-        @include width(200);
-    }
-
-    &-210 {
-        @include width(210);
-    }
-
-    &-300 {
-        @include width(300);
-    }
-
-    &-500 {
-        @include width(500);
-    }
-
-    &-650 {
-        @include width(650);
-    }
-
-    &-980 {
-        @include width(980);
-    }
-}
-
-.min-width {
-    &-0 {
-        @include min-width(0);
-    }
-}
-
-.max-width {
-    &-100 {
-        @include max-width(100);
     }
 }

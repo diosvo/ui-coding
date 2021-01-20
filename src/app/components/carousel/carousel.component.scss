@@ -10,6 +10,9 @@
     margin-left: -5rem;
 
     &__item {
+        width: 650px;
+        height: 400px;
+        
         transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 
         .title {
