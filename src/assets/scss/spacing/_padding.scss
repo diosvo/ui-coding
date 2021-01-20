@@ -23,20 +23,12 @@ $maximum_size : 10;
     }
 
     .px-#{$i} {
-        padding: 0 (0.5rem * $i);
+        padding-right: 0.5rem * $i;
+        padding-left : 0.5rem * $i;
     }
 
     .py-#{$i} {
-        padding: (0.5rem * $i) 0;
-    }
-}
-
-@mixin full-padding($x, $y) {
-    padding: $x * .5rem $y *.5rem;
-}
-
-.p {
-    &-1-2 {
-        @include full-padding(1, 2);
+        padding-top   : 0.5rem * $i;
+        padding-bottom: 0.5rem * $i;
     }
 }

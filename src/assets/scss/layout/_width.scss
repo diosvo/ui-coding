@@ -1,7 +1,3 @@
-@mixin width($n) {
-    width: 1px * $n;
-}
-
 .full-screen-width {
     width: 100vw;
 }
@@ -10,7 +6,7 @@
     max-width: 100%;
 }
 
-.max-width {
+.min-width {
     min-width: 0;
 }
 
@@ -21,11 +17,5 @@
 
     &-100 {
         width: 100%;
-    }
-}
-
-.w {
-    &-50 {
-        @include width(50);
     }
 }

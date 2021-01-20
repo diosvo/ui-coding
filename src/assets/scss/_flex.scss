@@ -56,16 +56,6 @@
     }
 }
 
-.as {
-    &-center {
-        align-items: center;
-    }
-
-    &-baseline {
-        align-items: baseline;
-    }
-}
-
 .flex-direction {
     &-column {
         flex-direction: column;
@@ -77,9 +67,6 @@
 }
 
 .flex-grow {
-    &-one-four {
-        @include flex-grow(0.25)
-    }
 
     &-0 {
         @include flex-grow(0)
@@ -95,10 +82,6 @@
 }
 
 .flex-shrink {
-    &-one-four {
-        @include flex-shrink(0.25)
-    }
-
     &-0 {
         @include flex-shrink(0)
     }
