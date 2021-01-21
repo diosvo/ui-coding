@@ -1,0 +1,27 @@
+$colors: ('blue': #394867,
+    'green' : #28DF99,
+    'yellow' : #FFE05D,
+    'orange': #FF9642,
+    'red' : #D7385E,
+    'grey' : #9BA4B4);
+
+.container {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 320px));
+    justify-content      : center;
+
+    .box {
+        width        : 300px;
+        height       : 300px;
+        margin       : 10px;
+        border-radius: .25rem;
+        box-shadow   : var(--dark-shadow);
+    }
+
+    @each $name,
+    $color in $colors {
+        .box.box-#{$name} {
+            background-color: $color;
+        }
+    }
+}
