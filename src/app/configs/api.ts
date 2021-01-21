@@ -23,6 +23,11 @@ export abstract class Configs {
       name: 'Animated Counter Card',
       routerLink: '/components/animated-counter-card'
     },
+    {
+      id: 5,
+      name: 'Momentum Scrolling',
+      routerLink: '/components/momentum-scrolling'
+    },
   ]
 
   public static navList = [

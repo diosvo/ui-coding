@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'animated-counter-card',
     loadChildren: () => import('./card/card.module').then(m => m.CardModule),
   },
+  {
+    path: 'momentum-scrolling',
+    loadChildren: () => import('./momentum-scrolling/momentum-scrolling.module').then(m => m.MomentumScrollingModule),
+  },
 ]
 
 @NgModule({
