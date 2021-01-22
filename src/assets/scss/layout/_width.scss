@@ -25,7 +25,16 @@
 }
 
 .w {
+    &-32 {
+        @include width-px(32);
+    }
+
+    &-50 {
+        @include width-px(50);
+    }
+
     &-300 {
         @include width-px(300);
     }
+
 }

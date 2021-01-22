@@ -14,23 +14,6 @@
     gap: $n * 1rem;
 }
 
-.d {
-    &-block {
-        display: block;
-    }
-
-    &-inline-block {
-        display: inline-block;
-    }
-
-    &-flex {
-        display: flex;
-    }
-
-    &-grid {
-        display: grid;
-    }
-}
 
 .jc {
     &-center {

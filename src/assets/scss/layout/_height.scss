@@ -25,6 +25,14 @@
 }
 
 .h {
+    &-32 {
+        @include height-px(32);
+    }
+
+    &-50 {
+        @include height-px(50);
+    }
+
     &-300 {
         @include height-px(300);
     }
