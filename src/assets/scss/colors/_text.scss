@@ -1,0 +1,32 @@
+:root {
+    --text-white    : #FFFFFF;
+    --text-secondary: #737373;
+    --text-black    : #000000;
+    --text-light    : #ECECEC;
+
+    --title-dark: #616161;
+}
+
+.text {
+    &-white {
+        color: var(--text-white);
+    }
+
+    &-light {
+        color: var(--text-light);
+    }
+
+    &-secondary {
+        color: var(--text-secondary);
+    }
+
+    &-black {
+        color: var(--text-black);
+    }
+}
+
+.title {
+    &-dark {
+        color: var(--title-dark);
+    }
+}

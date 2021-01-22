@@ -14,7 +14,6 @@
     gap: $n * 1rem;
 }
 
-
 .jc {
     &-center {
         justify-content: center;
@@ -105,11 +104,5 @@
 
     &-3 {
         @include gap(3)
-    }
-}
-
-.overflow {
-    &-hidden {
-        overflow: hidden;
     }
 }

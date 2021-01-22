@@ -31,3 +31,9 @@
         visibility: hidden;
     }
 }
+
+.overflow {
+    &-hidden {
+        overflow: hidden;
+    }
+}
