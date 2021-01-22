@@ -5,16 +5,9 @@
         border-bottom-left-radius : 1rem;
         border-bottom-right-radius: 1rem;
 
-        &__item {
-            margin: 1rem 0 2rem 0;
-        }
-
         &__link {
             transform : translateY(2rem);
             transition: all .2s var(--easeCubic);
-
-            opacity   : 0;
-            visibility: hidden;
         }
 
         &__item.active {
@@ -32,16 +25,13 @@
         }
 
         .icon {
-            width : 2rem;
-            height: 2rem;
-
             fill      : var(--text-secondary);
             transition: all .2s var(--easeCubic);
         }
 
         .slider {
-            height: 4px;
-            transition      : all 0.5s var(--easeCubic);
+            height    : 4px;
+            transition: all 0.5s var(--easeCubic);
         }
     }
 }

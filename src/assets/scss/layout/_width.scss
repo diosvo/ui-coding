@@ -25,7 +25,32 @@
 }
 
 .w {
+    &-10 {
+        @include width-px(10);
+    }
+
+    &-32 {
+        @include width-px(32);
+    }
+
+    &-40 {
+        @include width-px(40);
+    }
+
+    &-50 {
+        @include width-px(50);
+    }
+
+    &-100 {
+        @include width-px(100);
+    }
+
     &-300 {
         @include width-px(300);
     }
+
+    &-650 {
+        @include width-px(650);
+    }
+
 }

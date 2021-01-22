@@ -1,0 +1,39 @@
+.d {
+    &-block {
+        display: block;
+    }
+
+    &-inline-block {
+        display: inline-block;
+    }
+
+    &-flex {
+        display: flex;
+    }
+
+    &-grid {
+        display: grid;
+    }
+}
+
+.opacity {
+    &-0 {
+        opacity: 0;
+    }
+
+    &-1 {
+        opacity: 1;
+    }
+}
+
+.visibility {
+    &-hidden {
+        visibility: hidden;
+    }
+}
+
+.overflow {
+    &-hidden {
+        overflow: hidden;
+    }
+}
