@@ -4,9 +4,6 @@ $colors: ('lightpurple': #9AB3F5,
     'lightorange': #FFE8D6);
 
 .card {
-    width : 17rem;
-    height: 17rem;
-
     box-shadow: var(--light-shadow);
     transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -21,28 +18,13 @@ $colors: ('lightpurple': #9AB3F5,
         box-shadow: var(--hover-light-shadow);
     }
 
-    &-icon-header {
-        .icon-container {
-            width : 6rem;
-            height: 6rem;
-
-            .icon {
-                width : 40px;
-                height: 40px;
-            }
-        }
-    }
-
     &-content {
         .card-title h4 {
             letter-spacing: 0.5px;
-            margin        : 0 0 0.5rem;
         }
     }
 }
 
 svg.icon-arrow-up {
-    width : 10px;
-    height: 10px;
-    fill  : currentColor;
+    fill: currentColor;
 }

@@ -25,15 +25,35 @@
 }
 
 .h {
+    &-10 {
+        @include height-px(10);
+    }
+
     &-32 {
         @include height-px(32);
+    }
+
+    &-40 {
+        @include height-px(40);
     }
 
     &-50 {
         @include height-px(50);
     }
 
+    &-100 {
+        @include height-px(100);
+    }
+
     &-300 {
         @include height-px(300);
+    }
+
+    &-400 {
+        @include height-px(400);
+    }
+
+    &-500 {
+        @include height-px(500);
     }
 }
