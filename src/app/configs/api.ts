@@ -33,6 +33,11 @@ export abstract class Configs {
       name: 'Button Micro-Interaction',
       routerLink: '/all-thing-about/button/micro-interaction'
     },
+    {
+      id: 6,
+      name: 'Real Estate',
+      routerLink: '/web-app/estate'
+    },
   ]
 
   public static navList = [
