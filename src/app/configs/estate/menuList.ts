@@ -1,4 +1,6 @@
-export const estateMenuList = [
+import { estateMenuModel } from 'src/app/models/estate/estate-menu';
+
+export const estateMenuList: estateMenuModel[] = [
     {
         name: 'Dashboard',
         icon: 'icon-grid',

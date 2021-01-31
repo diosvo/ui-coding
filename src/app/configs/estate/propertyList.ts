@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
+import { estatePropertyModel } from 'src/app/models/estate/estate-property';
 
-export const estatePropertyList = [
+export const estatePropertyList: estatePropertyModel[] = [
   {
     propertyId: 1,
     propertyType: 'Townhouse',
