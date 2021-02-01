@@ -25,7 +25,8 @@ export const estateMenuList: estateMenuModel[] = [
         name: 'Bills',
         icon: 'icon-text-document',
         link: '/bills'
-    }, {
+    },
+    {
         name: 'Settings',
         icon: 'icon-cog',
         link: '/settings'

@@ -1,3 +1,39 @@
-<div>
-    work!
+<div class="main">
+    <!-- Right side -->
+    <div class="user">
+        <div class="notification">
+            <svg class="icon icon-bell">
+                <use href="../../../assets/svg/icons.svg#icon-bell"></use>
+            </svg>
+            <span class="notification__circle circle-active"></span>
+        </div>
+
+        <div class="user__info">
+            <div class="circle-avatar">
+                <img src="../../../assets/images/estate/user-avatar.png" alt="user-avatar">
+            </div>
+            <div class="user-name">Dios V.</div>
+            <div class="dropdown">
+                <svg class="icon icon-bell">
+                    <use href="../../../assets/svg/icons.svg#icon-chevron-small-down"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Left side -->
+    <nav class="navigation">
+        <div class="logo">
+            <h3>DV</h3>
+        </div>
+
+        <ul>
+            <li class="nav__item" *ngFor="let menu of menuList">
+                <svg class="icon {{menu.icon}}">
+                    <use attr.xlink:href="../../../assets/svg/icons.svg#{{menu.icon}}"></use>
+                </svg>
+                <a class="nav__link">{{menu.name}}</a>
+            </li>
+        </ul>
+    </nav>
 </div>

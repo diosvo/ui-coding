@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { estatePropertyList } from 'src/app/configs/estate/propertyList';
+import { estateMenuList } from 'src/app/configs/estate/menuList';
 
 @Component({
   selector: 'app-estate',
@@ -7,12 +7,12 @@ import { estatePropertyList } from 'src/app/configs/estate/propertyList';
   styleUrls: ['./estate.component.scss']
 })
 export class EstateComponent implements OnInit {
-  estateMenuList =  estatePropertyList
+  menuList = estateMenuList
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.estateMenuList);
-    
+
   }
 
 }
