@@ -11,7 +11,7 @@ import { ListingsComponent } from './listings/listings.component';
   declarations: [EstateComponent, DetailComponent, ListingsComponent],
   imports: [
     CommonModule,
-    EstateRoutingModule
+    EstateRoutingModule,
   ]
 })
 export class EstateModule { }
