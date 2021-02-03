@@ -34,9 +34,14 @@ export abstract class Configs {
       routerLink: '/all-thing-about/button/micro-interaction'
     },
     {
-      id: 6,
+      id: 7,
       name: 'Real Estate',
       routerLink: '/web-app/estate'
+    },
+    {
+      id: 8,
+      name: 'Dark/Light Toggle Mode',
+      routerLink: '/all-thing-about/button/toggle-mood'
     },
   ]
 
