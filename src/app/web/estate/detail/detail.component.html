@@ -1,0 +1,22 @@
+<a class="back">
+    <svg class="icon icon-search">
+        <use href="../../../../assets/svg/icons.svg#icon-chevron-small-left"></use>
+    </svg>
+</a>
+
+<div class="info-image">
+    <img [src]="propertyModel?.propertyImageUrl" alt="detail image">
+</div>
+
+<div class="property-info">
+    <h4 class="heading-4">{{propertyModel?.propertyAddress}}</h4>
+    <span class="type">{{propertyModel?.propertyType}}</span>
+    <div class="more">
+        <span>{{propertyModel?.numberOfBedrooms}}</span>
+        <span>{{propertyModel?.numberOfBathrooms}}</span>
+        <span>{{propertyModel?.squareMeters}}</span>
+    </div>
+    <span class="price">{{propertyModel?.price | currency}}</span>
+</div>
+
+<button class="call">Call Owner</button>

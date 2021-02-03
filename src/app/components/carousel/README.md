@@ -1,6 +1,6 @@
 ### Dynamic Stacked Carousel Gallery using GSAP.
 
-It will stop (cursor now allowed) until the last image in left or right side.
+It will stop (cursor not allowed) until the last image in left or right side.
 
 ![Carousel Image](https://raw.githubusercontent.com/diosvo/Angular-UI/master/src/assets/images/github/carousel.png)
 

@@ -28,6 +28,16 @@ export abstract class Configs {
       name: 'Momentum Scrolling',
       routerLink: '/components/momentum-scrolling'
     },
+    {
+      id: 6,
+      name: 'Button Micro-Interaction',
+      routerLink: '/all-thing-about/button/micro-interaction'
+    },
+    {
+      id: 6,
+      name: 'Real Estate',
+      routerLink: '/web-app/estate'
+    },
   ]
 
   public static navList = [

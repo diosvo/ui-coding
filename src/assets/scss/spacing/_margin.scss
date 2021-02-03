@@ -1,4 +1,4 @@
-$maximum_size : 10;
+$maximum_size : 8;
 
 @for $i from 0 through $maximum_size {
 
@@ -35,4 +35,20 @@ $maximum_size : 10;
 
 .m-0-auto {
     margin: 0 auto;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+.mb-auto {
+    margin-bottom: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
 }

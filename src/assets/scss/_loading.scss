@@ -1,0 +1,14 @@
+.loading-container {
+    display    : grid;
+    place-items: center;
+    height     : 100vh;
+}
+
+.loader {
+    text-align: center;
+}
+
+svg path,
+svg rect {
+    fill: var(--primary-color);
+}
