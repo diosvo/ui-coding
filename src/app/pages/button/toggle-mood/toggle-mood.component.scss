@@ -1,0 +1,43 @@
+.light-theme {
+    --background-color: #F5F5F5;
+    --text-color      : #1A1A1A;
+    --box-color       : #FFF;
+    --button-color    : #FFF;
+
+    --box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+    --background-color: #1A1A1A;
+    --text-color      : #F5F5F5;
+    --box-color       : #2B2B2B;
+    --button-color    : #1A1A1A;
+}
+
+.container {
+    background-color: var(--background-color) !important;
+    position        : relative;
+    transition      : all .3s ease-in-out;
+}
+
+.box {
+    width           : 50%;
+    margin          : 0 auto;
+    background-color: var(--box-color);
+    box-shadow      : var(--box-shadow);
+    transition      : all .1s ease;
+    letter-spacing  : .5px;
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+
+    .header {
+        color: var(--text-color);
+    }
+
+    .paragraph {
+        color     : var(--text-color);
+        transition: all .1s ease;
+    }
+}
