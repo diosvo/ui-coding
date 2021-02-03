@@ -1,13 +1,18 @@
 :root {
-    --icon-fill-dark: rgb(61, 61, 61);
+    --icon-fill-dark : rgb(61, 61, 61);
+    --icon-fill-light: #737373;
 }
 
 .icon {
     &-dark {
-        color: var(--icon-fill-dark);
+        fill: var(--icon-fill-dark);
+    }
+
+    &-light {
+        fill: var(--icon-fill-light);
     }
 
     &-green {
-        color: var(--success-color);
+        fill: var(--success-color);
     }
 }

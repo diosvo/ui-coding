@@ -16,7 +16,7 @@ const routes: Routes = [
     outlet: 'l'
   },
   {
-    path: 'detail',
+    path: 'detail/:id',
     component: DetailComponent,
     outlet: 'd'
   },

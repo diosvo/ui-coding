@@ -1,2 +1,27 @@
 $layout-margin : 0 .5em 1.5em .5em;
 $default-shadow: rgba(142, 142, 142, 0.1);
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.main {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navigation {
+    height: 100vh;
+    width : 250px;
+
+    .nav__item:hover {
+        background-color: #E5EAFA;
+        transition      : all .2s ease-in-out;
+
+        .icon-light {
+            fill: var(--primary-color);
+        }
+
+        .nav__link {
+            font-weight: bold;
+            color      : var(--color-black);
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { estatePropertyModel } from 'src/app/models/estate/estate-property';
 
 @Component({
   selector: 'app-detail',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
+  propertyModel: estatePropertyModel
 
   constructor() { }
 

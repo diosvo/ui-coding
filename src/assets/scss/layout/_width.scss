@@ -29,6 +29,10 @@
         @include width-px(10);
     }
 
+    &-25 {
+        @include width-px(25);
+    }
+
     &-32 {
         @include width-px(32);
     }
