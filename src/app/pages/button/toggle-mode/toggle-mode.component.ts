@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-toggle-mood',
-  templateUrl: './toggle-mood.component.html',
-  styleUrls: ['./toggle-mood.component.scss']
+  selector: 'app-toggle-mode',
+  templateUrl: './toggle-mode.component.html',
+  styleUrls: ['./toggle-mode.component.scss']
 })
-
-export class ToggleMoodComponent {
+export class ToggleModeComponent {
   isDarkTheme: boolean = true;
 
   constructor() { }

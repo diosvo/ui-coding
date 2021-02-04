@@ -41,7 +41,7 @@ export abstract class Configs {
     {
       id: 8,
       name: 'Dark/Light Toggle Mode',
-      routerLink: '/all-thing-about/button/toggle-mood'
+      routerLink: '/all-thing-about/button/toggle-mode'
     },
   ]
 

@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { ToggleMoodComponent } from './toggle-mood.component';
+import { ToggleModeComponent } from './toggle-mode.component';
 
 const routes: Routes = [
   {
-    path: '', component: ToggleMoodComponent
+    path: '', component: ToggleModeComponent
   },
 ];
 
@@ -13,4 +12,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ToggleMoodRoutingModule { }
+export class ToggleModeRoutingModule { }

@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { ToggleMoodRoutingModule } from './toggle-mood-routing.module';
-import { ToggleMoodComponent } from './toggle-mood.component';
-
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ToggleModeRoutingModule } from './toggle-mode-routing.module';
+
+import { ToggleModeComponent } from './toggle-mode.component';
 
 @NgModule({
-  declarations: [ToggleMoodComponent],
+  declarations: [ToggleModeComponent],
   imports: [
+    CommonModule,
     CommonModule,
     SharedModule,
     FormsModule,
-    ToggleMoodRoutingModule,
+    ToggleModeRoutingModule
   ]
 })
-export class ToggleMoodModule { }
+export class ToggleModeModule { }

@@ -7,8 +7,8 @@ const routes: Routes = [
     loadChildren: () => import('./micro-interaction/micro-interaction.module').then(m => m.MicroInteractionModule),
   },
   {
-    path: 'toggle-mood',
-    loadChildren: () => import('./toggle-mood/toggle-mood.module').then(m => m.ToggleMoodModule),
+    path: 'toggle-mode',
+    loadChildren: () => import('./toggle-mode/toggle-mode.module').then(m => m.ToggleModeModule),
   },
 ];
 
