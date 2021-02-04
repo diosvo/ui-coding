@@ -3,7 +3,10 @@ button {
     border : 0;
 
     &:hover {
-        cursor: pointer;
+        cursor    : pointer;
+
+        transition      : all .1s ease;
+        box-shadow: var(--hover-light-shadow);
     }
 
     &:focus {
