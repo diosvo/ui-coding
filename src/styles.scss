@@ -9,8 +9,8 @@
 }
 
 body {
-
     box-sizing: border-box;
+    font-size : calc(0.75em + 1vmin);
 
     font-family     : 'Roboto', sans-serif;
     background-color: var(--body-color);
