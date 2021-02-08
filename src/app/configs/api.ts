@@ -43,6 +43,11 @@ export abstract class Configs {
       name: 'Dark/Light Toggle Mode',
       routerLink: '/all-thing-about/button/toggle-mode'
     },
+    {
+      id: 8,
+      name: 'Expandable Floating Menu',
+      routerLink: '/all-thing-about/button/expandable-floating-menu'
+    },
   ]
 
   public static navList = [
