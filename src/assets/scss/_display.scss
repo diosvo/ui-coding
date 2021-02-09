@@ -37,3 +37,9 @@
         overflow: hidden;
     }
 }
+
+.place-items {
+    &-center {
+        place-items: center;
+    }
+}

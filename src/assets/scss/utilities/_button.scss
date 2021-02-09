@@ -3,9 +3,9 @@ button {
     border : 0;
 
     &:hover {
-        cursor    : pointer;
+        cursor: pointer;
 
-        transition      : all .1s ease;
+        transition: all .1s ease;
         box-shadow: var(--hover-light-shadow);
     }
 
@@ -23,6 +23,12 @@ button {
 .disable {
     cursor : not-allowed !important;
     opacity: .7;
+}
+
+.btn {
+    &-circle {
+        border-radius: 50%;
+    }
 }
 
 .icon-hover:hover {
