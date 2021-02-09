@@ -1,17 +1,22 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { gsap, Expo } from 'gsap'
 
+import { MenuModel } from 'src/app/models/expandable-floating-menu';
 import { menuDataList, MenuPosition } from '../../../configs/expandable-floating-menu/menuData'
 
 @Component({
   selector: 'app-expandable-floating-menu',
   templateUrl: './expandable-floating-menu.component.html',
-  styleUrls: ['./expandable-floating-menu.component.scss']
+  styleUrls: ['./expandable-floating-menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ExpandableFloatingMenuComponent implements OnInit {
-  menuData = menuDataList
-  menuPosition: MenuPosition = 'topLeft'
+  @Input() menuData = menuDataList
+  @Input() menuPosition: MenuPosition = 'bottomRight';
+  @Input() disabled: boolean;
+
+  @Output() menuSelect = new EventEmitter<MenuModel>();
 
   @ViewChild('menu', { static: true }) menu: ElementRef
 
@@ -19,7 +24,7 @@ export class ExpandableFloatingMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.setMenuPosition()
-   }
+  }
 
   showMenu(menu: HTMLDivElement, btn: HTMLButtonElement, overlay: HTMLDivElement) {
     gsap.to(overlay, {
@@ -59,25 +64,30 @@ export class ExpandableFloatingMenuComponent implements OnInit {
     })
   }
 
+  setStyles() {
+    return {
+      opacity: this.disabled ? 0.3 : 1,
+      cursor: this.disabled ? 'default' : 'pointer'
+    }
+  }
+
   setMenuPosition() {
     const menu = this.menu.nativeElement as HTMLDivElement
 
     switch (this.menuPosition) {
       case 'topLeft':
-        menu.style.right = '0';
-        menu.style.bottom = '0';
+        menu.style.top = '10%';
+        menu.style.left = '25%';
         return;
       case 'bottomLeft':
-        menu.style.top = '0';
-        menu.style.right = '0';
+        menu.style.left = '25%';
         return;
       case 'topRight':
-        menu.style.left = '0';
-        menu.style.bottom = '0';
+        menu.style.top = '10%';
+        menu.style.right = '0';
         return;
       case 'bottomRight':
-        menu.style.top = '0';
-        menu.style.left = '0';
+        menu.style.right = '0';
         return;
       default:
         return;
@@ -135,4 +145,6 @@ export class ExpandableFloatingMenuComponent implements OnInit {
       ease: Expo.easeInOut as any
     })
   }
+
+  selectItem = (menu: MenuModel) => this.menuSelect.emit(menu)
 }

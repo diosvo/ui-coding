@@ -1,13 +1,15 @@
 <div class="overlay" #overlay (click)="closeMenu(menu, btn, overlay)"></div>
 
 <div class="menu-container d-grid place-items-center full-screen-height">
-    <button class="position-relative btn-circle bg-primary text-white p-4" #btn (click)="showMenu(menu, btn, overlay)">
+    <button class="position-relative btn-circle bg-primary text-white p-4" #btn (click)="showMenu(menu, btn, overlay)"
+        [ngStyle]="setStyles()" [disabled]="disabled">
         <span>Menu</span>
     </button>
 
     <div class="menu position-absolute d-flex flex-direction-column bg-white bd-auto bs-dark opacity-0 visibility-hidden z-index-100"
-        #menu>
-        <div class="menu__item d-flex ai-center px-2 py-1 cursor-pointer" *ngFor="let item of menuData">
+        #menu [ngStyle]="setMenuPosition()">
+        <div class="menu__item d-flex ai-center px-2 py-1 cursor-pointer" *ngFor="let item of menuData"
+            (click)="selectItem(menu)">
             <div class="menu__item--img w-40 h-40 clip-path-circle">
                 <img class="object-fit-cover" [src]="item.menuImageUrl" alt="Menu image" width=100% height=100%>
             </div>
@@ -17,3 +19,11 @@
         </div>
     </div>
 </div>
+
+<!-- Note: It has a relationship between parent and children components thru @Input() and @Output()
+The code below will show its relationship-->
+
+<!-- <app-button [menuData]="menuData" [menuPosition]="'topRight || topLeft || bottomRight || bottomLeft'"
+    [menuSelect]="onSelect(menu)"></app-button> -->
+
+<!-- onSelect function will show the item detail based on its model (see it via console log) -->
