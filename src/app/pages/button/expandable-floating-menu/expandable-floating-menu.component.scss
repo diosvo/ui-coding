@@ -11,6 +11,8 @@ button span {
 }
 
 .menu {
+    @extend %center;
+    transform: scale(0.5);
 
     &__item {
         transition         : .3s ease;

@@ -1,7 +1,7 @@
-<div class="overlay" #overlay></div>
+<div class="overlay" #overlay (click)="closeMenu(menu, btn, overlay)"></div>
 
 <div class="menu-container d-grid place-items-center full-screen-height">
-    <button class="position-relative btn-circle bg-primary text-white p-4" #btn>
+    <button class="position-relative btn-circle bg-primary text-white p-4" #btn (click)="showMenu(menu, btn, overlay)">
         <span>Menu</span>
     </button>
 
