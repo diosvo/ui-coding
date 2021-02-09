@@ -77,10 +77,10 @@ export class ExpandableFloatingMenuComponent implements OnInit {
     switch (this.menuPosition) {
       case 'topLeft':
         menu.style.top = '10%';
-        menu.style.left = '25%';
+        menu.style.left = '35%';
         return;
       case 'bottomLeft':
-        menu.style.left = '25%';
+        menu.style.left = '35%';
         return;
       case 'topRight':
         menu.style.top = '10%';
