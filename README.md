@@ -5,7 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Overview
 
 - This may be have a lot of Coding Angular UI based on UX/UI by all.design
-- On the first page you see on the web (Homepage), you can search text to find anything that you want to. Of course, its just include UX/UI components
+- On the first page you see on the web (Homepage), you can search text to find anything that you want to. Of course, its just include UX/UI components.
+- Beside that router link show components meaning.
 
 ## Homepage
 
@@ -22,6 +23,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Purpose
 
-- Learning and improving my skill about UX/UI and Angular
-- Updating my Atomic CSS
+- Learning and improving my skill some thing about UX/UI mindset and Angular.
+- Updating my Atomic CSS.
 - Smoothy animation with SVG, GSAP,...
