@@ -7,6 +7,7 @@ import CSSRulePlugin from "gsap/dist/CSSRulePlugin";
   templateUrl: './micro-interaction.component.html',
   styleUrls: ['./micro-interaction.component.scss']
 })
+
 export class MicroInteractionComponent implements OnInit {
 
   constructor() { }
@@ -16,8 +17,8 @@ export class MicroInteractionComponent implements OnInit {
   }
 
   mainFunction() {
-    gsap.registerPlugin(CSSRulePlugin);  
-    
+    gsap.registerPlugin(CSSRulePlugin);
+
     const tl = gsap.timeline({
       defaults: {
         ease: 'easeOut',
@@ -25,11 +26,12 @@ export class MicroInteractionComponent implements OnInit {
       }
     })
 
-    const btn = document.querySelector('button')
-    const rule = document.querySelector('button::before')
+    const label = document.querySelector('.label')
+    const btn = document.querySelector('.button')
+    const rule = document.querySelector('.button-shadow')
 
     // Set tl: timeline
-    tl.to('.label', {
+    tl.to(label, {
       opacity: 0,
       height: 0,
       position: 'absolute',
@@ -44,6 +46,17 @@ export class MicroInteractionComponent implements OnInit {
 
     tl.to(rule, {
       borderRadius: '50%',
-    }) 
+      width: '2.25em',
+      height: '2.25em',
+      autoAlpha: 1,
+      display: 'block'
+    }, '-=.5s')
+
+    tl.from('.icon', {
+      display: 'none',
+      height: 0,
+      position: 'absolute',
+      duration: '.2s'
+    })
   }
 }
