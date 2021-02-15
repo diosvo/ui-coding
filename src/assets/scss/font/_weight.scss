@@ -2,16 +2,16 @@
     font-weight: $n;
 }
 
-.fw- {
-    &400 {
+.fw {
+    &-400 {
         @include fw(400);
     }
 
-    &500 {
+    &-500 {
         @include fw(500);
     }
 
-    &bold {
+    &-bold {
         font-weight: bold;
     }
 }
