@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { gsap } from 'gsap';
-import CSSRulePlugin from "gsap/dist/CSSRulePlugin";
 
 @Component({
   selector: 'app-micro-interaction',
@@ -17,7 +16,6 @@ export class MicroInteractionComponent implements OnInit {
   }
 
   mainFunction() {
-    gsap.registerPlugin(CSSRulePlugin);
 
     const tl = gsap.timeline({
       defaults: {
@@ -29,7 +27,7 @@ export class MicroInteractionComponent implements OnInit {
     const label = document.querySelector('.label')
     const btn = document.querySelector('.button')
     const rule = document.querySelector('.button-shadow')
-    const icon = document.querySelector('.icon')
+    const icon = document.querySelector('svg')
 
     // Set tl: timeline
     tl.to(label, {
@@ -39,23 +37,26 @@ export class MicroInteractionComponent implements OnInit {
       duration: '.2s'
     })
 
-    tl.to(btn, {
-      borderRadius: '50%',
-      width: '2.5em',
-      height: '2.5em'
-    }, '-=.5s')
+      .to(btn, {
+        borderRadius: '50%',
+        width: '2.5em',
+        height: '2.5em'
+      }, '-=.5s')
 
-    tl.to(rule, {
-      borderRadius: '50%',
-      width: '2.25em',
-      height: '2.25em',
-      autoAlpha: 1,
-      display: 'block'
-    }, '-=.5s')
+      .to(rule, {
+        borderRadius: '50%',
+        width: '2.25em',
+        height: '2.25em',
+        autoAlpha: 1,
+        display: 'block'
+      }, '-=.5s')
 
-    tl.to(icon, {
-      display: 'block',
-      margin: '0 auto'
-    }, '-=.5s')
+      .to(icon, {
+        display: 'block',
+      }, '-=.5s')
+
+      .to('path', {
+        attr: { d: 'm386.671 257.778-257.778 257.778v-128.886l128.889-128.892-128.897-128.886.008-128.892z' }
+      }, '+=1')
   }
 }
