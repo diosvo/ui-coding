@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CarouselComponent } from './carousel.component';
 
 const routes: Routes = [
-  { path: '', component: CarouselComponent },
+  { path: '', component: CarouselComponent, data: { title: 'Dynamic Stacked Carousel Gallery' } },
 ];
 
 @NgModule({

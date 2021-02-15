@@ -5,7 +5,7 @@ import { MicroInteractionComponent } from './micro-interaction.component';
 
 const routes: Routes = [
   {
-    path: '', component: MicroInteractionComponent
+    path: '', component: MicroInteractionComponent, data: { title: 'Button Micro Interaction' }
   },
 ];
 

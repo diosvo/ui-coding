@@ -29,6 +29,7 @@ export class MicroInteractionComponent implements OnInit {
     const label = document.querySelector('.label')
     const btn = document.querySelector('.button')
     const rule = document.querySelector('.button-shadow')
+    const icon = document.querySelector('.icon')
 
     // Set tl: timeline
     tl.to(label, {
@@ -52,11 +53,9 @@ export class MicroInteractionComponent implements OnInit {
       display: 'block'
     }, '-=.5s')
 
-    tl.from('.icon', {
-      display: 'none',
-      height: 0,
-      position: 'absolute',
-      duration: '.2s'
-    })
+    tl.to(icon, {
+      display: 'block',
+      margin: '0 auto'
+    }, '-=.5s')
   }
 }

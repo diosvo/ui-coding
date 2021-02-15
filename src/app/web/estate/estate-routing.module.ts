@@ -8,7 +8,8 @@ import { ListingsComponent } from './listings/listings.component';
 const routes: Routes = [
   {
     path: '',
-    component: EstateComponent
+    component: EstateComponent,
+    data: { title: 'Real Estate' }
   },
   {
     path: 'listings',

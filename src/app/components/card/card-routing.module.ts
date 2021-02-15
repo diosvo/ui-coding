@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CardComponent } from './card.component';
 
 const routes: Routes = [
-  { path: '', component: CardComponent },
+  { path: '', component: CardComponent, data: { title: 'Animated Counter Card' } },
 ];
 
 @NgModule({
