@@ -19,8 +19,7 @@ export class MicroInteractionComponent implements OnInit {
 
     const tl = gsap.timeline({
       defaults: {
-        ease: 'easeOut',
-        delay: 1
+        ease: 'easeOut'
       }
     })
 
@@ -28,6 +27,7 @@ export class MicroInteractionComponent implements OnInit {
     const btn = document.querySelector('.button')
     const rule = document.querySelector('.button-shadow')
     const icon = document.querySelector('svg')
+    const text = document.querySelector('p')
 
     // Set tl: timeline
     tl.to(label, {
@@ -40,7 +40,8 @@ export class MicroInteractionComponent implements OnInit {
       .to(btn, {
         borderRadius: '50%',
         width: '2.5em',
-        height: '2.5em'
+        height: '2.5em',
+        duration: .7
       }, '-=.5s')
 
       .to(rule, {
@@ -53,10 +54,21 @@ export class MicroInteractionComponent implements OnInit {
 
       .to(icon, {
         display: 'block',
-      }, '-=.5s')
+      }, '-=1s')
 
+      // Change button icon 
       .to('path', {
         attr: { d: 'm386.671 257.778-257.778 257.778v-128.886l128.889-128.892-128.897-128.886.008-128.892z' }
       }, '+=1')
+
+      .to(text, {
+        clipPath: 'circle(100% at 50% 50%)'
+      }, "-=1.3")
+
+      .pause()
+
+    btn.addEventListener('click', () => {
+      tl.play()
+    })
   }
 }
