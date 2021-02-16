@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { WebRoutingModule } from './web-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [

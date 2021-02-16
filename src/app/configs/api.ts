@@ -4,47 +4,34 @@ import { CarouselModel } from '../models/dynamic-carousel';
 export abstract class Configs {
   public static listData = [
     {
-      id: 1,
       name: 'Navbar Interaction',
       routerLink: '/components/navbar'
     },
     {
-      id: 2,
       name: 'Liquid Menu Interaction',
       routerLink: '/components/liquid-menu'
     },
     {
-      id: 3,
       name: 'Dynamic Stacked Carousel Gallery',
       routerLink: '/components/dynamic-carousel'
     },
     {
-      id: 4,
       name: 'Animated Counter Card',
       routerLink: '/components/animated-counter-card'
     },
     {
-      id: 5,
       name: 'Momentum Scrolling',
       routerLink: '/components/momentum-scrolling'
     },
     {
-      id: 6,
       name: 'Button Micro-Interaction',
       routerLink: '/all-thing-about/button/micro-interaction'
     },
     {
-      id: 7,
-      name: 'Real Estate',
-      routerLink: '/web-app/estate'
-    },
-    {
-      id: 8,
       name: 'Dark/Light Toggle Mode',
       routerLink: '/all-thing-about/button/toggle-mode'
     },
     {
-      id: 8,
       name: 'Expandable Floating Menu',
       routerLink: '/all-thing-about/button/expandable-floating-menu'
     },
