@@ -8,7 +8,7 @@
         <ng-container *ngFor="let item of navList; index as i">
             <li class="nav__item d-flex flex-direction-column ai-center flex-1 height-inherit mt-2 mb-4 cursor-pointer"
                 [ngClass]="{'active': i === selected}" (click)="onSelect(elem, i)" #elem>
-                <svg class="icon w-32 h-32">
+                <svg class="icon icon-light w-32 h-32">
                     <use attr.href="../../../assets/svg/icons.svg#{{item.icon}}"></use>
                 </svg>
                 <a class="nav__link opacity-0 visibility-hidden fw-500 text-secondary">{{item.title}}</a>
