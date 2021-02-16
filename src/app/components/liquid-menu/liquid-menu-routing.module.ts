@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LiquidMenuComponent } from './liquid-menu.component';
 
 const routes: Routes = [
-  { path: '', component: LiquidMenuComponent },
+  { path: '', component: LiquidMenuComponent, data: { title: 'Liquid Menu Interaction' } },
 ];
 
 @NgModule({

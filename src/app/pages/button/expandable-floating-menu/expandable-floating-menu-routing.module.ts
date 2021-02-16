@@ -5,7 +5,7 @@ import { ExpandableFloatingMenuComponent } from './expandable-floating-menu.comp
 
 const routes: Routes = [
   {
-    path: '', component: ExpandableFloatingMenuComponent
+    path: '', component: ExpandableFloatingMenuComponent, data: { title: 'Button Expandable Floating Menu' }
   }
 ];
 

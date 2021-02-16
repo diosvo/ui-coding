@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - This may be have a lot of Coding Angular UI based on UX/UI by all.design
 - On the first page you see on the web (Homepage), you can search text to find anything that you want to. Of course, its just include UX/UI components.
-- Beside that router link show components meaning.
+- Beside that router link or page title show components meaning.
 
 ## Homepage
 

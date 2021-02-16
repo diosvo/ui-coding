@@ -1,10 +1,15 @@
 :root {
-    --bg-white  : #FFFFFF;
-    --bg-black  : #000000;
-    --body-color: #F0F2F5;
+    --bg-white   : #FFFFFF;
+    --bg-black   : #000000;
+    --bg-lavender: lavender;
+    --body-color : #F0F2F5;
 }
 
 .bg {
+    &-none {
+        background: none;
+    }
+
     &-white {
         background-color: var(--bg-white);
     }
@@ -13,8 +18,16 @@
         background-color: var(--bg-black);
     }
 
+    &-lavender {
+        background-color: var(--bg-lavender);
+    }
+
     &-primary {
         background-color: var(--primary-color);
+    }
+
+    &-purple {
+        color: var(--color-purple);
     }
 }
 
