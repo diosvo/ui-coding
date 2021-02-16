@@ -1,5 +1,7 @@
-@import './font/font.scss',
+@import './colors/color.scss',
+'./font/font.scss',
 './layout/layout.scss',
+'./masking/masking.scss',
 './spacing/spacing.scss',
 './utilities/utilities.scss',
-'./flex', './color', './animation'
+'./flex', './animation', './display', './loading'

@@ -2,24 +2,16 @@
     font-weight: $n;
 }
 
-.fw- {
-    &500 {
+.fw {
+    &-400 {
+        @include fw(400);
+    }
+
+    &-500 {
         @include fw(500);
     }
 
-    &525 {
-        @include fw(525);
-    }
-
-    &550 {
-        @include fw(550);
-    }
-
-    &normal {
-        font-weight: normal;
-    }
-
-    &bold {
+    &-bold {
         font-weight: bold;
     }
 }

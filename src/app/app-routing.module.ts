@@ -11,6 +11,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auto-complete/auto-complete.module').then(m => m.AutoCompleteModule),
   },
   {
+    path: 'all-thing-about',
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
+  },  
+  {
+    path: 'web-app',
+    loadChildren: () => import('./web/web.module').then(m => m.WebModule),
+  },
+  {
     path: 'components',
     loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule),
   },

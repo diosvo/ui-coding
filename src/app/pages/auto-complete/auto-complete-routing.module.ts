@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { AutoCompleteComponent } from './auto-complete.component';
 
 const routes: Routes = [
-  { path: '', component: AutoCompleteComponent },
+  { path: '', component: AutoCompleteComponent, data: { title: 'Search Anything!' } },
 ];
 
 @NgModule({

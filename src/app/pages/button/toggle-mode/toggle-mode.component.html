@@ -1,0 +1,27 @@
+<div class="d-flex jc-between ai-center text-center m-2">
+    <div class="d-flex ai-center">
+        <app-go-back></app-go-back>
+        <p class="ml-3">Dark/Light Toggle Mode. Click button 'Switch' on the right to see what happened.</p>
+    </div>
+    <div>
+        <button class="bg-black text-white bd-auto py-1 px-2 btn:hover cursor-pointer" (click)="switchTheme()">
+            Switch
+        </button>
+    </div>
+</div>
+
+<div class="container m-0-auto p-3" [ngClass]="{'dark-theme': isDarkTheme, 'light-theme': !isDarkTheme}">
+    <div class="box m-0-auto p-3 bd-auto">
+        <h1 class="header mb-1">Header</h1>
+        <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet, veritatis? Excepturi
+            aperiam dolor quo odio impedit vero, obcaecati itaque quae, minus modi unde magnam, repudiandae quas
+            consectetur harum fugiat. Quo.</p>
+    </div>
+
+    <div class="box m-0-auto p-3 bd-auto">
+        <h1 class="header mb-1">Header</h1>
+        <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet, veritatis? Excepturi
+            aperiam dolor quo odio impedit vero, obcaecati itaque quae, minus modi unde magnam, repudiandae quas
+            consectetur harum fugiat. Quo.</p>
+    </div>
+</div>

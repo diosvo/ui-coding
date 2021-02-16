@@ -4,6 +4,9 @@ button {
 
     &:hover {
         cursor: pointer;
+
+        transition: all .1s ease;
+        box-shadow: var(--hover-light-shadow);
     }
 
     &:focus {
@@ -20,6 +23,12 @@ button {
 .disable {
     cursor : not-allowed !important;
     opacity: .7;
+}
+
+.btn {
+    &-circle {
+        border-radius: 50%;
+    }
 }
 
 .icon-hover:hover {

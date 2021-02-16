@@ -10,18 +10,8 @@
     flex-shrink: $n;
 }
 
-.d {
-    &-block {
-        display: block;
-    }
-
-    &-inline-block {
-        display: inline-block;
-    }
-
-    &-flex {
-        display: flex;
-    }
+@mixin gap($n) {
+    gap: $n * 1rem;
 }
 
 .jc {
@@ -52,16 +42,6 @@
     }
 }
 
-.as {
-    &-center {
-        align-items: center;
-    }
-
-    &-baseline {
-        align-items: baseline;
-    }
-}
-
 .flex-direction {
     &-column {
         flex-direction: column;
@@ -73,9 +53,6 @@
 }
 
 .flex-grow {
-    &-one-four {
-        @include flex-grow(0.25)
-    }
 
     &-0 {
         @include flex-grow(0)
@@ -91,10 +68,6 @@
 }
 
 .flex-shrink {
-    &-one-four {
-        @include flex-shrink(0.25)
-    }
-
     &-0 {
         @include flex-shrink(0)
     }
@@ -114,8 +87,22 @@
     }
 }
 
-.overflow {
-    &-hidden {
-        overflow: hidden;
+.flex {
+    &-wrap {
+        flex-wrap: wrap;
+    }
+}
+
+.gap {
+    &-1 {
+        @include gap(1)
+    }
+
+    &-2 {
+        @include gap(2)
+    }
+
+    &-3 {
+        @include gap(3)
     }
 }

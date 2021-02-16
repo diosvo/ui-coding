@@ -24,24 +24,16 @@
     }
 
     &-radius {
-        &-6 {
-            @include border-radius(6);
-        }
-
-        &-7 {
-            @include border-radius(7);
-        }
-
         &-12 {
             @include border-radius(12);
         }
 
-        &-32 {
-            @include border-radius(32);
+        &-25 {
+            @include border-radius(25);
         }
 
-        &-50 {
-            @include border-radius(50);
+        &-32 {
+            @include border-radius(32);
         }
     }
 }
