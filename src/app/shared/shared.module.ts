@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { GoBackComponent } from '../components/go-back/go-back.component';
+import { GoBackComponent } from '../components-ui/button/go-back/go-back.component';
 
 @NgModule({
   declarations: [GoBackComponent],

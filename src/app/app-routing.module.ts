@@ -8,20 +8,20 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/auto-complete/auto-complete.module').then(m => m.AutoCompleteModule),
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'all-thing-about',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
-  },  
-  {
-    path: 'web-app',
-    loadChildren: () => import('./web/web.module').then(m => m.WebModule),
+    path: 'component-ui',
+    loadChildren: () => import('./components-ui/components-ui.module').then(m => m.ComponentsUiModule)
   },
   {
-    path: 'components',
-    loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule),
+    path: 'web-ui',
+    loadChildren: () => import('./web-ui/web-ui.module').then(m => m.WebUiModule)
   },
+  {
+    path: 'function',
+    loadChildren: () => import('./functions/functions.module').then(m => m.FunctionsModule)
+  }
 ]
 
 @NgModule({
