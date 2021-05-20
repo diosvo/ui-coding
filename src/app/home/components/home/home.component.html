@@ -1,11 +1,21 @@
-<div class="d-flex">
-  <div class="flex-1">
-    <app-search-component></app-search-component>
+<div class="p-2">
+  <h3>
+    You can search and choose whatever things you want.
+    <br />
+    My coding include UI, components in the website, mini website and some useful functions based on TypeScript
+    language.
+  </h3>
+</div>
+
+<div class="home d-flex position-fixed width-100">
+
+  <div class="flex-1 p-2">
+    <app-search-component [filteredOptions]="options"></app-search-component>
   </div>
-  <div class="flex-1">
+  <div class="flex-1 p-2">
     <app-search-web></app-search-web>
   </div>
-  <div class="flex-1">
+  <div class="flex-1 p-2">
     <app-search-function></app-search-function>
   </div>
 </div>
