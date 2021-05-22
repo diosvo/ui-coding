@@ -14,6 +14,7 @@ html {
 
 body {
     background-color: var(--body-color);
+    font-family     : Roboto, "Helvetica Neue", sans-serif;
 }
 
 p {
@@ -26,8 +27,6 @@ ul {
     }
 
     a {
-        text-decoration : none;
+        text-decoration: none;
     }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

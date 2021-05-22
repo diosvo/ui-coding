@@ -26,5 +26,18 @@ export const ComponentUI: Array<IGroupValue> = [
         route: 'animated-counter'
       },
     ]
+  },
+  {
+    groupName: 'Menu',
+    groupDetails: [
+      {
+        name: 'Liquid Menu Interaction',
+        route: 'liquid-menu'
+      },
+      {
+        name: 'Navbar Interaction',
+        route: 'navbar'
+      },
+    ]
   }
 ];
