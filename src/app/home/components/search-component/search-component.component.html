@@ -1,2 +1,13 @@
-<p-dropdown [options]="cities" [(ngModel)]="selectedCity1" placeholder="Select a City" optionLabel="name"
-	[showClear]="true"></p-dropdown>
+<form [formGroup]="compForm">
+	<mat-form-field class="width-100">
+		<mat-label>Search Components</mat-label>
+		<input type="text" matInput formControlName="compGroup" [matAutocomplete]="autoGroup" >
+		<mat-autocomplete #autoGroup="matAutocomplete" (optionSelected)="selected($event)">
+			<mat-optgroup *ngFor="let group of compNameOptions | async" [label]="group.groupName">
+				<mat-option *ngFor="let value of group.groupDetails" [value]="value.route" >
+					{{value.name}}
+				</mat-option>
+			</mat-optgroup>
+		</mat-autocomplete>
+	</mat-form-field>
+</form>
