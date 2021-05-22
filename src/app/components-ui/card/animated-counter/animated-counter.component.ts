@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { gsap } from 'gsap';
 
 interface AnimatedCounterModel {
   title: string;
@@ -46,7 +47,7 @@ const  data: AnimatedCounterModel[] = [
 })
 
 
-export class AnimatedCounterComponent {
+export class AnimatedCounterComponent implements AfterViewInit {
   animatedCardList = data;
 
   @ViewChild('el', { static: false }) el: ElementRef<HTMLDivElement>

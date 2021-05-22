@@ -4,7 +4,7 @@ import { AnimatedCounterComponent } from './animated-counter.component';
 
 const routes: Routes = [
   {
-    path: 'animated-counter',
+    path: '',
     component: AnimatedCounterComponent,
     data: { title: 'Animated Counter Card' }
   }
