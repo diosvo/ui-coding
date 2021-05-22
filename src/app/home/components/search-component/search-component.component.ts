@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatOptionSelectionChange } from '@angular/material/core';
 import { Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
 import { debounceTime, map, startWith } from 'rxjs/operators';
+
 import { ComponentUI } from '../../models/data';
 import { IGroupValue } from '../../models/search.model';
 import { EComponentUI, EUrl } from '../../models/url.enum';
@@ -37,8 +39,8 @@ export class SearchComponentComponent implements OnInit {
     this.compNameOptions = this.compForm.get('compGroup')?.valueChanges
       .pipe(
         startWith(''),
-        // debounceTime(5),
-        map(value => this._filterGroup(value))
+        map(value => this._filterGroup(value)),
+        debounceTime(500)
       );
   }
 
@@ -55,9 +57,10 @@ export class SearchComponentComponent implements OnInit {
     return this.compData;
   }
 
-  selected($event: MatAutocompleteSelectedEvent): void {
-    console.log($event);
-    
-    // this.router.navigate([EUrl.COMPONENT, $event.option.value]);
+  optionSelected(event: MatOptionSelectionChange): void {
+    switch (event.source.group.label.toLowerCase()) {
+      case EComponentUI.BUTTON:
+        this.router.navigate([EUrl.COMPONENT, EComponentUI.BUTTON, event.source.value]);
+    }
   }
 }

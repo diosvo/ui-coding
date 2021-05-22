@@ -1,10 +1,11 @@
 <form [formGroup]="compForm">
 	<mat-form-field class="width-100">
 		<mat-label>Search Components</mat-label>
-		<input type="text" matInput formControlName="compGroup" [matAutocomplete]="autoGroup" >
-		<mat-autocomplete #autoGroup="matAutocomplete" (optionSelected)="selected($event)">
+		<input type="text" matInput formControlName="compGroup" [matAutocomplete]="autoGroup">
+		<mat-autocomplete #autoGroup="matAutocomplete">
 			<mat-optgroup *ngFor="let group of compNameOptions | async" [label]="group.groupName">
-				<mat-option *ngFor="let value of group.groupDetails" [value]="value.route" >
+				<mat-option *ngFor="let value of group.groupDetails" [value]="value.route"
+					(onSelectionChange)="optionSelected($event)">
 					{{value.name}}
 				</mat-option>
 			</mat-optgroup>
