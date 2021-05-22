@@ -32,8 +32,7 @@ export class SearchComponentComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void {
     this.compNameOptions = this.compForm.get('compGroup')?.valueChanges
@@ -61,6 +60,13 @@ export class SearchComponentComponent implements OnInit {
     switch (event.source.group.label.toLowerCase()) {
       case EComponentUI.BUTTON:
         this.router.navigate([EUrl.COMPONENT, EComponentUI.BUTTON, event.source.value]);
+        break;
+      case EComponentUI.CARD:
+        this.router.navigate([EUrl.COMPONENT, EComponentUI.CARD, event.source.value]);
+        break;
+      case EComponentUI.MENU:
+        this.router.navigate([EUrl.COMPONENT, EComponentUI.MENU, event.source.value]);
+        break;
     }
   }
 }

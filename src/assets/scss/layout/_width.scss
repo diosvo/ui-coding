@@ -53,6 +53,10 @@
         @include width-px(300);
     }
 
+    &-400 {
+        @include width-px(400);
+    }
+
     &-500 {
         @include width-px(500);
     }

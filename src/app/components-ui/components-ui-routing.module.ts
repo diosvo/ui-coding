@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EComponentUI } from '../home/models/url.enum';
 
 const routes: Routes = [
   {
-    path: 'button',
+    path: EComponentUI.BUTTON,
     loadChildren: () => import('./button/button.module').then(m => m.ButtonModule)
   },
   {
-    path: 'card',
-    loadChildren: () => import('./button/button.module').then(m => m.ButtonModule)
+    path: EComponentUI.CARD,
+    loadChildren: () => import('./card/card.module').then(m => m.CardModule)
   },
   {
-    path: 'menu',
+    path: EComponentUI.MENU,
     loadChildren: () => import('./menu/menu.module').then(m => m.MenuModule)
   },
 ];
