@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EWebUI } from '../home/models/url.enum';
 
 const routes: Routes = [
   {
-    path: EWebUI.SLIDER,
-    loadChildren: () => import('./slider/slider.module').then(m => m.SliderModule)
+    path: 'minimal-image-reviews',
+    loadChildren: () => import('./minimal-image-review/minimal-image-review.module').then(m => m.MinimalImageReviewModule)
   },
 ];
 
@@ -13,4 +12,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class WebUiRoutingModule { }
+export class SliderRoutingModule { }

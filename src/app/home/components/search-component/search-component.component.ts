@@ -9,13 +9,7 @@ import { debounceTime, map, startWith } from 'rxjs/operators';
 import { ComponentUI } from '../../models/data';
 import { IGroupValue } from '../../models/search.model';
 import { EComponentUI, EUrl } from '../../models/url.enum';
-
-// tslint:disable-next-line: variable-name
-export const _filter = (opt: string[], value: string): any[] => {
-  const filterValue = value.toLowerCase();
-
-  return opt.filter(item => item.toLowerCase().includes(filterValue));
-};
+import { filterGroup } from '../helpers/filter';
 
 @Component({
   selector: 'app-search-component',
@@ -24,7 +18,7 @@ export const _filter = (opt: string[], value: string): any[] => {
 })
 export class SearchComponentComponent implements OnInit {
   compForm: FormGroup = this.formBuilder.group({
-    compGroup: '',
+    compGroup: null,
   });
   compData: Array<IGroupValue> = ComponentUI;
   compNameOptions: Observable<IGroupValue[]>;
@@ -48,7 +42,7 @@ export class SearchComponentComponent implements OnInit {
       return this.compData
         .map(group => ({
           groupName: group.groupName,
-          groupDetails: _filter(group.groupDetails.map(detail => detail.name), value)
+          groupDetails: filterGroup(group.groupDetails.map(detail => detail.name), value)
         }))
         .filter(group => group.groupDetails.length > 0);
       // issues! find result ok but can not response correctly data type => can not show filtered result

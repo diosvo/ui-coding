@@ -1,1 +1,14 @@
-<p>search-web works!</p>
+<form [formGroup]="webUiForm" class="text-center">
+  <mat-form-field class="w-400">
+    <mat-label>Search Minimal Website</mat-label>
+    <input type="text" matInput formControlName="webGroup" [matAutocomplete]="autoGroup">
+    <mat-autocomplete #autoGroup="matAutocomplete">
+      <mat-optgroup *ngFor="let group of webNameOptions | async" [label]="group.groupName">
+        <mat-option *ngFor="let value of group.groupDetails" [value]="value.route"
+          (onSelectionChange)="optionSelected($event)">
+          {{value.name}}
+        </mat-option>
+      </mat-optgroup>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

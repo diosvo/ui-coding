@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { WebUiRoutingModule } from './web-ui-routing.module';
+import { SliderRoutingModule } from './slider-routing.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    WebUiRoutingModule
+    SliderRoutingModule
   ]
 })
-export class WebUiModule { }
+export class SliderModule { }

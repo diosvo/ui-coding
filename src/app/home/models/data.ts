@@ -1,6 +1,6 @@
 import { IGroupValue } from './search.model';
 
-export const ComponentUI: Array<IGroupValue> = [
+const ComponentUI: Array<IGroupValue> = [
   {
     groupName: 'Button',
     groupDetails: [
@@ -41,3 +41,17 @@ export const ComponentUI: Array<IGroupValue> = [
     ]
   }
 ];
+
+const WebUI: Array<IGroupValue> = [
+  {
+    groupName: 'Slider',
+    groupDetails: [
+      {
+        name: 'Minimal Image Reviews Interaction',
+        route: 'minimal-image-reviews'
+      },
+    ]
+  }
+];
+
+export { ComponentUI, WebUI };
