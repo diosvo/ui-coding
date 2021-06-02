@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MinimalImageReviewComponent } from './minimal-image-review.component';
+import { MinimalImageReviewComponent } from './components/minimal-image-review.component';
 
 const routes: Routes = [
   {
