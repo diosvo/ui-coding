@@ -1,0 +1,20 @@
+.main {
+  display: flex;
+}
+
+#left {
+  flex: 2;
+  overflow: hidden;
+}
+
+#right {
+  flex: 1;
+  align-self: center;
+  justify-content: space-between;
+
+  .actions {
+    button svg.icon {
+      background-color: #ffc720;
+    }
+  }
+}

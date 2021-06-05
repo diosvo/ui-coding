@@ -1,11 +1,13 @@
-<div class="list" #list>
+<div class="list d-flex" #list>
   <ng-container *ngFor="let item of data; let i = index">
     <figure class="list__item">
       <ng-container *ngIf="item.url">
-        <img [src]="item.url" [alt]="item.description" data-toggle="tooltip" [title]="item.description" width="100%">
+        <img [src]="item.url" [alt]="item.description" data-toggle="tooltip" [title]="item.description" width="200"
+          height="300">
       </ng-container>
 
-      <figcaption class="list__item--text" [innerHTML]="item.name"></figcaption>
+      <figcaption class="list__item--name fw-bold ls-1" [innerHTML]="item.name"></figcaption>
+      <small class="list__item--description" class="ls-1" [innerHTML]="item.category"></small>
     </figure>
   </ng-container>
 </div>

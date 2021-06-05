@@ -6,7 +6,7 @@ import { ReviewDetailsComponent } from './components/review-details/review-detai
 import { ReviewListComponent } from './components/review-list/review-list.component';
 import { MinimalImageReviewRoutingModule } from './minimal-image-review-routing.module';
 
-import { DataService } from './services/data.service';
+import { ImageReviewService } from './services/image-review.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,6 @@ import { DataService } from './services/data.service';
     CommonModule,
     MinimalImageReviewRoutingModule
   ],
-  providers: [DataService]
+  providers: [ImageReviewService]
 })
 export class MinimalImageReviewModule { }

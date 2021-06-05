@@ -15,6 +15,9 @@ html {
 body {
     background-color: var(--body-color);
     font-family     : Roboto, "Helvetica Neue", sans-serif;
+
+    -webkit-font-smoothing : antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 p {

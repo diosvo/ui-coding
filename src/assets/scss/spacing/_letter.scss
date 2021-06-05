@@ -1,0 +1,9 @@
+@mixin spacing($n) {
+  letter-spacing: $n * 1px;
+}
+
+.ls {
+  &-1 {
+    @include spacing(1);
+  }
+}

@@ -132,7 +132,7 @@ const data: Array<IData> = [
   providedIn: 'root'
 })
 
-export class DataService {
+export class ImageReviewService {
   all(): Observable<Array<IData>> {
     return new Observable((observer) => observer.next(data));
   }
