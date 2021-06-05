@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="count-box">
+    <span>02/10</span>
+  </div>
+
+  <div class="heading">
+    <h3 class="fw-bold">Reviews</h3>
+  </div>
+
+  <ng-container *ngIf="data$ | async as data">
+    <app-review-list [data]="data"></app-review-list>
+  </ng-container>
+
+
+  <div class="details">
+    <app-review-details></app-review-details>
+  </div>
+
+  <div class="actions">
+    <button>
+      <svg class="icon w-40 h-40 icon-dark">
+        <use href="./assets/svg/icons.svg#icon-chevron-right"></use>
+      </svg>
+    </button>
+  </div>
+</div>

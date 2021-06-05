@@ -1,0 +1,11 @@
+<div class="list" #list>
+  <ng-container *ngFor="let item of data; let i = index">
+    <figure class="list__item">
+      <ng-container *ngIf="item.url">
+        <img [src]="item.url" [alt]="item.description" data-toggle="tooltip" [title]="item.description" width="100%">
+      </ng-container>
+
+      <figcaption class="list__item--text" [innerHTML]="item.name"></figcaption>
+    </figure>
+  </ng-container>
+</div>

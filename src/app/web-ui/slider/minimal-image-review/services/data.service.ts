@@ -89,7 +89,7 @@ const data: Array<IData> = [
     id: 11,
     name: 'Andrea Ferrario',
     category: 'Architecture',
-    description: 'milano, Italia',
+    description: 'Milano, Italia',
     url:
       'https://images.unsplash.com/photo-1556804608-fdecc1e43e84?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80',
   },
