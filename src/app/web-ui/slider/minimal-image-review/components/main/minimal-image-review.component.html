@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" [ngStyle]="{ width: calculatedWidth }">
   <div id="left">
     <div class="count-box">
       <span>02/10</span>
@@ -9,18 +9,17 @@
     </div>
 
     <ng-container *ngIf="data$ | async as data">
-      <dv-review-list [data]="data"></dv-review-list>
+      <dv-review-list [data]="data" (calculatedWidth)="onCalculatedWidth($event)"></dv-review-list>
     </ng-container>
   </div>
 
   <div id="right">
     <div class="details">
       <dv-review-details></dv-review-details>
-      hiii
     </div>
 
     <div class="actions">
-      <button class="h-40 btn-circle">
+      <button class="h-40 btn-circle" (click)="next()">
         <svg class="icon w-40 h-40 btn-circle">
           <use href="./assets/svg/icons.svg#icon-chevron-right"></use>
         </svg>

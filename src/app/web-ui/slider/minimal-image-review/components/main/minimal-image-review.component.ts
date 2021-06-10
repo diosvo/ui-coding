@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { IData } from '../../models/data.interface';
 import { ImageReviewService } from '../../services/image-review.service';
+import { ReviewListComponent } from '../review-list/review-list.component';
 
 @Component({
   selector: 'dv-image-review',
@@ -10,10 +12,21 @@ import { ImageReviewService } from '../../services/image-review.service';
 })
 export class MinimalImageReviewComponent implements OnInit {
   data$: Observable<Array<IData>>;
+  calculatedWidth: string;
 
-  constructor(private service: ImageReviewService) { }
+  @ViewChild(ReviewListComponent) public reviews: ReviewListComponent;
+  constructor(private service: ImageReviewService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.data$ = this.service.all();
+  }
+
+  public onCalculatedWidth(width: string): void {
+    this.calculatedWidth = width;
+    this.cdr.detectChanges();
+  }
+
+  public next(): void {
+    // this.reviews.
   }
 }
