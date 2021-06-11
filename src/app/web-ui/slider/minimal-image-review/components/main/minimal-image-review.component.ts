@@ -10,11 +10,14 @@ import { ReviewListComponent } from '../review-list/review-list.component';
   templateUrl: './minimal-image-review.component.html',
   styleUrls: ['./minimal-image-review.component.scss']
 })
+    // problem: UI does not complete > can not see the last element in lists
+
 export class MinimalImageReviewComponent implements OnInit {
   data$: Observable<Array<IData>>;
   calculatedWidth: string;
 
   @ViewChild(ReviewListComponent) public reviews: ReviewListComponent;
+
   constructor(private service: ImageReviewService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -22,11 +25,13 @@ export class MinimalImageReviewComponent implements OnInit {
   }
 
   public onCalculatedWidth(width: string): void {
+    console.log(width);
+
     this.calculatedWidth = width;
     this.cdr.detectChanges();
   }
 
   public next(): void {
-    // this.reviews.
+    this.reviews.onNext();
   }
 }
