@@ -1,9 +1,9 @@
-<form [formGroup]="compForm" class="text-center">
+<form class="text-center">
 	<mat-form-field class="w-400">
 		<mat-label>Search Components</mat-label>
-		<input type="text" matInput formControlName="compGroup" [matAutocomplete]="autoGroup">
+		<input type="text" matInput [formControl]="searchInput" [matAutocomplete]="autoGroup" #search>
 		<mat-autocomplete #autoGroup="matAutocomplete">
-			<mat-optgroup *ngFor="let group of compNameOptions | async" [label]="group.groupName">
+			<mat-optgroup *ngFor="let group of compOptions$ | async" [label]="group.groupName">
 				<mat-option *ngFor="let value of group.groupDetails" [value]="value.route"
 					(onSelectionChange)="optionSelected($event)">
 					{{value.name}}

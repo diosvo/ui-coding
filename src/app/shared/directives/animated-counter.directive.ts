@@ -1,9 +1,8 @@
 import { Directive, ElementRef, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-
 import { Subject, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-const DEFAULT_ANIMATION_SPEED = 8
+const DEFAULT_ANIMATION_SPEED = 8;
 
 @Directive({
   selector: '[appAnimatedCounter]'
@@ -16,27 +15,27 @@ export class AnimatedCounterDirective implements OnInit, OnDestroy {
   staticText: string;
 
   private destroyed$ = new Subject<void>();
-  private startingValue: number = 0;
-  private startingValueDecimal: number = 0;
+  private startingValue = 0;
+  private startingValueDecimal = 0;
 
   constructor(
-    private _el: ElementRef<HTMLDivElement>,
-    private _renderer: Renderer2) { }
+    private el: ElementRef<HTMLDivElement>,
+    private renderer: Renderer2) { }
 
-  ngOnInit() {
-    if (!!this._el.nativeElement.textContent) {
-      this.staticText = this._el.nativeElement.textContent;
+  ngOnInit(): void {
+    if (!!this.el.nativeElement.textContent) {
+      this.staticText = this.el.nativeElement.textContent;
     }
 
     if (this.delay > 0) {
-      this._renderer.setProperty(this._el.nativeElement, 'textContent', this.staticText);
+      this.renderer.setProperty(this.el.nativeElement, 'textContent', this.staticText);
     }
 
     timer(this.delay || 0)
       .pipe(takeUntil(this.destroyed$))
       .subscribe({
         complete: () => this.animate()
-      })
+      });
   }
 
   private get hasDecimals(): boolean {
@@ -49,17 +48,17 @@ export class AnimatedCounterDirective implements OnInit, OnDestroy {
     return parseFloat(decimal);
   }
 
-  private animate() {
+  private animate(): void {
     if (this.value && this.safeValidate(this.value)) {
       const start = () => {
         if (this.startingValue < this.value) {
           this.startingValue++;
-          this._renderer.setProperty(this._el.nativeElement, 'textContent', `${this.startingValue}${this.staticText ? this.staticText : ''}`);
+          this.renderer.setProperty(this.el.nativeElement, 'textContent', `${this.startingValue}${this.staticText ? this.staticText : ''}`);
           setTimeout(start, this.speed);
         } else if (this.hasDecimals) {
           if (this.startingValueDecimal < this.getDecimalValuePortion(1)) {
             this.startingValueDecimal++;
-            this._renderer.setProperty(this._el.nativeElement, 'textContent', `${this.getDecimalValuePortion(0)}.${this.startingValueDecimal}${this.staticText ? this.staticText : ''}`);
+            this.renderer.setProperty(this.el.nativeElement, 'textContent', `${this.getDecimalValuePortion(0)}.${this.startingValueDecimal}${this.staticText ? this.staticText : ''}`);
             setTimeout(start, this.speed);
           }
         }
@@ -73,7 +72,7 @@ export class AnimatedCounterDirective implements OnInit, OnDestroy {
     return typeof value === 'number';
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroyed$.next();
     this.destroyed$.complete();
   }

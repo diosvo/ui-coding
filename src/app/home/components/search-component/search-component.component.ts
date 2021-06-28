@@ -1,59 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AfterContentInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatOptionSelectionChange } from '@angular/material/core';
 import { Router } from '@angular/router';
-
-import { Observable } from 'rxjs';
-import { debounceTime, map, startWith } from 'rxjs/operators';
-
-import { ComponentUI } from '../../models/data';
-import { IGroupValue } from '../../models/search.model';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 import { EComponentUI, EUrl } from '../../models/url.enum';
-
-// tslint:disable-next-line: variable-name
-export const _filter = (opt: string[], value: string): any[] => {
-  const filterValue = value.toLowerCase();
-
-  return opt.filter(item => item.toLowerCase().includes(filterValue));
-};
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-search-component',
   templateUrl: './search-component.component.html',
   styleUrls: ['./search-component.component.scss']
 })
-export class SearchComponentComponent implements OnInit {
-  compForm: FormGroup = this.formBuilder.group({
-    compGroup: '',
-  });
-  compData: Array<IGroupValue> = ComponentUI;
-  compNameOptions: Observable<IGroupValue[]>;
+export class SearchComponentComponent implements OnInit, AfterContentInit {
+  searchInput = new FormControl();
+  compOptions$ = new Subject();
+
+  @ViewChild('search', { static: false }) search: ElementRef;
 
   constructor(
-    private formBuilder: FormBuilder,
     private router: Router,
+    private searchService: SearchService
   ) { }
 
   ngOnInit(): void {
-    this.compNameOptions = this.compForm.get('compGroup')?.valueChanges
+    this.compOptions$ = this.searchService.result$;
+
+    this.searchInput.valueChanges
       .pipe(
-        startWith(''),
-        map(value => this._filterGroup(value)),
-        debounceTime(500)
-      );
+        filter(q => !q || q?.length > 2),
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap(q => this.searchService.searchComp(q))
+      )
+      .subscribe(response => {
+        this.searchService.result$.next(response);
+      });
   }
 
-  private _filterGroup(value: string): Array<IGroupValue> {
-    if (value) {
-      return this.compData
-        .map(group => ({
-          groupName: group.groupName,
-          groupDetails: _filter(group.groupDetails.map(detail => detail.name), value)
-        }))
-        .filter(group => group.groupDetails.length > 0);
-      // issues! find result ok but can not response correctly data type => can not show filtered result
-    }
-    return this.compData;
+  ngAfterContentInit(): void {
+    /***
+     * @description another way is autofocus (without *ngIf)
+     */
+    setTimeout(() => this.search.nativeElement.focus());
   }
 
   optionSelected(event: MatOptionSelectionChange): void {

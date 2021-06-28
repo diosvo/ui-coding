@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EUrl } from './home/models/url.enum';
 
 const routes: Routes = [
   {
@@ -11,15 +12,15 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'component-ui',
+    path: EUrl.COMPONENT,
     loadChildren: () => import('./components-ui/components-ui.module').then(m => m.ComponentsUiModule)
   },
   {
-    path: 'web-ui',
+    path: EUrl.WEB,
     loadChildren: () => import('./web-ui/web-ui.module').then(m => m.WebUiModule)
   },
   {
-    path: 'function',
+    path: EUrl.FUNCTION,
     loadChildren: () => import('./functions/functions.module').then(m => m.FunctionsModule)
   }
 ]

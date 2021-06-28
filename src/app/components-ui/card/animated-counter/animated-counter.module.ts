@@ -5,7 +5,7 @@ import { AnimatedCounterRoutingModule } from './animated-counter-routing.module'
 import { AnimatedCounterComponent } from './animated-counter.component';
 
 @NgModule({
-  declarations: [AnimatedCounterComponent,AnimatedCounterDirective],
+  declarations: [AnimatedCounterComponent, AnimatedCounterDirective],
   imports: [
     CommonModule,
     AnimatedCounterRoutingModule

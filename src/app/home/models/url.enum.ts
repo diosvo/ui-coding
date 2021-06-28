@@ -1,7 +1,7 @@
 export enum EUrl {
   COMPONENT = 'component-ui',
   WEB = 'web-ui',
-  FUNCTION = 'function'
+  FUNCTION = 'functions'
 }
 
 export enum EComponentUI {
