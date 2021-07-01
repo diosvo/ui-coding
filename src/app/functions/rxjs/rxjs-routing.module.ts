@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EFunctions } from '../home/models/url.enum';
 
 const routes: Routes = [
   {
-    path: EFunctions.RXJS,
-    loadChildren: () => import('./rxjs/rxjs.module').then(m => m.RxjsModule)
-  },
+    path: 'data-composition-ng-conf',
+    loadChildren: () => import('./data-composition-ng-conf/data-composition-ng-conf.module').then(m => m.DataCompositionNgConfModule)
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FunctionsRoutingModule { }
+export class RxjsRoutingModule { }
