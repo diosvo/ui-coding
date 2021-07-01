@@ -1,4 +1,6 @@
-<p>main-page works!</p>
+<div *ngIf="products$ | async as products">
+  <pre>{{products | json}}</pre>
+</div>
 
 
 <!-- http://localhost:4200/functions/rxjs/data-composition-ng-conf -->

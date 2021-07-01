@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { ProductsService } from 'src/assets/shared/services/products/products.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -7,10 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+  products$ = new Observable();
+  messageError: string;
 
-  constructor() { }
+  constructor(
+    private productsService: ProductsService
+  ) { }
 
   ngOnInit(): void {
+    this.products$ = this.productsService.all$
+      .pipe(
+        catchError(error => {
+          this.messageError = error;
+          return of(null);
+        })
+      );
   }
-
 }
