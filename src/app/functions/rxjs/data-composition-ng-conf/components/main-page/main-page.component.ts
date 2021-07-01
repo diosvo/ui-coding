@@ -7,7 +7,7 @@ import { ProductsService } from 'src/assets/shared/services/products/products.se
   // tslint:disable-next-line: component-selector
   selector: 'data-composition-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss']
+  styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
   products$ = new Observable();
@@ -18,7 +18,8 @@ export class MainPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.products$ = this.productsService.all$
+    this.products$ = this.productsService
+      .all()
       .pipe(
         catchError(error => {
           this.messageError = error;
