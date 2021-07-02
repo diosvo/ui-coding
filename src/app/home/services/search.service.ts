@@ -15,7 +15,7 @@ export class SearchService {
 
   searchComp(q: string): Observable<Array<IGroupValue>> {
     return this.http
-      .get<Array<IGroupValue>>('/assets/data/comp-data.json')
+      .get<Array<IGroupValue>>('/assets/searching-data/components.json')
       .pipe(
         map(items =>
           items.filter(
