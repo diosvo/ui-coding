@@ -1,6 +1,9 @@
-<div *ngIf="products$ | async as products">
-  <pre>{{products | json}}</pre>
+<div *ngIf="productsAndCoffee$ | async as combination">
+  <pre>{{combination | json}}</pre>
 </div>
 
+<div>
+  {{messageError}}
+</div>
 
 <!-- http://localhost:4200/functions/rxjs/data-composition-ng-conf -->

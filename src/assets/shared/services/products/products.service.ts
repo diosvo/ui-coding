@@ -7,19 +7,20 @@ import { IProduct } from '../../models/product';
   providedIn: 'root'
 })
 export class ProductsService {
-  all$ = new Observable();
+  /*** return an observable from the service
+  @api products.json
+  */
+
+  all$ = this.http.get<Array<IProduct>>('/assets/shared/data/products.json');
 
   constructor(private http: HttpClient) { }
+
+  /*** call methods from the service
+  @api products.json
+  */
 
   all(): Observable<Array<IProduct>> {
     return this.http
       .get<Array<IProduct>>('/assets/shared/data/products.json');
   }
 }
-
-/***
-@description another way to call observable in service
-- service:
-  all$ = this.http.get<Array<IProduct>>('/assets/shared/data/products.json')
-- component: just need to call all$ via service
-*/
