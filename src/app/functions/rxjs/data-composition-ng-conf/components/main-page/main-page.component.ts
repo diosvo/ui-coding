@@ -1,6 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+
+import { combineLatest, of, Subject } from 'rxjs';
+import { catchError, filter, map } from 'rxjs/operators';
+
+import { IProduct } from 'src/assets/shared/models/product';
 import { ProductsService } from 'src/assets/shared/services/products/products.service';
 
 @Component({
@@ -10,25 +13,35 @@ import { ProductsService } from 'src/assets/shared/services/products/products.se
   styleUrls: ['./main-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainPageComponent implements OnInit, OnDestroy {
-  products$ = new Observable();
+export class MainPageComponent implements OnDestroy {
+  messageError: string;
   destroyed = new Subject<void>();
 
-  messageError: string;
+  products$ = this.productsService
+    .all$
+    .pipe(
+      catchError(error => {
+        this.messageError = error;
+        return of(null);
+      })
+    );
 
-  constructor(
-    private productsService: ProductsService
-  ) { }
+  pageTitle$ = this.products$
+    .pipe(
+      map((product: IProduct) => product ? `Product Details for: ${product.productName}` : null)
+    );
 
-  ngOnInit(): void {
-    this.products$ = this.productsService
-      .productsWithCategory$
-      .pipe(
-        catchError(error => {
-          this.messageError = error;
-          return of(null);
-        })
-      );
+  combination$ = combineLatest([this.products$, this.pageTitle$])
+    .pipe(
+      filter(([product]) => !!product),
+      map(([product, pageTitle]) => ({ product, pageTitle }))
+    );
+
+  constructor(private productsService: ProductsService) { }
+
+
+  onSelected(productId: number): void {
+    this.productsService.changeSelectedProduct(productId);
   }
 
   ngOnDestroy(): void {

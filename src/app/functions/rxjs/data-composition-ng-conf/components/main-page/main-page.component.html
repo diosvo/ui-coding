@@ -1,5 +1,8 @@
-<div *ngIf="products$ | async as products">
-  <pre>{{products | json}}</pre>
+<div *ngIf="combination$ | async as c">
+  <!-- <pre>{{c | json}}</pre> -->
+  <div>{{c.pageTitle}}</div>
+  <div>Name:</div>
+  <div>{{c.product.productName}}</div>
 </div>
 
 <div>
