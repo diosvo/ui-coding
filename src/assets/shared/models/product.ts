@@ -1,4 +1,4 @@
-interface IProduct {
+interface BaseProduct {
   productId: number;
   productName: string;
   productImage: string;
@@ -6,6 +6,10 @@ interface IProduct {
   productPrice: number;
   productSalePrice: number;
   rating: number;
+}
+
+interface IProduct extends BaseProduct {
+  categoryId: number;
 }
 
 export { IProduct };

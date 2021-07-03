@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-import { combineLatest, Observable, of, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { CoffeeService } from 'src/assets/shared/services/coffee/coffee.service';
 import { ProductsService } from 'src/assets/shared/services/products/products.service';
 
 @Component({
@@ -12,25 +11,24 @@ import { ProductsService } from 'src/assets/shared/services/products/products.se
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainPageComponent implements OnInit, OnDestroy {
-  productsAndCoffee$ = new Observable();
+  products$ = new Observable();
   destroyed = new Subject<void>();
 
   messageError: string;
 
   constructor(
-    private productsService: ProductsService,
-    private coffeeService: CoffeeService
+    private productsService: ProductsService
   ) { }
 
   ngOnInit(): void {
-    this.productsAndCoffee$ =
-      combineLatest([this.productsService.all$, this.coffeeService.all$]) // [ Array<IProduct>, Array<ICoffee> ]
-        .pipe(
-          catchError(error => {
-            this.messageError = error;
-            return of(null);
-          })
-        );
+    this.products$ = this.productsService
+      .productsWithCategory$
+      .pipe(
+        catchError(error => {
+          this.messageError = error;
+          return of(null);
+        })
+      );
   }
 
   ngOnDestroy(): void {
