@@ -1,1 +1,7 @@
-<p>content works!</p>
+<mat-card *ngIf="combination$ | async as c">
+  <mat-list>
+    <h3 matSubheader>
+      <span>{{pageTitle | titlecase}}</span>
+    </h3>
+  </mat-list>
+</mat-card>

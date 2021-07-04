@@ -1,12 +1,10 @@
-<div *ngIf="combination$ | async as c">
-  <!-- <pre>{{c | json}}</pre> -->
-  <div>{{c.pageTitle}}</div>
-  <div>Name:</div>
-  <div>{{c.product.productName}}</div>
-</div>
+<!-- 
+Refs to:
+http://localhost:4200/functions/rxjs/data-composition-ng-conf
+https://github.com/DeborahK/Angular-DD 
+-->
 
-<div>
-  {{messageError}}
+<div class="d-flex gap-1 p-2">
+  <data-composition-sidebar class="flex-grow-1"></data-composition-sidebar>
+  <data-composition-content class="flex-grow-2"></data-composition-content>
 </div>
-
-<!-- http://localhost:4200/functions/rxjs/data-composition-ng-conf -->

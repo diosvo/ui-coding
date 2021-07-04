@@ -8,6 +8,11 @@ const routes: Routes = [
     component: MainPageComponent,
     data: { title: 'Data Composition w/ RxJS' }
   },
+  {
+    path: ':id',
+    component: MainPageComponent,
+    data: { title: 'Data Composition w/ RxJS - Product Details' }
+  }
 ];
 
 @NgModule({

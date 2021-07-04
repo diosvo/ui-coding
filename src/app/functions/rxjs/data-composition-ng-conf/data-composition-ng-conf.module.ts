@@ -1,22 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { DataCompositionNgConfRoutingModule } from './data-composition-ng-conf-routing.module';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+
+import { ContentComponent } from './components/content/content.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { ContentComponent } from './components/content/content.component';
-
-
+import { DataCompositionNgConfRoutingModule } from './data-composition-ng-conf-routing.module';
 
 @NgModule({
   declarations: [
-  
     MainPageComponent,
-       SidebarComponent,
-       ContentComponent
+    SidebarComponent,
+    ContentComponent
   ],
   imports: [
     CommonModule,
-    DataCompositionNgConfRoutingModule
+    DataCompositionNgConfRoutingModule,
+
+    MatListModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
   ]
 })
 export class DataCompositionNgConfModule { }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { combineLatest, Observable, of, ReplaySubject } from 'rxjs';
-import { catchError, map, shareReplay } from 'rxjs/operators';
+import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 
 import { IProduct } from '../../models/product';
 import { CategoryService } from '../category/category.service';
@@ -27,8 +27,9 @@ export class ProductsService {
   private productSelectedAction = new ReplaySubject<number>(1); // number: productId emit to the stream
   productSelectedAction$ = this.productSelectedAction.asObservable();
 
-  /*** return an observable from the service
+  /*** Return an observable from the service
    @api products.json
+   @tips refreshes the data from the backend server
    */
 
   all$ = this.http.get<Array<IProduct>>('/assets/shared/data/products.json')
@@ -51,11 +52,12 @@ export class ProductsService {
       );
 
   selected$ =
-    combineLatest([this.productSelectedAction$, this.withCategory$])
+    combineLatest([this.productSelectedAction$, this.withCategory$]) // [ IProduct, [ Array<IProduct>, Array<ICategory> ] ]
       .pipe(
         map(([selectedProductId, products]) => {
-          products.find(product => product.productId === selectedProductId);
+          return products.find(product => product.productId === selectedProductId);
         }),
+        tap(product => console.log('Change selected product: ', product)),
         shareReplay({ bufferSize: 1, refCount: false })
       );
 
@@ -64,8 +66,9 @@ export class ProductsService {
     private categoryService: CategoryService
   ) { }
 
-  /*** call methods from the service
+  /*** Call methods from the service
    @api products.json
+   @tips uses methods without refreshing
    */
 
   all(): Observable<Array<IProduct>> {
@@ -85,6 +88,7 @@ export class ProductsService {
   }
 
   // Refresh the data.
+
   refreshData(): void {
     this.start();
   }
