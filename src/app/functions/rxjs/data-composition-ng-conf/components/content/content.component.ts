@@ -36,7 +36,7 @@ export class ContentComponent {
 
   displayProduct(product: IProduct): void {
     if (product) {
-      this.pageTitle = `Product Detail ▶ ${product.productName}`;
+      this.pageTitle = `Product Detail ➡ ${product.productName}`;
     } else {
       this.pageTitle = 'No product found';
     }
