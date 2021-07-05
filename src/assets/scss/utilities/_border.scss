@@ -24,6 +24,10 @@
     }
 
     &-radius {
+        &-4 {
+            @include border-radius(2);
+        }
+
         &-12 {
             @include border-radius(12);
         }

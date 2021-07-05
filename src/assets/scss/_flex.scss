@@ -42,6 +42,12 @@
     }
 }
 
+.as {
+    &-center {
+        align-self: center;
+    }
+}
+
 .flex-direction {
     &-column {
         flex-direction: column;
