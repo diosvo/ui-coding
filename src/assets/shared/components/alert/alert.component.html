@@ -1,0 +1,9 @@
+<div #alert id="alert-{{type}}" class="bg-{{type}} bd-{{type}} d-flex p-2 m-2 bd-radius-2">
+  <div class="as-center">
+    <ng-content></ng-content>
+  </div>
+  <button (click)="dismissAlert(alert)" type="button" class="bg-{{type}} ml-auto" data-dismiss="alert"
+    aria-label="Close" data-toggle="tooltip" title="Close Alert" style="padding: 0.5rem 0.75rem;">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
