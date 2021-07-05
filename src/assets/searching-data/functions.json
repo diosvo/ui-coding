@@ -1,0 +1,17 @@
+[
+  {
+    "groupName": "RxJS",
+    "groupDetails": [
+      {
+        "name": "Data Composition #ng-conf",
+        "route": "data-composition-ng-conf"
+      }
+    ]
+  },
+  {
+    "groupName": "Service",
+    "groupDetails": [
+      {}
+    ]
+  }
+]

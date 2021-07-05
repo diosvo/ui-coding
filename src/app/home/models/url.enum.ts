@@ -9,3 +9,7 @@ export enum EComponentUI {
   CARD = 'card',
   MENU = 'menu'
 }
+
+export enum EFunctions {
+  RXJS = 'rxjs',
+}
