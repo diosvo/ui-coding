@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { RxjsRoutingModule } from './rxjs-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [
