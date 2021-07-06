@@ -21,8 +21,8 @@
           <p>{{ combination.product.productName | titlecase}}</p>
           <p>{{ combination.product.categoryName }}</p>
           <p><a [href]="combination.product.productImage">{{ combination.product.productImage }}</a></p>
-          <p>{{ combination.product.productPrice }}</p>
-          <p>{{ combination.product.productSalePrice }}</p>
+          <p>{{ combination.product.productPrice | currency}}</p>
+          <p>{{ combination.product.productSalePrice | currency }}</p>
         </div>
       </div>
     </div>
