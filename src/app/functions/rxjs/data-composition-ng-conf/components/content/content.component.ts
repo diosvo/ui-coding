@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { combineLatest } from 'rxjs';
-import { catchError, filter, map, tap } from 'rxjs/operators';
+import { filter, map, tap } from 'rxjs/operators';
 
 import { IProduct } from 'src/assets/shared/models/product';
 import { ProductsService } from 'src/assets/shared/services/products/products.service';
@@ -14,14 +14,14 @@ import { ProductsService } from 'src/assets/shared/services/products/products.se
 })
 export class ContentComponent {
   pageTitle: string;
-  errorMessage: string;
+  hasError = false;
 
   product$ = this.productsService.selected$
     .pipe(
       tap({
-        next: (product: IProduct) => this.displayProduct(product)
-      }),
-      catchError(error => this.errorMessage = error)
+        next: (product: IProduct) => this.displayProduct(product),
+        error: () => this.hasError = true
+      })
     );
 
   selectedProductId$ = this.productsService.productSelectedAction$;
