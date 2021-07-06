@@ -1,6 +1,6 @@
 <mat-card *ngIf="combination$ | async as combination">
   <ng-container *ngIf="hasError">
-    <alert-message [type]="'error'">An error occurred.</alert-message>
+    <alert-message type="error">An error occurred.</alert-message>
   </ng-container>
 
   <mat-list>
