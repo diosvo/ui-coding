@@ -7,7 +7,7 @@ import { EAlert } from '../../models/alert';
   templateUrl: './alert.component.html'
 })
 export class AlertComponent {
-  @Input() type: EAlert;
+  @Input() type: typeof EAlert = EAlert;
 
   public dismissAlert(element): void {
     return element.parentElement.removeChild(element);

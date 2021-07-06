@@ -8,6 +8,11 @@
   --bd-info   : #0073BB;
   --bd-warning: #FF8F39;
   --bd-error  : #D13212;
+
+  --txt-success: #287D3C;
+  --txt-info   : #2E5AAC;
+  --txt-warning: #B95000;
+  --txt-error  : #DA1414;
 }
 
 .bg {
@@ -46,20 +51,20 @@
   }
 }
 
-.txt {
+.icon {
   &-success {
-    color: var(--bd-success);
+    color: var(--txt-success);
   }
 
   &-info {
-    color: var(--bd-info);
+    color: var(--txt-info);
   }
 
   &-warning {
-    color: var(--bd-warning);
+    color: var(--txt-warning);
   }
 
   &-error {
-    color: var(--bd-error);
+    color: var(--txt-error);
   }
 }
