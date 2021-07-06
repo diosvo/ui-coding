@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { AlertModule } from 'src/assets/shared/components/alert/alert.module';
 
 import { ContentComponent } from './components/content/content.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
@@ -20,6 +21,7 @@ import { DataCompositionNgConfRoutingModule } from './data-composition-ng-conf-r
   imports: [
     CommonModule,
     DataCompositionNgConfRoutingModule,
+    AlertModule,
 
     MatListModule,
     MatButtonModule,

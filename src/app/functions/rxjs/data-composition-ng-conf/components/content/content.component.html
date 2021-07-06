@@ -1,4 +1,8 @@
 <mat-card *ngIf="combination$ | async as combination">
+  <ng-container *ngIf="hasError">
+    <alert-message [type]="'error'">An error occurred.</alert-message>
+  </ng-container>
+
   <mat-list>
     <h3 matSubheader>
       <span>{{pageTitle | titlecase}}</span>
@@ -14,11 +18,11 @@
           <p>Product Sale Price</p>
         </div>
         <div class="flex-grow-2">
-          <p>{{combination.product.productName | titlecase}}</p>
-          <p>{{combination.product.categoryName}}</p>
-          <p><a [href]="combination.product.productImage">{{combination.product.productImage}}</a></p>
-          <p>{{combination.product.productPrice}}</p>
-          <p>{{combination.product.productSalePrice}}</p>
+          <p>{{ combination.product.productName | titlecase}}</p>
+          <p>{{ combination.product.categoryName }}</p>
+          <p><a [href]="combination.product.productImage">{{ combination.product.productImage }}</a></p>
+          <p>{{ combination.product.productPrice }}</p>
+          <p>{{ combination.product.productSalePrice }}</p>
         </div>
       </div>
     </div>
