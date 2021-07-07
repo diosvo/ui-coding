@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-advanced-crud',
   templateUrl: './advanced-crud.component.html',
-  styleUrls: ['./advanced-crud.component.scss']
+  styleUrls: ['./advanced-crud.component.scss'],
 })
 export class AdvancedCrudComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'action'];
@@ -15,15 +15,23 @@ export class AdvancedCrudComponent implements OnInit {
     rows: this.fb.array([])
   });
 
-  constructor(private fb: FormBuilder) { }
+  @ViewChild('focusInput') focusInput: ElementRef;
+  @ViewChild('btnAdd') btnAdd: ElementRef;
+
+  constructor(
+    private fb: FormBuilder,
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void { }
 
-  addNewRow(): void {
+  addNewRow($event: Event): void {
+    $event.stopPropagation();
     this.rows.push(this.initRow());
     this.dataSource = new MatTableDataSource(this.rows.controls);
-    console.log(this.dataSource);
-    
+
+    this.cdr.detectChanges();
+    this.focusInput.nativeElement.focus();
   }
 
   editItem(idx: number): void {
@@ -32,6 +40,7 @@ export class AdvancedCrudComponent implements OnInit {
 
   deleteItem(idx: number): void {
     this.rows.removeAt(idx);
+    this.dataSource = new MatTableDataSource(this.rows.controls);
   }
 
   saveChanges(idx: number): void {
@@ -40,6 +49,11 @@ export class AdvancedCrudComponent implements OnInit {
 
   cancelChanges(idx: number): void {
     this.rows.at(idx).get('isEditable').patchValue(true);
+  }
+
+  rowValid(idx: number): boolean {
+    return this.rows.at(idx).get('categoryId').value
+      && this.rows.at(idx).get('categoryName').value ? false : true;
   }
 
   private get rows(): FormArray {

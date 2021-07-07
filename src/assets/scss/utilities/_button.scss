@@ -38,3 +38,9 @@ button {
     cursor    : pointer;
     transition: 200ms ease-in-out;
 }
+
+// Override AM
+
+.mat-icon-button.mat-button-disabled {
+    cursor: not-allowed !important;
+}
