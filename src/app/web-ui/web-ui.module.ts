@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { WebUiRoutingModule } from './web-ui-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [

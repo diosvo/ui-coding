@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { TableRoutingModule } from './table-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [

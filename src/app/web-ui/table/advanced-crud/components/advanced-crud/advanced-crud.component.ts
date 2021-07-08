@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
@@ -6,7 +6,6 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-advanced-crud',
   templateUrl: './advanced-crud.component.html',
-  styleUrls: ['./advanced-crud.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdvancedCrudComponent implements OnInit, OnDestroy {
