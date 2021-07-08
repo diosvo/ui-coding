@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, NgZone, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-advanced-crud',
   templateUrl: './advanced-crud.component.html',
   styleUrls: ['./advanced-crud.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdvancedCrudComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['id', 'name', 'action'];
@@ -20,9 +21,7 @@ export class AdvancedCrudComponent implements OnInit, OnDestroy {
   destroy$ = new Subscription();
 
   constructor(
-    private fb: FormBuilder,
-    private ngZone: NgZone,
-    private cdr: ChangeDetectorRef,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void { }
@@ -55,13 +54,18 @@ export class AdvancedCrudComponent implements OnInit, OnDestroy {
   }
 
   focus(): void {
-    this.destroy$ = this.focusInput.changes.subscribe(() => {
-      this.ngZone.runOutsideAngular(() => {
+    /***
+    * @description: another way to set autofocus without using OnPush
+    * this.ngZone.runOutsideAngular(() => {
         setTimeout(() => {
           this.focusInput.last.nativeElement.focus();
           this.cdr.detectChanges();
         });
       });
+     */
+
+    this.destroy$ = this.focusInput.changes.subscribe(() => {
+      this.focusInput.last.nativeElement.focus();
     });
   }
 
