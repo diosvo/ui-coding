@@ -1,13 +1,14 @@
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, NgZone, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-advanced-crud',
   templateUrl: './advanced-crud.component.html',
   styleUrls: ['./advanced-crud.component.scss'],
 })
-export class AdvancedCrudComponent implements OnInit {
+export class AdvancedCrudComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['id', 'name', 'action'];
   dataSource = new MatTableDataSource<any>();
 
@@ -15,23 +16,20 @@ export class AdvancedCrudComponent implements OnInit {
     rows: this.fb.array([])
   });
 
-  @ViewChild('focusInput') focusInput: ElementRef;
-  @ViewChild('btnAdd') btnAdd: ElementRef;
+  @ViewChildren('focusInput') focusInput: QueryList<ElementRef>;
+  destroy$ = new Subscription();
 
   constructor(
     private fb: FormBuilder,
-    private cdr: ChangeDetectorRef
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef,
   ) { }
 
   ngOnInit(): void { }
 
-  addNewRow($event: Event): void {
-    $event.stopPropagation();
+  addNewRow(): void {
     this.rows.push(this.initRow());
     this.dataSource = new MatTableDataSource(this.rows.controls);
-
-    this.cdr.detectChanges();
-    this.focusInput.nativeElement.focus();
   }
 
   editItem(idx: number): void {
@@ -56,6 +54,17 @@ export class AdvancedCrudComponent implements OnInit {
       && this.rows.at(idx).get('categoryName').value ? false : true;
   }
 
+  focus(): void {
+    this.destroy$ = this.focusInput.changes.subscribe(() => {
+      this.ngZone.runOutsideAngular(() => {
+        setTimeout(() => {
+          this.focusInput.last.nativeElement.focus();
+          this.cdr.detectChanges();
+        });
+      });
+    });
+  }
+
   private get rows(): FormArray {
     return this.form.get('rows') as FormArray;
   }
@@ -66,5 +75,9 @@ export class AdvancedCrudComponent implements OnInit {
       categoryName: [null, Validators.required],
       isEditable: [false]
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.unsubscribe();
   }
 }
