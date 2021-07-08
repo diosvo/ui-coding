@@ -12,9 +12,10 @@ import { ICategory } from '../../models/category';
 export class CategoryService {
   private refresh = new ReplaySubject<void>();
 
-  /*** Return an observable from the service
-   @api category.json
-   @tips refreshes the data from the backend server
+  /**
+   * @description return an observable from the service
+   * @api category.json
+   * @tips refreshes the data from the backend server
    */
 
   // Using refresh here instead of reassigning the value ensures that no references are lost.
@@ -27,9 +28,10 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  /*** Call methods from the service
-   @api category.json
-   @tips uses methods without refreshing
+  /**
+   * @description call methods from the service
+   * @api category.json
+   * @tips uses methods without refreshing
    */
 
   all(): Observable<Array<ICategory>> {

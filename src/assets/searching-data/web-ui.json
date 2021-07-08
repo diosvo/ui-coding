@@ -1,0 +1,11 @@
+[
+  {
+    "groupName": "Table",
+    "groupDetails": [
+      {
+        "name": "Advanced CRUD",
+        "route": "advanced-crud"
+      }
+    ]
+  }
+]

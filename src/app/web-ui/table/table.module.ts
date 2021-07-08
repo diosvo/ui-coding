@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { WebUiRoutingModule } from './web-ui-routing.module';
+import { TableRoutingModule } from './table-routing.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    WebUiRoutingModule
+    TableRoutingModule
   ]
 })
-export class WebUiModule { }
+export class TableModule { }

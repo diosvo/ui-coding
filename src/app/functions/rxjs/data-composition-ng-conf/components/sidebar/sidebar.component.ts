@@ -7,7 +7,6 @@ import { catchError } from 'rxjs/operators';
 import { EFunctions, EUrl } from 'src/app/home/models/url.enum';
 import { ProductsService } from 'src/assets/shared/services/products/products.service';
 
-
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'data-composition-sidebar',
