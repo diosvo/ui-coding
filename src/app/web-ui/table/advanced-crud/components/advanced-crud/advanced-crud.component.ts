@@ -1,36 +1,42 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { Subscription } from 'rxjs';
+import { ICategory } from 'src/assets/shared/models/category';
 
 @Component({
   selector: 'app-advanced-crud',
   templateUrl: './advanced-crud.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AdvancedCrudComponent implements OnInit, OnDestroy {
+export class AdvancedCrudComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'action'];
   dataSource = new MatTableDataSource<any>();
 
   form: FormGroup = this.fb.group({
     rows: this.fb.array([])
   });
+  isEdit: boolean;
+  rowValue: ICategory;
 
   @ViewChildren('focusInput') focusInput: QueryList<ElementRef>;
-  destroy$ = new Subscription();
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void { }
 
   addNewRow(): void {
+    this.isEdit = false;
     this.rows.push(this.initRow());
     this.dataSource = new MatTableDataSource(this.rows.controls);
   }
 
   editItem(idx: number): void {
+    this.isEdit = true;
+    this.rowValue = this.getRowValue(idx);
     this.rows.at(idx).get('isEditable').patchValue(false);
   }
 
@@ -44,28 +50,59 @@ export class AdvancedCrudComponent implements OnInit, OnDestroy {
   }
 
   cancelChanges(idx: number): void {
-    this.rows.at(idx).get('isEditable').patchValue(true);
+    switch (this.isEdit) {
+      case false: {
+        this.deleteItem(idx);
+        this.rows.at(idx).get('isEditable').patchValue(true);
+        break;
+      }
+
+      case true: {
+        this.rows.at(idx).patchValue({
+          categoryId: this.rowValue.categoryId,
+          categoryName: this.rowValue.categoryName,
+        });
+        this.rows.at(idx).get('isEditable').patchValue(true);
+        break;
+      }
+    }
   }
 
-  rowValid(idx: number): boolean {
+  isValidRow(idx: number): boolean {
     return this.rows.at(idx).get('categoryId').value
       && this.rows.at(idx).get('categoryName').value ? false : true;
   }
 
-  focus(): void {
+  onFocus(): void {
     /***
-    * @description: another way to set autofocus without using OnPush
-    * this.ngZone.runOutsideAngular(() => {
-        setTimeout(() => {
-          this.focusInput.last.nativeElement.focus();
-          this.cdr.detectChanges();
-        });
+    * @description: another way to set autofocus: OnPush
+    * @issues: delete the first item, it returns this.focusInput.first is undefined
+      this.focusInput.changes.subscribe(() => {
+        return this.focusInput.last.nativeElement.focus();
       });
-     */
+    */
 
-    this.destroy$ = this.focusInput.changes.subscribe(() => {
-      this.focusInput.last.nativeElement.focus();
+    this.ngZone.runOutsideAngular(() => {
+      setTimeout(() => {
+        this.focusInput.last.nativeElement.focus();
+        this.cdr.detectChanges();
+      });
     });
+  }
+
+  onEnter(idx: number, event: KeyboardEvent): void {
+    if (event.key === 'Enter' && !this.isValidRow(idx)) {
+      this.saveChanges(idx);
+      event.preventDefault();
+    }
+    return;
+  }
+
+  private getRowValue(idx: number): ICategory {
+    const values = this.rows.at(idx).value;
+    delete values.isEditable;
+
+    return this.rowValue = values;
   }
 
   private get rows(): FormArray {
@@ -78,9 +115,5 @@ export class AdvancedCrudComponent implements OnInit, OnDestroy {
       categoryName: [null, Validators.required],
       isEditable: [false]
     });
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.unsubscribe();
   }
 }
