@@ -53,10 +53,8 @@ export class AdvancedCrudComponent implements OnInit {
     switch (this.isEdit) {
       case false: {
         this.deleteItem(idx);
-        this.rows.at(idx).get('isEditable').patchValue(true);
         break;
       }
-
       case true: {
         this.rows.at(idx).patchValue({
           categoryId: this.rowValue.categoryId,
@@ -65,12 +63,14 @@ export class AdvancedCrudComponent implements OnInit {
         this.rows.at(idx).get('isEditable').patchValue(true);
         break;
       }
+      default:
+        this.rows.at(idx).get('isEditable').patchValue(true);
+        break;
     }
   }
 
   isValidRow(idx: number): boolean {
-    return this.rows.at(idx).get('categoryId').value
-      && this.rows.at(idx).get('categoryName').value ? false : true;
+    return this.rows.at(idx).valid ? false : true;
   }
 
   onFocus(): void {
