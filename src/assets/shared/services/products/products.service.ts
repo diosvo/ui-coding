@@ -12,8 +12,8 @@ import { CategoryService } from '../category/category.service';
 })
 export class ProductsService {
 
-  /***
-   @description create an action steam
+  /**
+   * @description create an action steam
    */
 
   // Invalidates the cache and refreshes the data from the backend server
@@ -27,9 +27,10 @@ export class ProductsService {
   private productSelectedAction = new ReplaySubject<number>(1); // number: productId emit to the stream
   productSelectedAction$ = this.productSelectedAction.asObservable();
 
-  /*** Return an observable from the service
-   @api products.json
-   @tips refreshes the data from the backend server
+  /**
+   * @description return an observable from the service
+   * @api products.json
+   * @tips refreshes the data from the backend server
    */
 
   all$ = this.http.get<Array<IProduct>>('/assets/shared/data/products.json')
@@ -66,9 +67,10 @@ export class ProductsService {
     private categoryService: CategoryService
   ) { }
 
-  /*** Call methods from the service
-   @api products.json
-   @tips uses methods without refreshing
+  /**
+   * @description call methods from the service
+   * @api products.json
+   * @tips uses methods without refreshing
    */
 
   all(): Observable<Array<IProduct>> {

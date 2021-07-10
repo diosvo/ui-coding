@@ -1,15 +1,25 @@
-export enum EUrl {
+/**
+ * @description router link for each component based on group
+ */
+
+enum EUrl {
   COMPONENT = 'component-ui',
   WEB = 'web-ui',
   FUNCTION = 'functions'
 }
 
-export enum EComponentUI {
+enum EComponentUI {
   BUTTON = 'button',
   CARD = 'card',
   MENU = 'menu'
 }
 
-export enum EFunctions {
+enum EWebUI {
+  TABLE = 'table',
+}
+
+enum EFunctions {
   RXJS = 'rxjs',
 }
+
+export { EUrl, EComponentUI, EWebUI, EFunctions };
