@@ -1,9 +1,19 @@
-export class IGroupValue {
+import { EUrl } from './url.enum';
+
+interface IBaseValue {
+  name: string;
+  route: string;
+}
+
+interface IGroupValue {
   groupName: string;
   groupDetails: Array<IBaseValue>;
 }
 
-export class IBaseValue {
-  name: string;
-  route: string;
+interface IMenu {
+  name: EUrl;
+  data: IGroupValue;
 }
+
+export { IGroupValue, IBaseValue, IMenu };
+

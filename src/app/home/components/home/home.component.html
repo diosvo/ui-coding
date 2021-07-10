@@ -1,0 +1,21 @@
+<ng-template #loadingTmpl>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>
+
+<ng-template *ngIf="errorMessage" #messageTmpl>
+  <alert-message type="error">{{ errorMessage }}</alert-message>
+</ng-template>
+
+<mat-toolbar color="primary" class="d-flex">
+  <mat-toolbar-row>
+    <span> aa</span>
+    <div class="flex-auto"></div>
+    <button mat-icon-button aria-label="Facebook" data-toggle="tooltip" title="Dios Vo">
+      <mat-icon>facebook</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div>
+  <search-components [data]="componentsList"></search-components>
+</div>
