@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { ExpandableFloatingMenuRoutingModule } from './expandable-floating-menu-routing.module';
 import { ExpandableFloatingMenuComponent } from './expandable-floating-menu.component';
 
@@ -8,6 +8,7 @@ import { ExpandableFloatingMenuComponent } from './expandable-floating-menu.comp
   declarations: [ExpandableFloatingMenuComponent],
   imports: [
     CommonModule,
+    MatButtonModule,
     ExpandableFloatingMenuRoutingModule
   ]
 })

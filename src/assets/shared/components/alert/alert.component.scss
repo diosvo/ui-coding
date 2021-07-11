@@ -1,0 +1,68 @@
+$bg-success: #D4EDDA;
+$bg-info   : #F1FAFF;
+$bg-warning: #FFF4EC;
+$bg-error  : #FDF3F1;
+
+$bd-success: #5ACA75;
+$bd-info   : #0073BB;
+$bd-warning: #FF8F39;
+$bd-error  : #D13212;
+
+$txt-success: #287D3C;
+$txt-info   : #2E5AAC;
+$txt-warning: #B95000;
+$txt-error  : #DA1414;
+
+.bg {
+  &-success {
+    background-color: $bg-success;
+  }
+
+  &-info {
+    background-color: $bg-info;
+  }
+
+  &-warning {
+    background-color: $bg-warning;
+  }
+
+  &-error {
+    background-color: $bg-error;
+  }
+}
+
+.bd {
+  &-success {
+    border: 1px solid $bd-success;
+  }
+
+  &-info {
+    border: 1px solid $bd-info;
+  }
+
+  &-warning {
+    border: 1px solid $bd-warning;
+  }
+
+  &-error {
+    border: 1px solid $bd-error;
+  }
+}
+
+.icon {
+  &-success {
+    color: $txt-success;
+  }
+
+  &-info {
+    color: $txt-info;
+  }
+
+  &-warning {
+    color: $txt-warning;
+  }
+
+  &-error {
+    color: $txt-error;
+  }
+}

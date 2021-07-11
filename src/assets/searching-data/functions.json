@@ -4,14 +4,10 @@
     "groupDetails": [
       {
         "name": "Data Composition #ng-conf",
-        "route": "data-composition-ng-conf"
+        "route": "data-composition-ng-conf",
+        "image": "",
+        "description": ""
       }
-    ]
-  },
-  {
-    "groupName": "Service",
-    "groupDetails": [
-      {}
     ]
   }
 ]

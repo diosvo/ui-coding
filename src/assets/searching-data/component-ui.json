@@ -1,0 +1,53 @@
+[
+  {
+    "groupName": "Button",
+    "groupDetails": [
+      {
+        "name": "Micro Interaction",
+        "route": "micro-interaction",
+        "image": "",
+        "description": "GSAP"
+      },
+      {
+        "name": "Button Toggle Mode",
+        "route": "toggle-mode",
+        "image": "",
+        "description": ""
+      },
+      {
+        "name": "Button Expandable Floating Menu",
+        "route": "expandable-floating-menu",
+        "image": "",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "groupName": "Card",
+    "groupDetails": [
+      {
+        "name": "Animated Counter Card",
+        "route": "animated-counter",
+        "image": "",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "groupName": "Menu",
+    "groupDetails": [
+      {
+        "name": "Liquid Menu Interaction",
+        "route": "liquid-menu",
+        "image": "",
+        "description": ""
+      },
+      {
+        "name": "Navbar Interaction",
+        "route": "navbar",
+        "image": "",
+        "description": ""
+      }
+    ]
+  }
+]

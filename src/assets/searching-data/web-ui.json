@@ -4,7 +4,9 @@
     "groupDetails": [
       {
         "name": "Advanced CRUD",
-        "route": "advanced-crud"
+        "route": "advanced-crud",
+        "image": "",
+        "description": ""
       }
     ]
   }

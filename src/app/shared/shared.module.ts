@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GoBackComponent } from '../components-ui/button/go-back/go-back.component';
+import { NgModule } from '@angular/core';
 
 @NgModule({
-  declarations: [GoBackComponent],
+  declarations: [],
   imports: [
     CommonModule
   ],
-  exports: [GoBackComponent],
+  exports: [],
 })
 export class SharedModule { }

@@ -7,6 +7,10 @@
         @include font-size(13);
     }
 
+    &-14 {
+        @include font-size(14);
+    }
+
     &-16 {
         @include font-size(16);
     }
