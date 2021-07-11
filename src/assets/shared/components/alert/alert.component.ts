@@ -4,7 +4,8 @@ import { EAlert } from '../../models/alert';
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'alert-message',
-  templateUrl: './alert.component.html'
+  templateUrl: './alert.component.html',
+  styleUrls: ['./alert.component.scss']
 })
 export class AlertComponent {
   @Input() type: typeof EAlert = EAlert;
