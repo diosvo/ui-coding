@@ -1,10 +1,8 @@
 <div class="overlay" #overlay (click)="closeMenu(menu, btn, overlay)"></div>
 
 <div class="d-grid place-items-center full-screen-height">
-  <button mat-button class="position-relative btn-circle bg-primary text-white p-4" #btn
-    (click)="showMenu(menu, btn, overlay)" [ngStyle]="setStyles()" [disabled]="disabled">
-    <span>Menu</span>
-  </button>
+  <button mat-raised-button color="primary" class="position-relative btn-circle text-white p-4" #btn
+    (click)="showMenu(menu, btn, overlay)" [ngStyle]="setStyles()" [disabled]="disabled">Menu</button>
 
   <div
     class="menu position-absolute d-flex flex-direction-column bg-white bd-auto bs-dark opacity-0 visibility-hidden z-index-100"
