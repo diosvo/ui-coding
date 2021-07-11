@@ -13,6 +13,7 @@ interface IGroupValue {
 interface IMenu {
   name: string;
   route: EUrl;
+  active: boolean;
 }
 
 export { IGroupValue, IBaseValue, IMenu };

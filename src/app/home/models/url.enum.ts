@@ -8,6 +8,12 @@ enum EUrl {
   FUNCTION = 'functions'
 }
 
+enum EMenuLink {
+  COMPONENT = 'components',
+  WEB = 'web',
+  FUNCTION = 'functions'
+}
+
 enum EComponentUI {
   BUTTON = 'button',
   CARD = 'card',
@@ -22,4 +28,5 @@ enum EFunctions {
   RXJS = 'rxjs',
 }
 
-export { EUrl, EComponentUI, EWebUI, EFunctions };
+export { EUrl, EMenuLink, EComponentUI, EWebUI, EFunctions };
+
