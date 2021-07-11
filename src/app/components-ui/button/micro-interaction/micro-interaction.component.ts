@@ -12,22 +12,21 @@ export class MicroInteractionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.mainFunction()
+    this.mainFunction();
   }
 
-  mainFunction() {
-
+  mainFunction(): void {
     const tl = gsap.timeline({
       defaults: {
         ease: 'easeOut'
       }
-    })
+    });
 
-    const label = document.querySelector('.label')
-    const btn = document.querySelector('.button')
-    const rule = document.querySelector('.button-shadow')
-    const icon = document.querySelector('svg')
-    const text = document.querySelector('p')
+    const label = document.querySelector('.label');
+    const btn = document.querySelector('.button');
+    const rule = document.querySelector('.button-shadow');
+    const icon = document.querySelector('svg');
+    const text = document.querySelector('p');
 
     // Set tl: timeline
     tl.to(label, {
@@ -56,19 +55,19 @@ export class MicroInteractionComponent implements OnInit {
         display: 'block',
       }, '-=1s')
 
-      // Change button icon 
+      // Change button icon
       .to('path', {
         attr: { d: 'm386.671 257.778-257.778 257.778v-128.886l128.889-128.892-128.897-128.886.008-128.892z' }
       }, '+=1')
 
       .to(text, {
         clipPath: 'circle(100% at 50% 50%)'
-      }, "-=1.3")
+      }, '-=1.3')
 
-      .pause()
+      .pause();
 
     btn.addEventListener('click', () => {
-      tl.play()
-    })
+      tl.play();
+    });
   }
 }
