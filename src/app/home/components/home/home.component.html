@@ -6,7 +6,8 @@
       <button mat-button *ngFor="let item of menuList" [ngClass]="{'text-light, opacity-0.5': item.active === false}"
         class="mr-2 f-14" (click)="onDirect(item.route)">{{ item.name | titlecase}}</button>
       <div class="flex-auto"></div>
-      <button mat-icon-button aria-label="Facebook" data-toggle="tooltip" title="Dios Vo">
+      <button mat-icon-button aria-label="Facebook" data-toggle="tooltip" title="Dios Vo"
+        [ngStyle]="{'margin-right.rem': 0.5}">
         <mat-icon>facebook</mat-icon>
       </button>
     </mat-toolbar-row>
@@ -15,5 +16,5 @@
 
 <ng-container>
   <alert-message *ngIf="errorMessage" type="error">{{ errorMessage }}</alert-message>
-  <menu-item [data]="dataList"></menu-item>
+  <menu-item [data]="dataList" class="d-grid template-columns-auto gap-2 p-4"></menu-item>
 </ng-container>

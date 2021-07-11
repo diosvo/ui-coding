@@ -7,11 +7,5 @@
         "route": "data-composition-ng-conf"
       }
     ]
-  },
-  {
-    "groupName": "Service",
-    "groupDetails": [
-      {}
-    ]
   }
 ]

@@ -41,11 +41,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.onDirect(EUrl.COMPONENT);
   }
 
-  onDirect(route: string): void {
+  onDirect(route: EUrl): void {
     this.sub.add(
       this.service.getSession(route).subscribe({
         next: (data: Array<IGroupValue>) => {
-          this.dataList = data;
+          this.dataList = data.map(item => ({ ...item, groupUrl: route }));
           this.loading = false;
         },
         error: () => {

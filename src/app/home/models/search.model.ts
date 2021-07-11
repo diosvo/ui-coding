@@ -8,6 +8,7 @@ interface IBaseValue {
 interface IGroupValue {
   groupName: string;
   groupDetails: Array<IBaseValue>;
+  groupUrl: EUrl;
 }
 
 interface IMenu {

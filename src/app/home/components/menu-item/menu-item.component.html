@@ -1,3 +1,29 @@
-<pre>
+<!-- <pre>
 	{{ data | json }}
-</pre>
+</pre> -->
+
+<ng-container *ngFor="let group of data">
+  <article *ngFor="let item of group.groupDetails">
+    <mat-card [ngStyle]="{'max-width.rem': 25}">
+      <!-- Summary -->
+      <ng-container>
+        <mat-card-title class="f-16">{{ item.name }}</mat-card-title>
+        <mat-card-subtitle>{{ group.groupName }}</mat-card-subtitle>
+      </ng-container>
+
+      <!-- Main -->
+      <img mat-card-image src="assets/images/logo/placeholder-image.png">
+      <mat-card-content>
+        <p>Hello </p>
+      </mat-card-content>
+
+      <!-- Action -->
+      <mat-card-actions class="text-right">
+        <button mat-button aria-label="View Details">
+          <mat-icon class="mr-1">fingerprint</mat-icon>
+          <span>View</span>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </article>
+</ng-container>
