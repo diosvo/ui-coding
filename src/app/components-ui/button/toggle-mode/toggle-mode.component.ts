@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./toggle-mode.component.scss']
 })
 export class ToggleModeComponent {
-  isDarkTheme: boolean = true;
+  isDarkTheme = true;
 
   constructor() { }
 
-  switchTheme() {
-    this.isDarkTheme = !this.isDarkTheme
+  switchTheme(): void {
+    this.isDarkTheme = !this.isDarkTheme;
   }
 }
