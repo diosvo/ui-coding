@@ -26,30 +26,30 @@ export const navList = [
 })
 export class NavbarComponent {
 
-  selected: number
+  selected: number;
   private sizes = {
     listItemWidth: 0,
     translateX: 0
-  }
+  };
 
   public navList = navList;
 
-  get animate() {
+  get animate(): any {
     return {
       width: this.sizes.listItemWidth + 'px',
       transform: `translateX(${this.sizes.translateX}px)`
-    }
+    };
   }
 
-  updateSizes(element: HTMLElement, index = 1) {
+  updateSizes(element: HTMLElement, index = 1): void {
     this.sizes = {
       listItemWidth: element.getBoundingClientRect().width,
       translateX: element.getBoundingClientRect().width * index
-    }
+    };
   }
 
-  onSelect(element: HTMLElement, i) {
-    this.selected = i;
-    this.updateSizes(element, i);
+  onSelect(element: HTMLElement, idx: number): void {
+    this.selected = idx;
+    this.updateSizes(element, idx);
   }
 }
