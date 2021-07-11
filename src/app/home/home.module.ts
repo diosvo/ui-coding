@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -21,10 +22,11 @@ import { HomeRoutingModule } from './home-routing.module';
     HomeRoutingModule,
     AlertModule,
 
-    MatToolbarModule,
     MatIconModule,
-    MatButtonModule,
     MatCardModule,
+    MatChipsModule,
+    MatButtonModule,
+    MatToolbarModule,
     MatProgressBarModule
   ],
   providers: [

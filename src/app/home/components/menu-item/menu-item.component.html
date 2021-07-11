@@ -1,25 +1,27 @@
-<!-- <pre>
-	{{ data | json }}
-</pre> -->
-
 <ng-container *ngFor="let group of data">
   <article *ngFor="let item of group.groupDetails">
     <mat-card [ngStyle]="{'max-width.rem': 25}">
       <!-- Summary -->
       <ng-container>
         <mat-card-title class="f-16">{{ item.name }}</mat-card-title>
-        <mat-card-subtitle>{{ group.groupName }}</mat-card-subtitle>
+        <mat-card-subtitle>
+          <mat-chip-list aria-label="Item Category">
+            <mat-chip class="f-13">{{ group.groupName }}</mat-chip>
+          </mat-chip-list>
+        </mat-card-subtitle>
       </ng-container>
 
       <!-- Main -->
-      <img mat-card-image src="assets/images/logo/placeholder-image.png">
+      <img mat-card-image [src]="item.image ? item.image : emptyImg"
+        (click)="directItem(group.groupUrl, group.groupName, item.route)">
       <mat-card-content>
-        <p>Hello </p>
+        <p>{{ item.description ? item.description : 'Updating...' }}</p>
       </mat-card-content>
 
       <!-- Action -->
       <mat-card-actions class="text-right">
-        <button mat-button aria-label="View Details">
+        <button mat-button color="primary" aria-label="View Details"
+          (click)="directItem(group.groupUrl, group.groupName, item.route)">
           <mat-icon class="mr-1">fingerprint</mat-icon>
           <span>View</span>
         </button>

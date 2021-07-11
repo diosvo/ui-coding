@@ -38,10 +38,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.onDirect(EUrl.COMPONENT);
+    this.directMenuLink(EUrl.COMPONENT);
   }
 
-  onDirect(route: EUrl): void {
+  directMenuLink(route: EUrl): void {
     this.sub.add(
       this.service.getSession(route).subscribe({
         next: (data: Array<IGroupValue>) => {
@@ -59,6 +59,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         }
       })
     );
+  }
+
+  directItem(event): void {
+    console.log(event);
+
   }
 
   ngOnDestroy(): void {

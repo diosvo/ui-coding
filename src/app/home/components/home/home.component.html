@@ -4,7 +4,7 @@
   <mat-toolbar color="primary" class="d-flex">
     <mat-toolbar-row>
       <button mat-button *ngFor="let item of menuList" [ngClass]="{'text-light, opacity-0.5': item.active === false}"
-        class="mr-2 f-14" (click)="onDirect(item.route)">{{ item.name | titlecase}}</button>
+        class="mr-2 f-14" (click)="directMenuLink(item.route)">{{ item.name | titlecase}}</button>
       <div class="flex-auto"></div>
       <button mat-icon-button aria-label="Facebook" data-toggle="tooltip" title="Dios Vo"
         [ngStyle]="{'margin-right.rem': 0.5}">
