@@ -3,7 +3,7 @@
     "groupName": "Button",
     "groupDetails": [
       {
-        "name": "Navbar Micro Interaction",
+        "name": "Micro Interaction",
         "route": "micro-interaction",
         "image": "",
         "description": "GSAP"

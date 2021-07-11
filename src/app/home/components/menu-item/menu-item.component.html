@@ -12,7 +12,7 @@
       </ng-container>
 
       <!-- Main -->
-      <img mat-card-image [src]="item.image ? item.image : emptyImg"
+      <img mat-card-image [src]="item.image ? item.image : emptyImg" class="cursor-pointer"
         (click)="directItem(group.groupUrl, group.groupName, item.route)">
       <mat-card-content>
         <p>{{ item.description ? item.description : 'Updating...' }}</p>
