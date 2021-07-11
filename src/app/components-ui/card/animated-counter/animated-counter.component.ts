@@ -9,7 +9,7 @@ interface AnimatedCounterModel {
   icon: string;
 }
 
-const  data: AnimatedCounterModel[] = [
+const data: AnimatedCounterModel[] = [
   {
     title: 'Total Orders',
     color: 'lightpurple',
@@ -46,11 +46,10 @@ const  data: AnimatedCounterModel[] = [
   styleUrls: ['./animated-counter.component.scss']
 })
 
-
 export class AnimatedCounterComponent implements AfterViewInit {
   animatedCardList = data;
 
-  @ViewChild('el', { static: false }) el: ElementRef<HTMLDivElement>
+  @ViewChild('el', { static: false }) el: ElementRef<HTMLDivElement>;
 
   constructor() { }
 
@@ -60,6 +59,6 @@ export class AnimatedCounterComponent implements AfterViewInit {
       autoAlpha: 0,
       y: -20,
       stagger: 0.10
-    })
+    });
   }
 }
