@@ -1,11 +1,11 @@
 .list {
+  filter: url(#liquid);
+
+  button {
     filter: url(#liquid);
+  }
 
-    button {
-        filter: url(#liquid);
-    }
-
-    .menu {
-        transform: translateY(-5rem);
-    }
+  .menu {
+    transform: translateY(-5rem);
+  }
 }
