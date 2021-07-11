@@ -1,21 +1,18 @@
-<ng-template #loadingTmpl>
-  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-</ng-template>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
-<ng-template *ngIf="errorMessage" #messageTmpl>
-  <alert-message type="error">{{ errorMessage }}</alert-message>
-</ng-template>
+<ng-container>
+  <mat-toolbar color="primary" class="d-flex">
+    <mat-toolbar-row>
+      <span *ngFor="let item of menuList" class="mr-2 f-14" (click)="onDirect(item.route)">{{ item.name }}</span>
+      <div class="flex-auto"></div>
+      <button mat-icon-button aria-label="Facebook" data-toggle="tooltip" title="Dios Vo">
+        <mat-icon>facebook</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ng-container>
 
-<mat-toolbar color="primary" class="d-flex">
-  <mat-toolbar-row>
-    <span> aa</span>
-    <div class="flex-auto"></div>
-    <button mat-icon-button aria-label="Facebook" data-toggle="tooltip" title="Dios Vo">
-      <mat-icon>facebook</mat-icon>
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
-
-<div>
-  <search-components [data]="componentsList"></search-components>
-</div>
+<ng-container>
+  <alert-message *ngIf="errorMessage" type="error">{{ errorMessage }}</alert-message>
+  <menu-item [data]="dataList"></menu-item>
+</ng-container>

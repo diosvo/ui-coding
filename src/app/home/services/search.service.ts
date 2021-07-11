@@ -27,7 +27,11 @@ export class SearchService {
 
   getSession(session: string): Observable<Array<IGroupValue>> {
     return this.http
-      .get<Array<IGroupValue>>(`/assets/searching-data/${session}.json`);
+      .get<Array<IGroupValue>>(`/assets/searching-data/${session}.json`)
+      .pipe(
+        shareReplay(1),
+        catchError((_) => of(null))
+      );
   }
 
   combineSession(): Observable<any> {

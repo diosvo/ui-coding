@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IGroupValue } from '../../models/search.model';
+import { IGroupValue, IMenu } from '../../models/search.model';
+import { EUrl } from '../../models/url.enum';
 import { SearchService } from '../../services/search.service';
 
 @Component({
@@ -10,32 +11,47 @@ import { SearchService } from '../../services/search.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   sub = new Subscription();
-  loading: boolean;
+  menuList: Array<IMenu> = [
+    {
+      name: 'Components',
+      route: EUrl.COMPONENT
+    },
+    {
+      name: 'Web',
+      route: EUrl.WEB
+    },
+    {
+      name: 'Functions',
+      route: EUrl.FUNCTION
+    }
+  ];
+  dataList: Array<IGroupValue>;
+
+  loading = true;
   errorMessage: string;
 
-  componentsList: Array<IGroupValue>;
-  webList: Array<IGroupValue>;
-  functionsList: Array<IGroupValue>;
-
-  constructor(private service: SearchService) { }
+  constructor(
+    private service: SearchService
+  ) { }
 
   ngOnInit(): void {
-    this.loading = true;
-    this.errorMessage = 'An error ocurred. Please try again!';
+    this.onDirect(EUrl.COMPONENT);
+  }
+
+  onDirect(route: string): void {
 
     this.sub.add(
-      this.service.combineSession().subscribe({
-        next: ({ components, web, functions }) => {
-          this.componentsList = components;
-          this.webList = web;
-          this.functionsList = functions;
-
+      this.service.getSession(route).subscribe({
+        next: (data: Array<IGroupValue>) => {
+          this.dataList = data;
           this.loading = false;
+          // this.router.navigate(['home', route]);
         },
         error: () => {
           this.loading = false;
           this.errorMessage = 'An error ocurred. Please try again!';
-        }
+        },
+        // complete: () => this.router.navigate(['home', route])
       })
     );
   }

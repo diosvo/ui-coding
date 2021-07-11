@@ -23,7 +23,7 @@ const routes: Routes = [
     path: EUrl.FUNCTION,
     loadChildren: () => import('./functions/functions.module').then(m => m.FunctionsModule)
   }
-]
+];
 
 @NgModule({
   declarations: [],

@@ -11,8 +11,8 @@ interface IGroupValue {
 }
 
 interface IMenu {
-  name: EUrl;
-  data: IGroupValue;
+  name: string;
+  route: EUrl;
 }
 
 export { IGroupValue, IBaseValue, IMenu };

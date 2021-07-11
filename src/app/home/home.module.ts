@@ -5,22 +5,20 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { AlertModule } from 'src/assets/shared/components/alert/alert.module';
 import { HomeComponent } from './components/home/home.component';
-import { SearchComponentComponent } from './components/search-component/search-component.component';
-import { SearchFunctionComponent } from './components/search-function/search-function.component';
-import { SearchWebComponent } from './components/search-web/search-web.component';
+import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    SearchComponentComponent,
-    SearchWebComponent,
-    SearchFunctionComponent
+    MenuItemComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
+    AlertModule,
 
     MatToolbarModule,
     MatIconModule,
