@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-export const navList = [
+const navList = [
   {
     title: 'Home',
     icon: 'icon-home',
@@ -27,6 +27,7 @@ export const navList = [
 export class NavbarComponent {
 
   selected: number;
+
   private sizes = {
     listItemWidth: 0,
     translateX: 0
@@ -41,7 +42,7 @@ export class NavbarComponent {
     };
   }
 
-  updateSizes(element: HTMLElement, index = 1): void {
+  private updateSizes(element: HTMLElement, index = 1): void {
     this.sizes = {
       listItemWidth: element.getBoundingClientRect().width,
       translateX: element.getBoundingClientRect().width * index

@@ -3,7 +3,7 @@
     <mat-card [ngStyle]="{'max-width.rem': 25}">
       <!-- Summary -->
       <ng-container>
-        <mat-card-title class="f-16">{{ item.name }}</mat-card-title>
+        <mat-card-title class="f-16">{{ item.name | titlecase }}</mat-card-title>
         <mat-card-subtitle>
           <mat-chip-list aria-label="Item Category">
             <mat-chip class="f-13">{{ group.groupName }}</mat-chip>
@@ -15,7 +15,7 @@
       <img mat-card-image [src]="item.image ? item.image : emptyImg" class="cursor-pointer"
         (click)="directItem(group.groupUrl, group.groupName, item.route)">
       <mat-card-content>
-        <p>{{ item.description ? item.description : 'Updating...' }}</p>
+        <p class="text-secondary">{{ item.description ? item.description : 'Updating...' }}</p>
       </mat-card-content>
 
       <!-- Action -->
