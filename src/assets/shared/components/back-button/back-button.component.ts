@@ -23,7 +23,7 @@ export class BackButtonComponent {
     if (this.canGoBack) {
       this.location.back();
     } else {
-      this.router.navigate(['..'], { relativeTo: this.route });
+      this.router.navigate(['/home'], { relativeTo: this.route });
     }
   }
 }

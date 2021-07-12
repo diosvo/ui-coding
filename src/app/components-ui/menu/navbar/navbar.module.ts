@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { BackButtonModule } from 'src/assets/shared/components/back-button/back-button.module';
 import { NavbarRoutingModule } from './navbar-routing.module';
 import { NavbarComponent } from './navbar.component';
 
@@ -10,7 +10,7 @@ import { NavbarComponent } from './navbar.component';
   imports: [
     CommonModule,
     NavbarRoutingModule,
-    SharedModule
+    BackButtonModule
   ],
   exports: [RouterModule]
 })

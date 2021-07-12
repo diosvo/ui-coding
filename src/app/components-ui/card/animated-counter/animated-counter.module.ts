@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AnimatedCounterDirective } from 'src/app/shared/directives/animated-counter.directive';
+import { BackButtonModule } from 'src/assets/shared/components/back-button/back-button.module';
 import { AnimatedCounterRoutingModule } from './animated-counter-routing.module';
 import { AnimatedCounterComponent } from './animated-counter.component';
 
@@ -8,6 +9,7 @@ import { AnimatedCounterComponent } from './animated-counter.component';
   declarations: [AnimatedCounterComponent, AnimatedCounterDirective],
   imports: [
     CommonModule,
+    BackButtonModule,
     AnimatedCounterRoutingModule
   ]
 })
