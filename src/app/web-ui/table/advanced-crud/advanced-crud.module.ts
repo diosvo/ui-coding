@@ -9,8 +9,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
+import { BackButtonModule } from 'src/assets/shared/components/back-button/back-button.module';
 import { AdvancedCrudRoutingModule } from './advanced-crud-routing.module';
 import { AdvancedCrudComponent } from './components/advanced-crud/advanced-crud.component';
+
 @NgModule({
   declarations: [
     AdvancedCrudComponent
@@ -18,6 +20,7 @@ import { AdvancedCrudComponent } from './components/advanced-crud/advanced-crud.
   imports: [
     CommonModule,
     AdvancedCrudRoutingModule,
+    BackButtonModule,
 
     FormsModule,
     ReactiveFormsModule,

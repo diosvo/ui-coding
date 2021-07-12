@@ -70,4 +70,8 @@ export class MicroInteractionComponent implements OnInit {
       tl.play();
     });
   }
+
+  onNext(): void {
+    alert('No more action!');
+  }
 }

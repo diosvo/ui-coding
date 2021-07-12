@@ -2,9 +2,13 @@
 
 <section class="p-2">
   <form [formGroup]="form">
-    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="addNewRow(); onFocus()">
-      Add New Row
-    </button>
+    <ng-container>
+      <back-button></back-button>
+      <button mat-raised-button color="primary" [ngStyle]="{'margin-left.rem': 1}" [disabled]="form.invalid"
+        (click)="addNewRow(); onFocus()">
+        Add New Row
+      </button>
+    </ng-container>
 
     <ng-container formArrayName="rows">
       <table id="mat-table" mat-table [dataSource]="dataSource" class="width-100 mt-2">
