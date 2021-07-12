@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgModule } from '@angular/core';
+import { BackButtonModule } from 'src/assets/shared/components/back-button/back-button.module';
 import { MicroInteractionRoutingModule } from './micro-interaction-routing.module';
 import { MicroInteractionComponent } from './micro-interaction.component';
 
@@ -8,7 +8,8 @@ import { MicroInteractionComponent } from './micro-interaction.component';
   declarations: [MicroInteractionComponent],
   imports: [
     CommonModule,
-    MicroInteractionRoutingModule
+    MicroInteractionRoutingModule,
+    BackButtonModule
   ]
 })
 export class MicroInteractionModule { }
