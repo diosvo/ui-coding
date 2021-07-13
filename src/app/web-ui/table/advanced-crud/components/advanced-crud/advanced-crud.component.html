@@ -67,6 +67,10 @@
           <td class="mat-cell" colspan="3">No data found.</td>
         </tr>
       </table>
+
+      <mat-paginator [length]="dataSource.data.length"
+        [pageSizeOptions]="[5, dataSource.data.length > 5 ? dataSource.data.length : '', 10]" showFirstLastButtons>
+      </mat-paginator>
     </ng-container>
   </form>
 </section>

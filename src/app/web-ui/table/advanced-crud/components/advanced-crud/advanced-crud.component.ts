@@ -26,7 +26,9 @@ export class AdvancedCrudComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    // problem: cant not path value between form array with response data from service
+  }
 
   addNewRow(): void {
     this.isEdit = false;
