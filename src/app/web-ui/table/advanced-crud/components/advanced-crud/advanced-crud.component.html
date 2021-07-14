@@ -3,13 +3,28 @@
 <section class="p-2">
   <form [formGroup]="form">
     <div class="d-flex jc-between">
+      <!-- header: Actions -->
       <back-button></back-button>
-      <button mat-raised-button color="primary" [ngStyle]="{'margin-left.rem': 1}" [disabled]="form.invalid"
-        (click)="addNewRow(); onFocus()">
-        Add New Row
-      </button>
+      <div class="d-flex">
+        <button mat-stroked-button color="primary" class="ml-auto" matTooltip="Click here to open search box"
+          (click)="openSearchBox(); onSearchFocus()">
+          <mat-icon>search</mat-icon>
+        </button>
+        <button mat-flat-button color="primary" [ngStyle]="{'margin-left.rem': 1}" [disabled]="form.invalid"
+          (click)="addNewRow(); onFocus()">
+          Add New Row
+        </button>
+      </div>
     </div>
 
+    <div *ngIf="visibleBox" class="d-flex jc-flex-end mt-2" [@slideInOut]>
+      <mat-form-field class="width-100" appearance="outline">
+        <mat-label>What are you looking for...</mat-label>
+        <input matInput (keydown)="onSearch($event)" #searchInput>
+      </mat-form-field>
+    </div>
+
+    <!-- Table -->
     <ng-container formArrayName="rows">
       <table id="mat-table" mat-table [dataSource]="dataSource" class="width-100 mt-2">
         <ng-container matColumnDef="id">

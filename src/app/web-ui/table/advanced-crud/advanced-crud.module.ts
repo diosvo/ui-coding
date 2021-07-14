@@ -12,7 +12,6 @@ import { BackButtonModule } from 'src/assets/shared/components/back-button/back-
 import { AdvancedCrudRoutingModule } from './advanced-crud-routing.module';
 import { AdvancedCrudComponent } from './components/advanced-crud/advanced-crud.component';
 
-
 @NgModule({
   declarations: [
     AdvancedCrudComponent
@@ -30,6 +29,7 @@ import { AdvancedCrudComponent } from './components/advanced-crud/advanced-crud.
     MatInputModule,
     MatButtonModule,
     MatTooltipModule,
+    MatFormFieldModule,
     MatFormFieldModule,
     MatPaginatorModule
   ]
