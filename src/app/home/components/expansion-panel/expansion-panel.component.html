@@ -1,0 +1,18 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="panel.openState = true" (closed)="panel.openState = false">
+    <!-- Header -->
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ panel.mainTitle | titlecase }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ panel.subTitle }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <!-- Body -->
+    <mat-expansion-panel-body>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel-body>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IGroupValue, IMenu } from '../../models/search.model';
+import { IGroupValue, IMenu, IPanel } from '../../models/search.model';
 import { EMenuLink, EUrl } from '../../models/url.enum';
 import { SearchService } from '../../services/search.service';
 
@@ -10,28 +10,33 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  loading = true;
+  errorMessage: string;
   sub = new Subscription();
+
   menuList: Array<IMenu> = [
     {
       name: EMenuLink.COMPONENT,
       route: EUrl.COMPONENT,
-      active: false
+      active: false,
+      description: 'Bla bla bla'
     },
     {
       name: EMenuLink.WEB,
       route: EUrl.WEB,
-      active: false
+      active: false,
+      description: 'Bla bla bla'
     },
     {
       name: EMenuLink.FUNCTION,
       route: EUrl.FUNCTION,
-      active: false
+      active: false,
+      description: 'Bla bla bla'
     }
   ];
   dataList: Array<IGroupValue>;
 
-  loading = true;
-  errorMessage: string;
+  panel: IPanel;
 
   constructor(
     private service: SearchService
@@ -55,6 +60,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         complete: () => {
           this.menuList.map(item => {
             item.active = item.route === route ? true : false;
+
+            if (item.route === route) {
+              this.panel = {
+                mainTitle: item.route.replace(/-/g, ' '),
+                subTitle: item.description
+              };
+            }
           });
         }
       })

@@ -12,9 +12,10 @@
       </a>
     </mat-toolbar-row>
   </mat-toolbar>
-</ng-container>
 
-<ng-container>
   <alert-message *ngIf="errorMessage" type="error">{{ errorMessage }}</alert-message>
+
+  <expansion-panel [panel]="panel"></expansion-panel>
+
   <menu-item [data]="dataList" class="d-grid template-columns-auto gap-2 p-4"></menu-item>
 </ng-container>
