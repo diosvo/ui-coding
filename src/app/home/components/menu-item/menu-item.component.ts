@@ -11,7 +11,6 @@ import { IGroupValue } from '../../models/search.model';
 })
 export class MenuItemComponent {
   @Input() data: Array<IGroupValue>;
-  @Output() routerToItem = new EventEmitter();
 
   emptyImg = 'assets/images/logo/placeholder-image.png';
 

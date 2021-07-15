@@ -137,10 +137,8 @@ export class AdvancedCrudComponent implements OnInit {
     this.visibleBox = !this.visibleBox;
   }
 
-  onSearch(event: Event): void {
-    const filterValue = (event.target as HTMLInputElement).value;
+  onSearch(filterValue: string): void {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    console.log(filterValue, this.dataSource);
   }
 
   onSearchFocus(): void {

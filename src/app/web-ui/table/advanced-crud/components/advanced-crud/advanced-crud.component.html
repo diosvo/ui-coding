@@ -20,7 +20,7 @@
     <div *ngIf="visibleBox" class="d-flex jc-flex-end mt-2" [@slideInOut]>
       <mat-form-field class="width-100" appearance="outline">
         <mat-label>What are you looking for...</mat-label>
-        <input matInput (keydown)="onSearch($event)" #searchInput>
+        <input matInput (keyup)="onSearch($event.target.value)" #searchInput>
       </mat-form-field>
     </div>
 
@@ -47,7 +47,7 @@
           </td>
         </ng-container>
 
-        <!-- Actions -->
+        <!-- row: Actions -->
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> Action </th>
           <td mat-cell *matCellDef="let element; let idx = index" [formGroup]="element">
