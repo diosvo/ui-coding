@@ -7,7 +7,7 @@
         class="mr-2 f-14" (click)="directMenuLink(item.route)">{{ item.name | titlecase}}</button>
       <div class="flex-auto"></div>
       <a mat-icon-button href="https://www.facebook.com/diosvo/" target="_blank" class="text-white"
-        aria-label="Facebook" data-toggle="tooltip" title="Dios Vo" [ngStyle]="{'margin-right.rem': 0.5}">
+        aria-label="Facebook" data-toggle="tooltip" title="Dios Vo">
         <mat-icon>facebook</mat-icon>
       </a>
     </mat-toolbar-row>
@@ -17,5 +17,5 @@
 
   <expansion-panel [panel]="panel"></expansion-panel>
 
-  <menu-item [data]="dataList" class="d-grid template-columns-auto gap-2 p-4"></menu-item>
+  <menu-item [data]="dataList" class="d-grid template-columns-auto gap-1 p-2"></menu-item>
 </ng-container>
