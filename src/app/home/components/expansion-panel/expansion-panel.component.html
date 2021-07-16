@@ -12,7 +12,7 @@
     <ng-template matExpansionPanelContent>
       <mat-form-field class="width-100" appearance="outline">
         <mat-label>What are you looking for today...</mat-label>
-        <input matInput (keyup)="onSearch($event.target.value)" #panelSearch>
+        <input matInput #panelSearch>
       </mat-form-field>
     </ng-template>
   </mat-expansion-panel>

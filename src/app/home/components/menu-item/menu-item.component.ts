@@ -1,6 +1,5 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventEmitter } from 'events';
 import { IGroupValue } from '../../models/search.model';
 
 @Component({

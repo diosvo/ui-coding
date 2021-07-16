@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 import { IGroupValue, IMenu, IPanel } from '../../models/search.model';
 import { EMenuLink, EUrl } from '../../models/url.enum';
 import { SearchService } from '../../services/search.service';
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   loading = true;
   errorMessage: string;
 
-  sub = new Subscription();
+  private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
   panel = new IPanel();
 
   menuList: Array<IMenu> = [
@@ -27,16 +28,16 @@ export class HomeComponent implements OnInit, OnDestroy {
       name: EMenuLink.WEB,
       route: EUrl.WEB,
       active: false,
-      description: 'Bla bla bla'
+      description: 'Minimal Website.'
     },
     {
       name: EMenuLink.FUNCTION,
       route: EUrl.FUNCTION,
       active: false,
-      description: 'Bla bla bla'
+      description: 'Better performance with functions.'
     }
   ];
-  dataList: Array<IGroupValue>;
+  dataList: Observable<Array<IGroupValue>>;
 
 
   constructor(
@@ -48,10 +49,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   directMenuLink(route: EUrl): void {
-    this.sub.add(
-      this.service.getSession(route).subscribe({
+    this.dataList = this.service.getSession(route).pipe(
+      takeUntil(this.destroyed$),
+      tap({
         next: (data: Array<IGroupValue>) => {
-          this.dataList = data.map(item => ({ ...item, groupUrl: route }));
+          data.map(item => ({ ...item, groupUrl: route }));
           this.loading = false;
         },
         error: () => {
@@ -68,11 +70,12 @@ export class HomeComponent implements OnInit, OnDestroy {
             }
           });
         }
-      })
+      }),
     );
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 }

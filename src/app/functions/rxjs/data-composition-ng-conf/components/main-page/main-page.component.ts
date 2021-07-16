@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -8,12 +8,12 @@ import { Subject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainPageComponent implements OnDestroy {
-  destroyed = new Subject<void>();
+  private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor() { }
 
   ngOnDestroy(): void {
-    this.destroyed.next(undefined);
-    this.destroyed.complete();
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 }

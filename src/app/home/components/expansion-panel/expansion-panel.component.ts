@@ -12,7 +12,5 @@ export class ExpansionPanelComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }
