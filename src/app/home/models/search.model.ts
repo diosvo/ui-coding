@@ -20,10 +20,9 @@ interface IMenu {
   description: string;
 }
 
-interface IPanel {
-  mainTitle: string;
+class IPanel {
   subTitle: string;
-  openState?: boolean;
+  openState: boolean;
 }
 
 export { IGroupValue, IBaseValue, IMenu, IPanel };

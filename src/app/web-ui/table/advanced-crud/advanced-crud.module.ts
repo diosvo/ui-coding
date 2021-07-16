@@ -30,7 +30,6 @@ import { AdvancedCrudComponent } from './components/advanced-crud/advanced-crud.
     MatButtonModule,
     MatTooltipModule,
     MatFormFieldModule,
-    MatFormFieldModule,
     MatPaginatorModule
   ]
 })

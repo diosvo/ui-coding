@@ -12,14 +12,16 @@ import { SearchService } from '../../services/search.service';
 export class HomeComponent implements OnInit, OnDestroy {
   loading = true;
   errorMessage: string;
+
   sub = new Subscription();
+  panel = new IPanel();
 
   menuList: Array<IMenu> = [
     {
       name: EMenuLink.COMPONENT,
       route: EUrl.COMPONENT,
       active: false,
-      description: 'Bla bla bla'
+      description: 'Used to represent distinct UI elements.'
     },
     {
       name: EMenuLink.WEB,
@@ -36,7 +38,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
   dataList: Array<IGroupValue>;
 
-  panel: IPanel;
 
   constructor(
     private service: SearchService
@@ -59,23 +60,16 @@ export class HomeComponent implements OnInit, OnDestroy {
         },
         complete: () => {
           this.menuList.map(item => {
-            item.active = item.route === route ? true : false;
-
             if (item.route === route) {
-              this.panel = {
-                mainTitle: item.route.replace(/-/g, ' '),
-                subTitle: item.description
-              };
+              item.active = true;
+              this.panel.subTitle = item.description;
+            } else {
+              item.active = false;
             }
           });
         }
       })
     );
-  }
-
-  directItem(event): void {
-    console.log(event);
-
   }
 
   ngOnDestroy(): void {

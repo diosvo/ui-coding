@@ -30,7 +30,7 @@ export class SearchService {
       .get<Array<IGroupValue>>(`/assets/searching-data/${session}.json`)
       .pipe(
         shareReplay(1),
-        catchError((_) => of(null))
+        catchError(_ => of(null))
       );
   }
 
@@ -39,7 +39,7 @@ export class SearchService {
       .pipe(
         map(([components, web, functions]) => ({ components, web, functions })),
         shareReplay(),
-        catchError((_) => of(null))
+        catchError(_ => of(null))
       );
   }
 }
