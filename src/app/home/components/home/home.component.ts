@@ -11,8 +11,9 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  loading = false;
+  loading = true;
   errorMessage: string;
+  emptySearch: string;
   currentRoute: EUrl;
 
   panel = new IPanel();
@@ -50,8 +51,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   directMenuLink(route: EUrl): void {
-    this.loading = true;
-
     this.dataList = this.service.getSession(route)
       .pipe(
         takeUntil(this.destroyed$),
@@ -62,7 +61,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           },
           error: () => {
             this.loading = false;
-            this.errorMessage = 'An error ocurred. Please try again!';
+            this.errorMessage = 'Oops...Something went wrong. Please try again!';
           },
           complete: () => {
             this.menuList.map(item => {
@@ -80,18 +79,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onSearch(query: string): void {
-    this.loading = true;
     this.dataList = this.service.onFilter(this.currentRoute, query)
       .pipe(
         takeUntil(this.destroyed$),
         tap({
-          next: () => {
-            this.loading = false;
-          },
-          error: () => {
-            this.loading = false;
-            this.errorMessage = 'Oops...Something went wrong!';
-          },
+          next: (data: Array<IGroupValue>) => {
+            data.map(group => {
+              this.emptySearch = group.groupDetails.length === 0 ? 'No results found.' : null;
+            });
+          }
         })
       );
   }

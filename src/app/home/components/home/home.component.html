@@ -17,5 +17,12 @@
 
   <expansion-panel [panel]="panel" (changeSearch)="onSearch($event)"></expansion-panel>
 
-  <menu-item [data]="dataList" class="d-grid template-columns-auto gap-1 p-2"></menu-item>
+  <ng-container [ngTemplateOutlet]="noResults">
+    <menu-item [data]="dataList" class="d-grid template-columns-auto gap-1 p-2">
+    </menu-item>
+
+    <ng-template #noResults>
+      <div class="text-center fs-16">{{ emptySearch }}</div>
+    </ng-template>
+  </ng-container>
 </ng-container>
