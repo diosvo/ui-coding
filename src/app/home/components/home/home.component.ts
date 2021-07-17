@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
-import { takeUntil, tap } from 'rxjs/operators';
+import { Observable, ReplaySubject, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { IGroupValue, IMenu, IPanel } from '../../models/search.model';
 import { EMenuLink, EUrl } from '../../models/url.enum';
 import { SearchService } from '../../services/search.service';
@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   emptySearch: string;
 
   panel = new IPanel();
-  currentRoute: EUrl;
+  search$ = new Subject<string>();
+  dataList$: Observable<Array<IGroupValue>>;
 
   menuList: Array<IMenu> = [
     {
@@ -38,7 +39,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       description: 'Better performance with functions.'
     }
   ];
-  dataList: Observable<Array<IGroupValue>>;
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
@@ -47,49 +47,48 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.clearSearch();
     this.directMenuLink(EUrl.COMPONENT);
   }
 
   directMenuLink(route: EUrl): void {
-    this.dataList = this.service.getSession(route)
+    this.dataList$ = this.search$
       .pipe(
-        takeUntil(this.destroyed$),
-        tap({
-          next: (data: Array<IGroupValue>) => {
-            data.map(item => ({ ...item, groupUrl: route }));
-            this.loading = false;
-          },
-          error: () => {
-            this.loading = false;
-            this.errorMessage = 'Oops...Something went wrong. Please try again!';
-          },
-          complete: () => {
-            this.menuList.map(item => {
-              if (item.route === route) {
-                item.active = true;
-                this.currentRoute = item.route;
-                this.panel.subTitle = item.description;
-              } else {
-                item.active = false;
-              }
-            });
-          }
-        }),
+        debounceTime(500),
+        distinctUntilChanged(),
+        switchMap(query =>
+          this.service.onFilter(route, query)
+            .pipe(
+              takeUntil(this.destroyed$),
+              tap({
+                next: (data: Array<IGroupValue>) => {
+                  this.loading = false;
+                  /*                   data.map(group => {
+                                      this.emptySearch = group.groupDetails.length === 0 ? 'No results found.' : null;
+                                    }); */
+                },
+                error: () => {
+                  this.loading = false;
+                  this.errorMessage = 'Oops...Something went wrong. Please try again!';
+                },
+                complete: () => {
+                  this.menuList.map(item => {
+                    if (item.route === route) {
+                      item.active = true;
+                      this.panel.subTitle = item.description;
+                    } else {
+                      item.active = false;
+                    }
+                  });
+                }
+              })
+            )
+        )
       );
   }
 
-  onSearch(query: string): void {
-    this.dataList = this.service.onFilter(this.currentRoute, query)
-      .pipe(
-        takeUntil(this.destroyed$),
-        tap({
-          next: (data: Array<IGroupValue>) => {
-            data.map(group => {
-              this.emptySearch = group.groupDetails.length === 0 ? 'No results found.' : null;
-            });
-          }
-        })
-      );
+  clearSearch(): void {
+    this.search$.next('');
   }
 
   ngOnDestroy(): void {

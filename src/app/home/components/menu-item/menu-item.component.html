@@ -1,4 +1,4 @@
-<ng-container *ngFor="let group of (data | async)">
+<ng-container *ngFor="let group of data">
   <article *ngFor="let item of group.groupDetails">
     <mat-card [ngStyle]="{'max-width.rem': 25}">
       <!-- Summary -->

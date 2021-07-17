@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { IGroupValue } from '../../models/search.model';
 
 @Component({
@@ -9,7 +10,7 @@ import { IGroupValue } from '../../models/search.model';
   styleUrls: ['./menu-item.component.scss']
 })
 export class MenuItemComponent {
-  @Input() data: Array<IGroupValue>;
+  @Input() data: Observable<Array<IGroupValue>>;
 
   emptyImg = 'assets/images/logo/placeholder-image.png';
 

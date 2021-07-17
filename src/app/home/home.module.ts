@@ -12,7 +12,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AlertModule } from 'src/assets/shared/components/alert/alert.module';
-import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
@@ -22,7 +21,6 @@ import { HomeRoutingModule } from './home-routing.module';
   declarations: [
     HomeComponent,
     MenuItemComponent,
-    ExpansionPanelComponent,
     ToolbarComponent
   ],
   imports: [

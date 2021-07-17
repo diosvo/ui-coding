@@ -1,11 +1,37 @@
 <ng-container>
-  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
   <toolbar [list]="menuList" (directLink)="directMenuLink($event)"></toolbar>
   <alert-message *ngIf="errorMessage" type="error">{{ errorMessage }}</alert-message>
-  <expansion-panel [panel]="panel" (changeSearch)="onSearch($event)"></expansion-panel>
 
+  <!-- Search -->
+  <ng-container>
+    <mat-accordion matTooltip="Click here to {{ panel.openState === true ? 'close': 'open'}} search box"
+      matTooltipPosition="above">
+      <mat-expansion-panel (opened)="panel.openState = true" (closed)="panel.openState = false">
+        <!-- Header -->
+        <mat-expansion-panel-header>
+          <mat-panel-description>
+            {{ panel.subTitle }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <!-- Body -->
+        <ng-template matExpansionPanelContent>
+          <mat-form-field class="width-100" appearance="outline">
+            <mat-label>What are you looking for today...</mat-label>
+            <input matInput [ngModel]="search$ | async" (ngModelChange)="search$.next($event)">
+            <button *ngIf="search$" matSuffix mat-icon-button (click)="clearSearch()" matTooltip="Clear">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </ng-template>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </ng-container>
+
+  <!-- Fetch Data -->
   <ng-container [ngTemplateOutlet]="noResults">
-    <menu-item [data]="dataList" class="d-grid template-columns-auto gap-1 p-2">
+    <menu-item [data]="dataList$ | async" class="d-grid template-columns-auto gap-1 p-2">
     </menu-item>
 
     <ng-template #noResults>

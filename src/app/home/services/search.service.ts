@@ -22,14 +22,14 @@ export class SearchService {
       );
   }
 
-  onFilter(session: EUrl, query: string): Observable<Array<IGroupValue>> {
+  onFilter(session: EUrl, q: string): Observable<Array<IGroupValue>> {
     return this.getSession(session)
       .pipe(
         map((items: Array<IGroupValue>) => items.map(
           (item: IGroupValue) => ({
             groupName: item.groupName,
             groupDetails: item.groupDetails.filter(
-              details => details.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+              details => details.name.toLowerCase().indexOf(q.toLowerCase()) !== -1
             ),
             groupUrl: session
           })
