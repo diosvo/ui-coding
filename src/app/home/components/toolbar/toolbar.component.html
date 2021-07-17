@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="d-flex">
+  <mat-toolbar-row>
+    <button mat-button *ngFor="let item of list" [ngClass]="{'text-light, opacity-0.5': item.active === false}"
+      class="mr-2 f-14" (click)="directLink.emit(item.route)">{{ item.name | titlecase}}</button>
+    <div class="flex-auto"></div>
+    <a mat-icon-button href="https://www.facebook.com/diosvo/" target="_blank" class="text-white" aria-label="Facebook"
+      data-toggle="tooltip" title="Dios Vo">
+      <mat-icon>facebook</mat-icon>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>

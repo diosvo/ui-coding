@@ -14,9 +14,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   loading = true;
   errorMessage: string;
   emptySearch: string;
-  currentRoute: EUrl;
 
   panel = new IPanel();
+  currentRoute: EUrl;
 
   menuList: Array<IMenu> = [
     {
