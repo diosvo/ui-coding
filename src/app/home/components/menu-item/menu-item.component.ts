@@ -6,8 +6,7 @@ import { IGroupValue } from '../../models/search.model';
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'menu-item',
-  templateUrl: './menu-item.component.html',
-  styleUrls: ['./menu-item.component.scss']
+  templateUrl: './menu-item.component.html'
 })
 export class MenuItemComponent {
   @Input() data: Observable<Array<IGroupValue>>;

@@ -5,8 +5,7 @@ import { EUrl } from '../../models/url.enum';
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'toolbar',
-  templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
+  templateUrl: './toolbar.component.html'
 })
 export class ToolbarComponent {
   @Input() list: Array<IMenu>;
