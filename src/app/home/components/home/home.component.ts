@@ -11,10 +11,10 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  loading = true;
+  loading = false;
   errorMessage: string;
+  currentRoute: EUrl;
 
-  private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
   panel = new IPanel();
 
   menuList: Array<IMenu> = [
@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
   dataList: Observable<Array<IGroupValue>>;
 
+  private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor(
     private service: SearchService
@@ -49,29 +50,50 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   directMenuLink(route: EUrl): void {
-    this.dataList = this.service.getSession(route).pipe(
-      takeUntil(this.destroyed$),
-      tap({
-        next: (data: Array<IGroupValue>) => {
-          data.map(item => ({ ...item, groupUrl: route }));
-          this.loading = false;
-        },
-        error: () => {
-          this.loading = false;
-          this.errorMessage = 'An error ocurred. Please try again!';
-        },
-        complete: () => {
-          this.menuList.map(item => {
-            if (item.route === route) {
-              item.active = true;
-              this.panel.subTitle = item.description;
-            } else {
-              item.active = false;
-            }
-          });
-        }
-      }),
-    );
+    this.loading = true;
+
+    this.dataList = this.service.getSession(route)
+      .pipe(
+        takeUntil(this.destroyed$),
+        tap({
+          next: (data: Array<IGroupValue>) => {
+            data.map(item => ({ ...item, groupUrl: route }));
+            this.loading = false;
+          },
+          error: () => {
+            this.loading = false;
+            this.errorMessage = 'An error ocurred. Please try again!';
+          },
+          complete: () => {
+            this.menuList.map(item => {
+              if (item.route === route) {
+                item.active = true;
+                this.currentRoute = item.route;
+                this.panel.subTitle = item.description;
+              } else {
+                item.active = false;
+              }
+            });
+          }
+        }),
+      );
+  }
+
+  onSearch(query: string): void {
+    this.loading = true;
+    this.dataList = this.service.onFilter(this.currentRoute, query)
+      .pipe(
+        takeUntil(this.destroyed$),
+        tap({
+          next: () => {
+            this.loading = false;
+          },
+          error: () => {
+            this.loading = false;
+            this.errorMessage = 'Oops...Something went wrong!';
+          },
+        })
+      );
   }
 
   ngOnDestroy(): void {

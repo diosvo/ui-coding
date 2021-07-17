@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 import { IPanel } from '../../models/search.model';
 
 @Component({
@@ -7,10 +8,14 @@ import { IPanel } from '../../models/search.model';
   templateUrl: './expansion-panel.component.html',
   styleUrls: ['./expansion-panel.component.scss']
 })
-export class ExpansionPanelComponent implements OnInit {
+export class ExpansionPanelComponent {
   @Input() panel: IPanel;
+  @Output() changeSearch = new EventEmitter();
+  search = new Subject<string>();
 
   constructor() { }
 
-  ngOnInit(): void { }
+  async onNext($event: string): Promise<void> {
+    await this.changeSearch.emit($event);
+  }
 }

@@ -15,7 +15,7 @@
 
   <alert-message *ngIf="errorMessage" type="error">{{ errorMessage }}</alert-message>
 
-  <expansion-panel [panel]="panel"></expansion-panel>
+  <expansion-panel [panel]="panel" (changeSearch)="onSearch($event)"></expansion-panel>
 
   <menu-item [data]="dataList" class="d-grid template-columns-auto gap-1 p-2"></menu-item>
 </ng-container>
