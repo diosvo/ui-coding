@@ -25,15 +25,17 @@ export class SearchService {
   onFilter(session: EUrl, q: string): Observable<Array<IGroupValue>> {
     return this.getSession(session)
       .pipe(
-        map((items: Array<IGroupValue>) => items.map(
-          (item: IGroupValue) => ({
-            groupName: item.groupName,
-            groupDetails: item.groupDetails.filter(
-              details => details.name.toLowerCase().indexOf(q.toLowerCase()) !== -1
-            ),
-            groupUrl: session
-          })
-        )),
+        map((items: Array<IGroupValue>) =>
+          items
+            .map(item => ({
+              groupName: item.groupName,
+              groupDetails: item.groupDetails.filter(
+                details => details.name.toLowerCase().indexOf(q.toLowerCase()) !== -1
+              ),
+              groupUrl: session
+            }))
+            .filter(item => item.groupDetails.length > 0)
+        ),
         shareReplay(1),
         catchError(_ => of(null))
       );

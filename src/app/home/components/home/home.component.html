@@ -19,7 +19,7 @@
         <ng-template matExpansionPanelContent>
           <mat-form-field class="width-100" appearance="outline">
             <mat-label>What are you looking for today...</mat-label>
-            <input matInput [ngModel]="search$ | async" (ngModelChange)="search$.next($event)">
+            <input matInput autocomplete="off" [ngModel]="search$ | async" (ngModelChange)="search$.next($event)">
             <button *ngIf="search$" matSuffix mat-icon-button (click)="clearSearch()" matTooltip="Clear">
               <mat-icon>close</mat-icon>
             </button>

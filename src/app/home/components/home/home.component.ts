@@ -11,7 +11,7 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  loading = true;
+  loading = false;
   errorMessage: string;
   emptySearch: string;
 
@@ -63,13 +63,11 @@ export class HomeComponent implements OnInit, OnDestroy {
               tap({
                 next: (data: Array<IGroupValue>) => {
                   this.loading = false;
-                  /*                   data.map(group => {
-                                      this.emptySearch = group.groupDetails.length === 0 ? 'No results found.' : null;
-                                    }); */
+                  this.emptySearch = data.length === 0 ? 'No results found.' : null;
                 },
                 error: () => {
                   this.loading = false;
-                  this.errorMessage = 'Oops...Something went wrong. Please try again!';
+                  this.errorMessage = 'Oops... Something went wrong. Please try again!';
                 },
                 complete: () => {
                   this.menuList.map(item => {
