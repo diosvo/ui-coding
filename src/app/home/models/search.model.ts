@@ -17,7 +17,13 @@ interface IMenu {
   name: string;
   route: EUrl;
   active: boolean;
+  description: string;
 }
 
-export { IGroupValue, IBaseValue, IMenu };
+class IPanel {
+  subTitle: string;
+  openState: boolean;
+}
+
+export { IGroupValue, IBaseValue, IMenu, IPanel };
 

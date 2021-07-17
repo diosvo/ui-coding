@@ -12,13 +12,13 @@
         "name": "Button Toggle Mode",
         "route": "toggle-mode",
         "image": "",
-        "description": ""
+        "description": "ngClass"
       },
       {
         "name": "Button Expandable Floating Menu",
         "route": "expandable-floating-menu",
         "image": "",
-        "description": ""
+        "description": "GSAP, Directive"
       }
     ]
   },
@@ -29,7 +29,7 @@
         "name": "Animated Counter Card",
         "route": "animated-counter",
         "image": "",
-        "description": ""
+        "description": "Counter Directive, ViewChild, GSAP"
       }
     ]
   },
@@ -40,13 +40,13 @@
         "name": "Liquid Menu Interaction",
         "route": "liquid-menu",
         "image": "",
-        "description": ""
+        "description": "GSAP"
       },
       {
         "name": "Navbar Interaction",
         "route": "navbar",
         "image": "",
-        "description": ""
+        "description": "ngClass, ngStyle, GSAP"
       }
     ]
   }

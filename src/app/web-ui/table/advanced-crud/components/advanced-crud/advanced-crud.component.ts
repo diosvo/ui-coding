@@ -1,13 +1,16 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { slideInOut } from 'src/assets/shared/animations/animations';
 import { ICategory } from 'src/assets/shared/models/category';
 
 @Component({
   selector: 'app-advanced-crud',
   templateUrl: './advanced-crud.component.html',
+  animations: [slideInOut],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class AdvancedCrudComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'action'];
   dataSource = new MatTableDataSource<any>();
@@ -18,7 +21,10 @@ export class AdvancedCrudComponent implements OnInit {
   isEdit: boolean;
   rowValue: ICategory;
 
+  @ViewChild('searchInput') searchInput: ElementRef<HTMLElement>;
   @ViewChildren('focusInput') focusInput: QueryList<ElementRef>;
+
+  visibleBox = false;
 
   constructor(
     private fb: FormBuilder,
@@ -26,7 +32,13 @@ export class AdvancedCrudComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    // problem: cant not path value between form array with response data from service
+  }
+
+  /**
+   * @description: adding new row
+   */
 
   addNewRow(): void {
     this.isEdit = false;
@@ -114,6 +126,29 @@ export class AdvancedCrudComponent implements OnInit {
       categoryId: [null, Validators.required],
       categoryName: [null, Validators.required],
       isEditable: [false]
+    });
+  }
+
+  /**
+   * @description: searching related
+   */
+
+  openSearchBox(): void {
+    this.visibleBox = !this.visibleBox;
+  }
+
+  onSearch(filterValue: string): void {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  onSearchFocus(): void {
+    this.ngZone.runOutsideAngular(() => {
+      setTimeout(() => {
+        if (this.searchInput) {
+          this.searchInput.nativeElement.focus();
+          this.cdr.detectChanges();
+        }
+      });
     });
   }
 }

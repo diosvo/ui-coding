@@ -1,20 +1,41 @@
-<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-
 <ng-container>
-  <mat-toolbar color="primary" class="d-flex">
-    <mat-toolbar-row>
-      <button mat-button *ngFor="let item of menuList" [ngClass]="{'text-light, opacity-0.5': item.active === false}"
-        class="mr-2 f-14" (click)="directMenuLink(item.route)">{{ item.name | titlecase}}</button>
-      <div class="flex-auto"></div>
-      <a mat-icon-button href="https://www.facebook.com/diosvo/" target="_blank" class="text-white"
-        aria-label="Facebook" data-toggle="tooltip" title="Dios Vo" [ngStyle]="{'margin-right.rem': 0.5}">
-        <mat-icon>facebook</mat-icon>
-      </a>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</ng-container>
-
-<ng-container>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <toolbar [list]="menuList" (directLink)="directMenuLink($event)"></toolbar>
   <alert-message *ngIf="errorMessage" type="error">{{ errorMessage }}</alert-message>
-  <menu-item [data]="dataList" class="d-grid template-columns-auto gap-2 p-4"></menu-item>
+
+  <!-- Search -->
+  <ng-container>
+    <mat-accordion matTooltip="Click here to {{ panel.openState === true ? 'close': 'open'}} search box"
+      matTooltipPosition="above">
+      <mat-expansion-panel (opened)="panel.openState = true" (closed)="panel.openState = false">
+        <!-- Header -->
+        <mat-expansion-panel-header>
+          <mat-panel-description>
+            {{ panel.subTitle }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <!-- Body -->
+        <ng-template matExpansionPanelContent>
+          <mat-form-field class="width-100" appearance="outline">
+            <mat-label>What are you looking for today...</mat-label>
+            <input matInput autocomplete="off" [ngModel]="search$ | async" (ngModelChange)="search$.next($event)">
+            <button *ngIf="search$" matSuffix mat-icon-button (click)="clearSearch()" matTooltip="Clear">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </ng-template>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </ng-container>
+
+  <!-- Fetch Data -->
+  <ng-container [ngTemplateOutlet]="noResults">
+    <menu-item [data]="dataList$ | async" class="d-grid template-columns-auto gap-1 p-2">
+    </menu-item>
+
+    <ng-template #noResults>
+      <div class="text-center fs-16">{{ emptySearch }}</div>
+    </ng-template>
+  </ng-container>
 </ng-container>

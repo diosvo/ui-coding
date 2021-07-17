@@ -1,17 +1,15 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventEmitter } from 'events';
+import { Observable } from 'rxjs';
 import { IGroupValue } from '../../models/search.model';
 
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'menu-item',
-  templateUrl: './menu-item.component.html',
-  styleUrls: ['./menu-item.component.scss']
+  templateUrl: './menu-item.component.html'
 })
 export class MenuItemComponent {
-  @Input() data: Array<IGroupValue>;
-  @Output() routerToItem = new EventEmitter();
+  @Input() data: Observable<Array<IGroupValue>>;
 
   emptyImg = 'assets/images/logo/placeholder-image.png';
 

@@ -1,4 +1,4 @@
-<div #alert id="alert-{{type}}" class="bg-{{type}} bd-{{type}} d-flex ai-flex-end p-2 m-2 bd-radius-2">
+<div id="alert-{{type}}" class="bg-{{type}} bd-{{type}} d-flex ai-flex-end p-2 bd-radius-2">
   <div [ngSwitch]="type">
     <mat-icon class="icon-{{type}}" *ngSwitchCase="'success'">check_circle_outline</mat-icon>
     <mat-icon class="icon-{{type}}" *ngSwitchCase="'info'">help_outline</mat-icon>
