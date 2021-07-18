@@ -17,6 +17,7 @@ export class SearchService {
     return this.http
       .get<Array<IGroupValue>>(`/assets/searching-data/${session}.json`)
       .pipe(
+        map(data => data.map(item => ({ ...item, groupUrl: session }))),
         shareReplay(1),
         catchError(_ => of(null))
       );
@@ -35,9 +36,7 @@ export class SearchService {
               groupUrl: session
             }))
             .filter(item => item.groupDetails.length > 0)
-        ),
-        shareReplay(1),
-        catchError(_ => of(null))
+        )
       );
   }
 }

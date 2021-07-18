@@ -1,3 +1,17 @@
-.template-columns-auto {
-  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+@media screen and (min-width: 1008px) {
+  .template-columns-auto {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 1007px) {
+  .template-columns-auto {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .template-columns-auto {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

@@ -19,8 +19,9 @@
         <ng-template matExpansionPanelContent>
           <mat-form-field class="width-100" appearance="outline">
             <mat-label>What are you looking for today...</mat-label>
-            <input matInput autocomplete="off" [ngModel]="search$ | async" (ngModelChange)="search$.next($event)">
-            <button *ngIf="search$" matSuffix mat-icon-button (click)="clearSearch()" matTooltip="Clear">
+            <input matInput autocomplete="off" [ngModel]="search$ | async" (ngModelChange)="onFilterKeyChanged($event)">
+            <button *ngIf="search$" matSuffix mat-icon-button (click)="search$.next(''); getData(currentUrl)"
+              matTooltip="Clear">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
@@ -31,8 +32,7 @@
 
   <!-- Fetch Data -->
   <ng-container [ngTemplateOutlet]="noResults">
-    <menu-item [data]="dataList$ | async" class="d-grid template-columns-auto gap-1 p-2">
-    </menu-item>
+    <menu-item [data]="filteredData"></menu-item>
 
     <ng-template #noResults>
       <div class="text-center fs-16">{{ emptySearch }}</div>
