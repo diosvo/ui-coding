@@ -15,8 +15,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   emptySearch: string;
 
   panel = new IPanel();
-  search$ = new Subject<string>();
-  dataList$: Observable<Array<IGroupValue>>;
+  currentUrl: EUrl;
+
+  search$ = new Subject<{ filteredKey: string }>();
+  filteredKey: string;
+  filteredData: Array<IGroupValue>;
 
   menuList: Array<IMenu> = [
     {
@@ -46,46 +49,67 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.clearSearch();
+    this.filteredKey = '';
     this.directMenuLink(EUrl.COMPONENT);
   }
 
   directMenuLink(route: EUrl): void {
-    this.dataList$ = this.search$
-      .pipe(
-        debounceTime(500),
-        distinctUntilChanged(),
-        switchMap(query =>
-          this.service.onFilter(route, query)
-            .pipe(
-              takeUntil(this.destroyed$),
-              tap({
-                next: (data: Array<IGroupValue>) => {
-                  this.loading = false;
-                  this.emptySearch = data.length === 0 ? 'No results found.' : null;
-                },
-                error: () => {
-                  this.loading = false;
-                  this.errorMessage = 'Oops... Something went wrong. Please try again!';
-                },
-                complete: () => {
-                  this.menuList.map(item => {
-                    if (item.route === route) {
-                      item.active = true;
-                      this.panel.subTitle = item.description;
-                    } else {
-                      item.active = false;
-                    }
-                  });
-                }
-              })
-            )
-        )
-      );
+    this.getData(route);
+    this.getFilteredData(this.search$).subscribe({
+      next: (result: Array<IGroupValue>) => this.filteredData = result
+    });
   }
 
-  clearSearch(): void {
-    this.search$.next('');
+  getData(route: EUrl): void {
+    this.service.getSession(route)
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe({
+        next: (result: Array<IGroupValue>) => {
+          this.loading = false;
+          this.filteredData = result;
+        },
+        error: () => {
+          this.loading = false;
+          this.errorMessage = 'An error ocurred. Please try again!';
+        },
+        complete: () => {
+          this.menuList.map(item => {
+            if (item.route === route) {
+              item.active = true;
+              this.currentUrl = item.route;
+              this.panel.subTitle = item.description;
+            } else {
+              item.active = false;
+            }
+          });
+        }
+      });
+  }
+
+  getFilteredData(input: Observable<{ filteredKey: string }>): Observable<Array<IGroupValue>> {
+    return input.pipe(
+      debounceTime(500),
+      distinctUntilChanged(
+        (p, q) => p.filteredKey === q.filteredKey
+      ),
+      switchMap((query) =>
+        this.service
+          .onFilter(this.currentUrl, query.filteredKey.trim())
+          .pipe(
+            takeUntil(this.destroyed$),
+            tap({
+              next: (data: Array<IGroupValue>) => {
+                this.emptySearch = data.length === 0 ? 'No results found.' : null;
+              }
+            })
+          )
+      )
+    );
+  }
+
+  onFilterKeyChanged(key: string): void {
+    this.filteredKey = key;
+    this.search$.next({ filteredKey: this.filteredKey });
   }
 
   ngOnDestroy(): void {
