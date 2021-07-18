@@ -17,8 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   panel = new IPanel();
   currentUrl: EUrl;
 
-  search$ = new Subject<{ filteredKey: string }>();
-  filteredKey: string;
+  search$ = new Subject<string>();
   filteredData: Array<IGroupValue>;
 
   menuList: Array<IMenu> = [
@@ -49,7 +48,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.filteredKey = '';
+    this.search$.next('');
     this.directMenuLink(EUrl.COMPONENT);
   }
 
@@ -62,39 +61,43 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getData(route: EUrl): void {
     this.service.getSession(route)
-      .pipe(takeUntil(this.destroyed$))
+      .pipe(
+        takeUntil(this.destroyed$),
+        tap({
+          next: () => {
+            this.loading = false;
+          },
+          error: () => {
+            this.loading = false;
+            this.errorMessage = 'An error ocurred. Please try again!';
+          },
+          complete: () => {
+            this.menuList.map(item => {
+              if (item.route === route) {
+                item.active = true;
+                this.currentUrl = item.route;
+                this.panel.subTitle = item.description;
+              } else {
+                item.active = false;
+              }
+            });
+          }
+        })
+      )
       .subscribe({
         next: (result: Array<IGroupValue>) => {
-          this.loading = false;
           this.filteredData = result;
-        },
-        error: () => {
-          this.loading = false;
-          this.errorMessage = 'An error ocurred. Please try again!';
-        },
-        complete: () => {
-          this.menuList.map(item => {
-            if (item.route === route) {
-              item.active = true;
-              this.currentUrl = item.route;
-              this.panel.subTitle = item.description;
-            } else {
-              item.active = false;
-            }
-          });
         }
       });
   }
 
-  getFilteredData(input: Observable<{ filteredKey: string }>): Observable<Array<IGroupValue>> {
+  getFilteredData(input: Observable<string>): Observable<Array<IGroupValue>> {
     return input.pipe(
       debounceTime(500),
-      distinctUntilChanged(
-        (p, q) => p.filteredKey === q.filteredKey
-      ),
+      distinctUntilChanged(),
       switchMap((query) =>
         this.service
-          .onFilter(this.currentUrl, query.filteredKey.trim())
+          .onFilter(this.currentUrl, query.trim())
           .pipe(
             takeUntil(this.destroyed$),
             tap({
@@ -108,8 +111,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onFilterKeyChanged(key: string): void {
-    this.filteredKey = key;
-    this.search$.next({ filteredKey: this.filteredKey });
+    this.search$.next(key);
   }
 
   ngOnDestroy(): void {

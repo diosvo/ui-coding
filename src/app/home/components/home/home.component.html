@@ -19,8 +19,8 @@
         <ng-template matExpansionPanelContent>
           <mat-form-field class="width-100" appearance="outline">
             <mat-label>What are you looking for today...</mat-label>
-            <input matInput autocomplete="off" [ngModel]="filteredKey" (ngModelChange)="onFilterKeyChanged($event)">
-            <button *ngIf="filteredKey" matSuffix mat-icon-button (click)="filteredKey = ''; getData(currentUrl)"
+            <input matInput autocomplete="off" [ngModel]="search$ | async" (ngModelChange)="onFilterKeyChanged($event)">
+            <button *ngIf="search$" matSuffix mat-icon-button (click)="search$.next(''); getData(currentUrl)"
               matTooltip="Clear">
               <mat-icon>close</mat-icon>
             </button>
