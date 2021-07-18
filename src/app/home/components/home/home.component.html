@@ -32,8 +32,7 @@
 
   <!-- Fetch Data -->
   <ng-container [ngTemplateOutlet]="noResults">
-    <menu-item [data]="filteredData" class="d-grid template-columns-auto gap-1 p-2">
-    </menu-item>
+    <menu-item [data]="filteredData"></menu-item>
 
     <ng-template #noResults>
       <div class="text-center fs-16">{{ emptySearch }}</div>
