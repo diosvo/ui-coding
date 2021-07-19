@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
+    MatSnackBarModule
   ],
   bootstrap: [AppComponent]
 })
