@@ -10,7 +10,7 @@ import { SearchService } from '../../services/search.service';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  loading = false;
+  loading = true;
   errorMessage: string;
   emptySearch: string;
 
@@ -48,7 +48,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.search$.next('');
     this.directMenuLink(EUrl.COMPONENT);
   }
 
@@ -66,6 +65,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         tap({
           next: () => {
             this.loading = false;
+            this.cleanSearch();
           },
           error: () => {
             this.loading = false;
@@ -117,5 +117,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroyed$.next(true);
     this.destroyed$.complete();
+  }
+
+  /**
+   * @helpers
+   */
+
+  cleanSearch(): void {
+    this.search$.next('');
+  }
+
+  isLoading(): boolean {
+    return this.loading ? true : false;
   }
 }
