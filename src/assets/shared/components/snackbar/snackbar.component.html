@@ -1,5 +1,7 @@
 <div class="d-flex jc-between ai-center">
-  <span class="d-inline-flex">{{ data }}</span>
-  <button class="d-inline-flex jc-flex-end p-0 text-transform-uppercase bg-none text-white" data-toggle="tooltip"
-    title="Close message" (click)="closeSnackBar()">Close</button>
+  <span class="text-black opacity-0.8">{{ data }}</span>
+  <button class="d-inline-flex jc-flex-end p-0 text-transform-uppercase bg-none" data-toggle="tooltip"
+    title="Close message" (click)="closeSnackBar()">
+    <span aria-hidden="true" class="text-secondary">&times;</span>
+  </button>
 </div>

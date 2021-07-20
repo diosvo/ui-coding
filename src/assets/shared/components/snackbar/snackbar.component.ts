@@ -1,22 +1,23 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-snackbar',
   templateUrl: './snackbar.component.html',
-  styleUrls: ['./snackbar.component.scss']
+  styleUrls: ['./snackbar.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SnackbarComponent implements OnInit {
 
   constructor(
-    readonly snackBarRef: MatSnackBarRef<SnackbarComponent>,
-    @Inject(MAT_SNACK_BAR_DATA) readonly data: string) { }
+    public snackBarRef: MatSnackBarRef<SnackbarComponent>,
+    @Inject(MAT_SNACK_BAR_DATA) public data: string
+  ) { }
 
   ngOnInit(): void {
   }
 
   closeSnackBar(): void {
-    
-  }
 
+  }
 }
