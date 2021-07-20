@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { SnackbarComponent } from 'src/assets/shared/components/snackbar/snackbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -21,7 +22,9 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     MatSnackBarModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // temp
+  entryComponents: [SnackbarComponent]
 })
 export class AppModule { }
 
