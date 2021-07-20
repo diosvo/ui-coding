@@ -1,8 +1,4 @@
-enum EAlert {
-  SUCCESS = 'success',
-  INFO = 'info',
-  WARNING = 'warning',
-  ERROR = 'error',
-}
+declare type MessageType = 'success' | 'info' | 'warning' | 'error';
 
-export { EAlert };
+export { MessageType };
+

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EAlert } from '../../models/alert';
+import { MessageType } from '../../models/alert';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -8,7 +8,7 @@ import { EAlert } from '../../models/alert';
   styleUrls: ['./alert.component.scss']
 })
 export class AlertComponent {
-  @Input() type: typeof EAlert = EAlert;
+  @Input() type: MessageType;
 
   public dismissAlert(element): void {
     return element.parentElement.removeChild(element);
