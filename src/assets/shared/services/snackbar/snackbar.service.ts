@@ -1,5 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { Observable, race, Subject } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { SnackbarComponent } from '../../components/snackbar/snackbar.component';
 import { MessageType } from '../../models/alert';
 
@@ -7,10 +9,18 @@ import { MessageType } from '../../models/alert';
   providedIn: 'root'
 })
 export class SnackbarService {
+  private alertMessage$: Subject<string> = new Subject<string>();
+  private alertDismissed$: Subject<null> = new Subject<null>();
+  private hostComponentDestroyed$: Subject<null> = new Subject<null>();
+
+  private get alert$(): Observable<string> {
+    return this.alertMessage$.asObservable();
+  }
+
   private type: MessageType;
 
   private config: MatSnackBarConfig = {
-    duration: 1000000000,
+    duration: 3000,
     verticalPosition: 'top',
     horizontalPosition: 'center'
   };
@@ -41,15 +51,21 @@ export class SnackbarService {
   }
 
   private show(message: string, panelClasses: Array<string>): void {
+    this.alertMessage$.next(message);
+    const dismissConditions: Observable<any>[] = [this.alertDismissed$, this.hostComponentDestroyed$];
+
     this.zone.run(() => {
       const snackbar = this.snackbar.openFromComponent(SnackbarComponent, {
         ...this.config,
         data: message,
         panelClass: panelClasses
       });
-      snackbar.onAction().subscribe({
-        complete: () => snackbar.dismiss()
-      });
+
+      race(...dismissConditions)
+        .pipe(take(1))
+        .subscribe({
+          complete: () => snackbar.dismiss()
+        });
     });
   }
 

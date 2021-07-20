@@ -22,9 +22,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     MatSnackBarModule
   ],
-  bootstrap: [AppComponent],
-  // temp
-  entryComponents: [SnackbarComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
 
