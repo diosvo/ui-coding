@@ -1,12 +1,12 @@
 <ng-container>
-  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-  <toolbar [list]="menuList" (directLink)="directMenuLink($event)"></toolbar>
+  <mat-progress-bar *ngIf="isLoading()" mode="indeterminate"></mat-progress-bar>
+  <toolbar *ngIf="!isLoading()" [list]="menuList" (directLink)="directMenuLink($event)"></toolbar>
   <alert-message *ngIf="errorMessage" type="error">{{ errorMessage }}</alert-message>
 
   <!-- Search -->
   <ng-container>
-    <mat-accordion matTooltip="Click here to {{ panel.openState === true ? 'close': 'open'}} search box"
-      matTooltipPosition="above">
+    <mat-accordion *ngIf="!isLoading()"
+      matTooltip="Click here to {{ panel.openState === true ? 'close': 'open'}} search box" matTooltipPosition="above">
       <mat-expansion-panel (opened)="panel.openState = true" (closed)="panel.openState = false">
         <!-- Header -->
         <mat-expansion-panel-header>
@@ -20,7 +20,7 @@
           <mat-form-field class="width-100" appearance="outline">
             <mat-label>What are you looking for today...</mat-label>
             <input matInput autocomplete="off" [ngModel]="search$ | async" (ngModelChange)="onFilterKeyChanged($event)">
-            <button *ngIf="search$" matSuffix mat-icon-button (click)="search$.next(''); getData(currentUrl)"
+            <button *ngIf="search$" matSuffix mat-icon-button (click)="cleanSearch(); getData(currentUrl)"
               matTooltip="Clear">
               <mat-icon>close</mat-icon>
             </button>
