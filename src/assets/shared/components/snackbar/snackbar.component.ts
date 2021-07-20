@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 
 @Component({
@@ -7,17 +7,10 @@ import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar'
   styleUrls: ['./snackbar.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class SnackbarComponent implements OnInit {
+export class SnackbarComponent {
 
   constructor(
     public snackBarRef: MatSnackBarRef<SnackbarComponent>,
     @Inject(MAT_SNACK_BAR_DATA) public data: string
   ) { }
-
-  ngOnInit(): void {
-  }
-
-  closeSnackBar(): void {
-
-  }
 }

@@ -12,8 +12,7 @@ export class SnackbarService {
   private config: MatSnackBarConfig = {
     duration: 1000000000,
     verticalPosition: 'top',
-    horizontalPosition: 'center',
-    panelClass: []
+    horizontalPosition: 'center'
   };
 
   constructor(
@@ -43,10 +42,13 @@ export class SnackbarService {
 
   private show(message: string, panelClasses: Array<string>): void {
     this.zone.run(() => {
-      this.snackbar.openFromComponent(SnackbarComponent, {
+      const snackbar = this.snackbar.openFromComponent(SnackbarComponent, {
         ...this.config,
         data: message,
         panelClass: panelClasses
+      });
+      snackbar.onAction().subscribe({
+        complete: () => snackbar.dismiss()
       });
     });
   }
