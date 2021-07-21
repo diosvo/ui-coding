@@ -1,3 +1,39 @@
 <!-- 💥image: https://dribbble.com/shots/14691009-Form-Elements -->
 
-<p>order-form works!</p>
+<form [formGroup]="orderForm" class="position-fixed translate-center w-500 bg-white bs-light px-2 py-3 m-2">
+  <ng-container>
+    <div class="d-grid">
+      <label for="email" class="title-required mb-1">Email address</label>
+      <mat-form-field>
+        <input matInput type="email" formControlName="email" [errorStateMatcher]="matcher" autocomplete="off">
+        <button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+          invalid email address
+        </mat-error>
+        <mat-error *ngIf="email.hasError('required')">
+          required
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </ng-container>
+
+  <div class="d-flex jc-flex-end">
+    <button mat-flat-button color="primary">Place Order</button>
+  </div>
+
+  <!--   <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="email.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form> -->
+
+</form>

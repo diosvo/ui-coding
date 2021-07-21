@@ -1,0 +1,24 @@
+.mat-form-field-appearance-outline {
+  .mat-form-field-infix {
+    padding: 0.5em 0 1em 0;
+  }
+
+  .mat-form-field-outline-thick {
+    color: var(--color-grey);
+  }
+}
+
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+  margin-top: 0.5em;
+}
+
+.mat-error {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title-required::after {
+  content: '*';
+  color  : red;
+  margin : 0 0 0.25rem 0.5rem;
+}
