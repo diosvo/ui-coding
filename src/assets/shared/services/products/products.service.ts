@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 import { combineLatest, Observable, of, ReplaySubject } from 'rxjs';
 import { catchError, map, shareReplay, tap } from 'rxjs/operators';
-
 import { IProduct } from '../../models/product';
 import { CategoryService } from '../category/category.service';
 

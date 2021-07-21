@@ -22,6 +22,7 @@ enum EComponentUI {
 
 enum EWebUI {
   TABLE = 'table',
+  FORM = 'form',
 }
 
 enum EFunctions {

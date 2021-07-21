@@ -7,6 +7,10 @@ const routes: Routes = [
     path: EWebUI.TABLE,
     loadChildren: () => import('./table/table.module').then(m => m.TableModule)
   },
+  {
+    path: EWebUI.FORM,
+    loadChildren: () => import('./form/form.module').then(m => m.FormModule)
+  },
 ];
 
 @NgModule({
